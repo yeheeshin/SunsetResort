@@ -521,7 +521,7 @@ ul, ol {
 }
 .booking-form {
 	background: #ffffff;
-	padding: 44px 40px 50px 40px;
+	padding: 0px 40px 50px 40px;
 	border-radius: 4px;
 }
 .booking-form h3 {
@@ -593,7 +593,7 @@ ul, ol {
 	margin-top: 0;
 	width: 100%;
 }
-.booking-form form button {
+.booking-form form .btn {
 	display: block;
 	font-size: 14px;
 	text-transform: uppercase;
