@@ -38,4 +38,8 @@ public class HomeController {
         return "/contact";
     }
 
+    @GetMapping("/ex")
+    public String ex() {
+        return "/ex";
+    }
 }

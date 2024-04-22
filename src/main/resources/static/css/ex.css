@@ -1,0 +1,75 @@
+/* 모달 스타일 */
+.modal {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 캘린더 레이어 컨테이너 스타일 */
+.calendar-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* 캘린더 스타일 */
+.s598-calendar {
+    width: 45%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+/* 객실 정보 스타일 */
+.room-info {
+    margin-bottom: 20px;
+}
+
+/* 객실 스타일 */
+.room {
+    margin-bottom: 10px;
+}
+
+/* 카운터(버튼) 스타일 */
+.counter {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.counter button {
+    background-color: #f0f0f0;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+
+.counter button:hover {
+    background-color: #e0e0e0;
+}
+
+.counter .count {
+    font-size: 14px;
+}
+
+/* 객실 추가 버튼 스타일 */
+.btn-add-room {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-add-room:hover {
+    background-color: #0056b3;
+}
