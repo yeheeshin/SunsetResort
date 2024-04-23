@@ -2335,3 +2335,25 @@ ul, ol {
 		margin-bottom: 10px;
 	}
 }
+
+.vertical-line{
+	border-right: 1px solid;
+}
+
+.collCss{
+	background-color: rgba(34, 39, 54, 0.25);
+	color: #4b4b4b;
+}
+
+.first_coll {
+	font-size: 14px;
+}
+
+.second_coll {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.exx{
+	text-align: center;
+}
