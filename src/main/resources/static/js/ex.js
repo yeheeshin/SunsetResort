@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-// 뒷배경 클릭 시 닫기 이벤트 실행
+// 뒷배경 클릭 시 닫기 이벤트 실성
 document.getElementById('modal').addEventListener('click', function(event) {
     if (event.target === modal) {
         closeModal();
