@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter @Setter
-public class resReserveDTO {
+public class res_reserveDTO {
     private Long reres_id;
 
     private String add_request;
