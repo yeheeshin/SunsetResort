@@ -18,7 +18,4 @@ public class room {
     private room_class room_class;
     private int room_count;
     private Rview view;
-
-    private Long am_id;
-    private Long detail_id;
 }

@@ -11,6 +11,7 @@ public class pro_reserveDTO {
     private Long pro_re_id;
 
     private int children;
+    private LocalDate fin_date;
     private int people;
     private LocalDate start_date;
 
