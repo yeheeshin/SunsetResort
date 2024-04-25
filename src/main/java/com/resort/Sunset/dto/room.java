@@ -6,8 +6,7 @@ import com.resort.Sunset.dto.enumType.room_class;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Getter @Setter
 public class room {
     private Long room_id;
 
