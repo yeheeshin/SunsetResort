@@ -1,6 +1,7 @@
 package com.resort.Sunset.controller;
 
 import com.resort.Sunset.dto.room;
+import com.resort.Sunset.form.fileForm;
 import com.resort.Sunset.service.RoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -53,7 +54,9 @@ public class HomeController {
     }
 
     @GetMapping("/ex")
-    public String ex() {
+    public String ex(fileForm fileForm, Model model) {
+        model.addAttribute("allFile", fileForm);
+
         return "/ex";
     }
 }

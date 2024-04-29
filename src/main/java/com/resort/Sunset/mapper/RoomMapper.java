@@ -6,4 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface RoomMapper {
     room selectById(Long rid);
+
+    room fileUpload(String fileName);
 }

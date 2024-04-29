@@ -15,4 +15,8 @@ public class RoomService {
     public room getRoom(Long rid) {
         return roomMapper.selectById(rid);
     }
+
+    public room fileUpload(String fileName) {
+        return roomMapper.fileUpload(fileName);
+    }
 }

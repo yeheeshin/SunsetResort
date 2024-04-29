@@ -5,4 +5,7 @@
     <select id="selectById" resultType="com.resort.Sunset.dto.room">
         SELECT * FROM room WHERE room_id = #{rid}
     </select>
+    <select id="fileUpload" resultType="com.resort.Sunset.dto.room">
+        INSERT INTO img_all(all_img) VALUES (#{fileName})
+    </select>
 </mapper>
