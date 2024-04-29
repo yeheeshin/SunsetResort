@@ -29,9 +29,6 @@ public class HomeController {
     public String roomDetail(Model model) {
         Long rid = 1L;
         room room = roomService.getRoom(rid);
-
-//        System.out.println("room.getName() = " + room.getName());
-
         
         model.addAttribute("rooms", room);
 
