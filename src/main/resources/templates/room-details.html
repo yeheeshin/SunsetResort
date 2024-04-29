@@ -2,188 +2,197 @@
 <html lang="zxx">
 
 <head>
+    <style>
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            width: 100%;
+            display: flex; /* ul을 flex 컨테이너로 설정 */
+            flex-wrap: wrap; /* 요소들이 자동으로 줄 바꿈되도록 설정 */
+            /*justify-content: space-between; !* 요소들을 가로로 균등하게 배치 *!*/
+        }
+
+        .exexex {
+            font-size: 18px;
+            padding: 20px;
+            width: calc(30% - 10px); /* 30% 너비로 설정하고 오른쪽 여백을 제외함 */
+            margin-bottom: 10px; /* 하단 여백 추가 */
+            box-sizing: border-box; /* padding을 포함한 전체 요소 크기를 계산 */
+        }
+
+        .exexex:last-child {
+            margin-right: 0; /* 마지막 요소의 오른쪽 여백 제거 */
+        }
+
+        .exexex > div {
+            /* 내부 div 스타일링 */
+            width: 43%; /* 가로 폭 설정 */
+            margin-right: 5%; /* 오른쪽 여백 추가 */
+            text-align: center; /* 가운데 정렬 */
+        }
+
+        .exexex > div:last-child {
+            margin-right: 0; /* 마지막 내부 div의 오른쪽 여백 제거 */
+        }
+
+        /* size1과 size2의 div 요소에 대한 추가 스타일링 */
+        .exexex > div:nth-child(odd) {
+            float: left; /* 홀수 번째 div는 왼쪽에 정렬 */
+        }
+
+        .exexex > div:nth-child(even) {
+            float: right; /* 짝수 번째 div는 오른쪽에 정렬 */
+        }
+
+        .container {
+            max-width: 2000px;
+        }
+
+        .xe {
+            width: 100%;
+        }
+
+        .infoTitle h3 {
+            text-align: left;
+            font-family: "Cabin", sans-serif;
+        }
+    </style>
 </head>
 
 <body>
 <div th:replace="fragments/header :: headerFragment"></div>
 <div th:include="fragments/nav.html"></div>
-    <!-- Breadcrumb Section Begin -->
-    <div class="breadcrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <h2>Our Rooms</h2>
-                        <div class="bt-option">
-                            <a href="./home.html">Home</a>
-                            <span>Rooms</span>
-                        </div>
+<style>
+    .container {
+        max-width: 2000px;
+    }
+</style>
+<!-- Breadcrumb Section Begin -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2 th:text="${rooms.name}">Our Rooms</h2>
+                    <div class="bt-option">
+                        <a href="./home.html">Home</a>
+                        <span>Rooms</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Breadcrumb Section End -->
+</div>
+<!-- Breadcrumb Section End -->
 
-    <!-- Room Details Section Begin -->
-    <section class="room-details-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="room-details-item">
-                        <img src="img/room/room-details.jpg" alt="">
-                        <div class="rd-text">
-                            <div class="rd-title">
-                                <h3 th:text="${rooms.name}">Premium King Room</h3>
-                                <div class="rdt-right">
-                                    <div class="rating">
-                                        <i class="icon_star"></i>
-                                        <i class="icon_star"></i>
-                                        <i class="icon_star"></i>
-                                        <i class="icon_star"></i>
-                                        <i class="icon_star-half_alt"></i>
-                                    </div>
-                                    <a href="#">Booking Now</a>
-                                </div>
-                            </div>
-                            <h2>159$<span>/Pernight</span></h2>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="r-o">Size:</td>
-                                        <td>30 ft</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Capacity:</td>
-                                        <td>Max persion 5</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Bed:</td>
-                                        <td>King Beds</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Services:</td>
-                                        <td>Wifi, Television, Bathroom,...</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <p class="f-para">Motorhome or Trailer that is the question for you. Here are some of the
-                                advantages and disadvantages of both, so you will be confident when purchasing an RV.
-                                When comparing Rvs, a motorhome or a travel trailer, should you buy a motorhome or fifth
-                                wheeler? The advantages and disadvantages of both are studied so that you can make your
-                                choice wisely when purchasing an RV. Possessing a motorhome or fifth wheel is an
-                                achievement of a lifetime. It can be similar to sojourning with your residence as you
-                                search the various sites of our great land, America.</p>
-                            <p>The two commonly known recreational vehicle classes are the motorized and towable.
-                                Towable rvs are the travel trailers and the fifth wheel. The rv travel trailer or fifth
-                                wheel has the attraction of getting towed by a pickup or a car, thus giving the
-                                adaptability of possessing transportation for you when you are parked at your campsite.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="rd-reviews">
-                        <h4>Reviews</h4>
-                        <div class="review-item">
-                            <div class="ri-pic">
-                                <img src="img/room/avatar/avatar-1.jpg" alt="">
-                            </div>
-                            <div class="ri-text">
-                                <span>27 Aug 2019</span>
-                                <div class="rating">
-                                    <i class="icon_star"></i>
-                                    <i class="icon_star"></i>
-                                    <i class="icon_star"></i>
-                                    <i class="icon_star"></i>
-                                    <i class="icon_star-half_alt"></i>
-                                </div>
-                                <h5>Brandon Kelley</h5>
-                                <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-                                    adipisci velit, sed quia non numquam eius modi tempora. incidunt ut labore et dolore
-                                    magnam.</p>
-                            </div>
-                        </div>
-                        <div class="review-item">
-                            <div class="ri-pic">
-                                <img src="img/room/avatar/avatar-2.jpg" alt="">
-                            </div>
-                            <div class="ri-text">
-                                <span>27 Aug 2019</span>
-                                <div class="rating">
-                                    <i class="icon_star"></i>
-                                    <i class="icon_star"></i>
-                                    <i class="icon_star"></i>
-                                    <i class="icon_star"></i>
-                                    <i class="icon_star-half_alt"></i>
-                                </div>
-                                <h5>Brandon Kelley</h5>
-                                <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-                                    adipisci velit, sed quia non numquam eius modi tempora. incidunt ut labore et dolore
-                                    magnam.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="review-add">
-                        <h4>Add Review</h4>
-                        <form action="#" class="ra-form">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <input type="text" placeholder="Name*">
-                                </div>
-                                <div class="col-lg-6">
-                                    <input type="text" placeholder="Email*">
-                                </div>
-                                <div class="col-lg-12">
-                                    <div>
-                                        <h5>You Rating:</h5>
-                                        <div class="rating">
-                                            <i class="icon_star"></i>
-                                            <i class="icon_star"></i>
-                                            <i class="icon_star"></i>
-                                            <i class="icon_star"></i>
-                                            <i class="icon_star-half_alt"></i>
-                                        </div>
-                                    </div>
-                                    <textarea placeholder="Your Review"></textarea>
-                                    <button type="submit">Submit Now</button>
-                                </div>
-                            </div>
-                        </form>
+<!-- Room Details Section Begin -->
+<section class="room-details-section spad">
+    <div class="container">
+        <div class="room-details-item">
+            <img src="img/room/room-details.jpg" style="width: 100%" alt="">
+            <div class="rd-text">
+                <div class="rd-title">
+                    <h5 class="text-center">
+                        우아한 인테리어와 현대적 세련미가 조화롭게 어우러진 시그니엘 서울의
+                        그랜드 디럭스 룸은 초고층 객실에서 바라보는
+                        서울 도심의 파노라믹뷰와 최상의 휴식을 제공합니다.
+                    </h5>
+                    <div class="rdt-right">
+                        <a href="#">예약 하기</a>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="room-booking">
-                        <h3>Your Reservation</h3>
-                        <form action="#">
-                            <div class="check-date">
-                                <label for="date-in">Check In:</label>
-                                <input type="text" class="date-input" id="date-in">
-                                <i class="icon_calendar"></i>
-                            </div>
-                            <div class="check-date">
-                                <label for="date-out">Check Out:</label>
-                                <input type="text" class="date-input" id="date-out">
-                                <i class="icon_calendar"></i>
-                            </div>
-                            <div class="select-option">
-                                <label for="guest">Guests:</label>
-                                <select id="guest">
-                                    <option value="">3 Adults</option>
-                                </select>
-                            </div>
-                            <div class="select-option">
-                                <label for="room">Room:</label>
-                                <select id="room">
-                                    <option value="">1 Room</option>
-                                </select>
-                            </div>
-                            <button type="submit">Check Availability</button>
-                        </form>
+                <hr>
+                <div class="row">
+                <div class="col-2 infoTitle">
+                    <h3>객실 개요</h3>
+                </div>
+                <div class="col-10">
+                    <ul>
+                        <li class="exexex">
+                            <div>침대타입</div>
+                            <div>더블</div>
+                        </li>
+                        <li class="exexex">
+                            <div>투숙인원</div>
+                            <div>2명</div>
+                        </li>
+                        <li class="exexex">
+                            <div>전망</div>
+                            <div>시티뷰/리버뷰/<br>시티뷰(전망욕실)/<br>리버뷰(전망욕실)</div>
+                        </li>
+                        <li class="exexex">
+                            <div>객실면적</div>
+                            <div>30~50m2</div>
+                        </li>
+                        <li class="exexex">
+                            <div>체크인/체크아웃</div>
+                            <div>15:00/11:00</div>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 infoTitle">
+                <h3>특별 서비스</h3>
+            </div>
+            <div class="col-10">
+                <ul>
+                    <li class="xe">안녕</li>
+                    <li class="xe">안녕</li>
+                    <li class="xe">안녕</li>
+                    <li class="xe">안녕</li>
+                    <li class="xe">안녕</li>
+                </ul>
+            </div>
+        </div>
+<hr>
+        <div class="row">
+            <div class="col-2 infoTitle">
+                <h3>어메니티</h3>
+            </div>
+            <div class="col-10">
+                <div class="row">
+                    <div class="col-4">
+                        <div>일반</div>
+                        <ul>
+                            <li>안녕</li>
+                            <li>안녕</li>
+                            <li>안녕</li>
+                            <li>안녕</li>
+                            <li>안녕</li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <div>욕실</div>
+                        <ul>
+                            <li>안녕</li>
+                            <li>안녕</li>
+                            <li>안녕</li>
+                            <li>안녕</li>
+                            <li>안녕</li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <div>기타</div>
+                        <ul>
+                            <li>안녕</li>
+                            <li>안녕</li>
+                            <li>안녕</li>
+                            <li>안녕</li>
+                            <li>안녕</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Room Details Section End -->
+        <hr>
+    </div>
+</section>
+<!-- Room Details Section End -->
 <div th:replace="fragments/footer :: footerFragment"></div>
 
 </body>
