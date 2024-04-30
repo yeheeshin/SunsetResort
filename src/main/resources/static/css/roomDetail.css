@@ -1,0 +1,59 @@
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    width: 100%;
+    display: flex; /* ul을 flex 컨테이너로 설정 */
+    flex-wrap: wrap; /* 요소들이 자동으로 줄 바꿈되도록 설정 */
+    /*justify-content: space-between; !* 요소들을 가로로 균등하게 배치 *!*/
+}
+
+.exexex {
+    font-size: 18px;
+    padding: 20px;
+    width: calc(30% - 10px); /* 30% 너비로 설정하고 오른쪽 여백을 제외함 */
+    margin-bottom: 10px; /* 하단 여백 추가 */
+    box-sizing: border-box; /* padding을 포함한 전체 요소 크기를 계산 */
+}
+
+.exexex:last-child {
+    margin-right: 0; /* 마지막 요소의 오른쪽 여백 제거 */
+}
+
+.exexex > div {
+    /* 내부 div 스타일링 */
+    width: 43%; /* 가로 폭 설정 */
+    margin-right: 5%; /* 오른쪽 여백 추가 */
+    text-align: center; /* 가운데 정렬 */
+}
+
+.exexex > div:last-child {
+    margin-right: 0; /* 마지막 내부 div의 오른쪽 여백 제거 */
+}
+
+/* size1과 size2의 div 요소에 대한 추가 스타일링 */
+.exexex > div:nth-child(odd) {
+    float: left; /* 홀수 번째 div는 왼쪽에 정렬 */
+}
+
+.exexex > div:nth-child(even) {
+    float: right; /* 짝수 번째 div는 오른쪽에 정렬 */
+}
+
+.xe {
+    width: 100%;
+}
+
+.infoTitle h3 {
+    text-align: left;
+    font-family: "Cabin", sans-serif;
+}
+
+.roomTitle {
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.container {
+    max-width: 1900px;
+}

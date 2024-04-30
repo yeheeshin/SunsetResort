@@ -2,72 +2,12 @@
 <html lang="zxx">
 
 <head>
-    <style>
-        ul {
-            padding: 0;
-            margin: 0;
-            list-style-type: none;
-            width: 100%;
-            display: flex; /* ul을 flex 컨테이너로 설정 */
-            flex-wrap: wrap; /* 요소들이 자동으로 줄 바꿈되도록 설정 */
-            /*justify-content: space-between; !* 요소들을 가로로 균등하게 배치 *!*/
-        }
-
-        .exexex {
-            font-size: 18px;
-            padding: 20px;
-            width: calc(30% - 10px); /* 30% 너비로 설정하고 오른쪽 여백을 제외함 */
-            margin-bottom: 10px; /* 하단 여백 추가 */
-            box-sizing: border-box; /* padding을 포함한 전체 요소 크기를 계산 */
-        }
-
-        .exexex:last-child {
-            margin-right: 0; /* 마지막 요소의 오른쪽 여백 제거 */
-        }
-
-        .exexex > div {
-            /* 내부 div 스타일링 */
-            width: 43%; /* 가로 폭 설정 */
-            margin-right: 5%; /* 오른쪽 여백 추가 */
-            text-align: center; /* 가운데 정렬 */
-        }
-
-        .exexex > div:last-child {
-            margin-right: 0; /* 마지막 내부 div의 오른쪽 여백 제거 */
-        }
-
-        /* size1과 size2의 div 요소에 대한 추가 스타일링 */
-        .exexex > div:nth-child(odd) {
-            float: left; /* 홀수 번째 div는 왼쪽에 정렬 */
-        }
-
-        .exexex > div:nth-child(even) {
-            float: right; /* 짝수 번째 div는 오른쪽에 정렬 */
-        }
-
-        .container {
-            max-width: 2000px;
-        }
-
-        .xe {
-            width: 100%;
-        }
-
-        .infoTitle h3 {
-            text-align: left;
-            font-family: "Cabin", sans-serif;
-        }
-    </style>
 </head>
 
 <body>
 <div th:replace="fragments/header :: headerFragment"></div>
 <div th:include="fragments/nav.html"></div>
-<style>
-    .container {
-        max-width: 2000px;
-    }
-</style>
+<link rel="stylesheet" href="css/roomDetail.css" type="text/css">
 <!-- Breadcrumb Section Begin -->
 <div class="breadcrumb-section">
     <div class="container">
@@ -76,7 +16,7 @@
                 <div class="breadcrumb-text">
                     <h2 th:text="${rooms.name}">Our Rooms</h2>
                     <div class="bt-option">
-                        <a href="./home.html">Home</a>
+                        <a href="/">Home</a>
                         <span>Rooms</span>
                     </div>
                 </div>
@@ -102,6 +42,8 @@
                         <a href="#">예약 하기</a>
                     </div>
                 </div>
+            </div>
+        </div>
                 <hr>
                 <div class="row">
                 <div class="col-2 infoTitle">
@@ -110,31 +52,29 @@
                 <div class="col-10">
                     <ul>
                         <li class="exexex">
-                            <div>침대타입</div>
+                            <div class="roomTitle">침대타입</div>
                             <div>더블</div>
                         </li>
                         <li class="exexex">
-                            <div>투숙인원</div>
+                            <div class="roomTitle">투숙인원</div>
                             <div>2명</div>
                         </li>
                         <li class="exexex">
-                            <div>전망</div>
+                            <div class="roomTitle">전망</div>
                             <div>시티뷰/리버뷰/<br>시티뷰(전망욕실)/<br>리버뷰(전망욕실)</div>
                         </li>
                         <li class="exexex">
-                            <div>객실면적</div>
+                            <div class="roomTitle">객실면적</div>
                             <div>30~50m2</div>
                         </li>
                         <li class="exexex">
-                            <div>체크인/체크아웃</div>
+                            <div class="roomTitle">체크인/체크아웃</div>
                             <div>15:00/11:00</div>
                         </li>
                     </ul>
                 </div>
                 </div>
                 <hr>
-            </div>
-        </div>
         <div class="row">
             <div class="col-2 infoTitle">
                 <h3>특별 서비스</h3>
@@ -157,7 +97,7 @@
             <div class="col-10">
                 <div class="row">
                     <div class="col-4">
-                        <div>일반</div>
+                        <div class="roomTitle">일반</div>
                         <ul>
                             <li>안녕</li>
                             <li>안녕</li>
@@ -167,7 +107,7 @@
                         </ul>
                     </div>
                     <div class="col-4">
-                        <div>욕실</div>
+                        <div class="roomTitle">욕실</div>
                         <ul>
                             <li>안녕</li>
                             <li>안녕</li>
@@ -177,7 +117,7 @@
                         </ul>
                     </div>
                     <div class="col-4">
-                        <div>기타</div>
+                        <div class="roomTitle">기타</div>
                         <ul>
                             <li>안녕</li>
                             <li>안녕</li>
