@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class pro_reserveDTO {
+public class pro_reserve {
     private Long pro_re_id;
 
     private int children;

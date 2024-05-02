@@ -6,7 +6,7 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 @Getter @Setter
-public class room_reserveDTO {
+public class room_reserve {
     private Long re_id;
 
     private String add_request;
