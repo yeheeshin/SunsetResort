@@ -10,11 +10,13 @@ import lombok.Setter;
 public class room {
     private Long room_id;
 
-    private int area;
-    private bed_type bed_type;
+    private String area;
     private int max_people;
     private String name;
     private room_class room_class;
-    private int room_count;
-    private Rview view;
+    private String service;
+    private String information;
+    private String intro;
+
+    private Long am_id;
 }

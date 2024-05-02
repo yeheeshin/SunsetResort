@@ -8,10 +8,11 @@ public class restaurant {
     private Long res_id;
 
     private String content;
+    private String service_time;
     private String intro;
     private String location;
     private String name;
     private String type;
-
-    private Long res_detail_id;
+    private String diningType;
+    private String menu;
 }

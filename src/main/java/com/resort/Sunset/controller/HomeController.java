@@ -25,16 +25,6 @@ public class HomeController {
         return "/about-us";
     }
 
-    @GetMapping("/roomDetail")
-    public String roomDetail(Model model) {
-        Long rid = 1L;
-        room room = roomService.getRoom(rid);
-        
-        model.addAttribute("rooms", room);
-
-        return "/room-details";
-    }
-
     @GetMapping("/blog")
     public String blog() {
         return "/blog";
