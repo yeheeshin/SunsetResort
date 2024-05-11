@@ -8,6 +8,7 @@ import lombok.Setter;
 public class amenities {
     private Long am_id;
 
-    private String a_category;
-    private String content;
+    private String general;
+    private String bath;
+    private String etc;
 }
