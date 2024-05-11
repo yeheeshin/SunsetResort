@@ -99,9 +99,26 @@
             <div class="col-10">
                 <div class="row">
                     <div class="col-4">
+                        <div class="roomTitle">일반</div>
                         <ul>
                             <li class="xe" th:each="item : ${amenities.general.split('\\n')}">
-                                <span th:text="'- ' + ${item}"></span>
+                                <span th:text="${item}"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <div class="roomTitle">욕실</div>
+                        <ul>
+                            <li class="xe" th:each="item : ${amenities.bath.split('\\n')}">
+                                <span th:text="${item}"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <div class="roomTitle">기타</div>
+                        <ul>
+                            <li class="xe" th:each="item : ${amenities.etc.split('\\n')}">
+                                <span th:text="${item}"></span>
                             </li>
                         </ul>
                     </div>
