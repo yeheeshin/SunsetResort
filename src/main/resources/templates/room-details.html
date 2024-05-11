@@ -85,11 +85,9 @@
             </div>
             <div class="col-10">
                 <ul>
-                    <li class="xe">안녕</li>
-                    <li class="xe">안녕</li>
-                    <li class="xe">안녕</li>
-                    <li class="xe">안녕</li>
-                    <li class="xe">안녕</li>
+                    <li class="xe" th:each="item : ${rooms.service.split('\\n')}">
+                        <span th:text="'- ' + ${item}"></span>
+                    </li>
                 </ul>
             </div>
         </div>
