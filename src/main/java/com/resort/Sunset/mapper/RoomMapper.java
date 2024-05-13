@@ -7,6 +7,8 @@ import java.util.List;
 
 @Mapper
 public interface RoomMapper {
+    List<room> allRoom();
+
     room selectById(Long rid);
 
     room fileUpload(String fileName);

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -19,16 +20,26 @@ public class RoomController {
 
     @GetMapping("/room")
     public String roomDetail(Model model) {
-        Long rid = 1L;
 
-        List<String> roomBed = roomService.roomBed(rid);
-        List<String> roomView = roomService.roomView(rid);
+        List<Long> roomIds = roomService.allRoomIds();
+        List<String> roomBed = new ArrayList<>(), roomView = new ArrayList<>();
+        List<room> roomInfo = new ArrayList<>();
 
-        String roomBedString = String.join(" / ", roomBed);
-        String roomViewString = String.join(" / ", roomView);
+        for (int i = 0; i < roomIds.size(); i++) {
+            Long roomId = roomIds.get(i);
 
-        model.addAttribute("roomBedString", roomBedString);
-        model.addAttribute("roomViewString", roomViewString);
+            List<String> arrBed = roomService.roomBed(roomId);
+            List<String> arrView = roomService.roomView(roomId);
+
+            roomBed.add(i, String.join(" / ", arrBed));
+            roomView.add(i, String.join(" / ", arrView));
+
+            roomInfo.add(i, roomService.getRoom(roomId));
+        }
+
+        model.addAttribute("roomBed", roomBed);
+        model.addAttribute("roomView", roomView);
+        model.addAttribute("roomInfo", roomInfo);
 
         return "/rooms";
     }

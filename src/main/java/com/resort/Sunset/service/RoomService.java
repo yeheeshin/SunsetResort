@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,4 +31,15 @@ public class RoomService {
         return roomMapper.duplicateView(rid);
     }
 
+    public List<Long> allRoomIds() {
+        List<room> rooms = roomMapper.allRoom();
+
+        List<Long> roomIds = new ArrayList<>();
+
+        for (int i = 0; i < rooms.size(); i++) {
+            roomIds.add(i, rooms.get(i).getRoom_id());
+        }
+
+        return roomIds;
+    }
 }

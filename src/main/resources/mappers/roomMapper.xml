@@ -2,6 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.resort.Sunset.mapper.RoomMapper">
+    <select id="allRoom" resultType="com.resort.Sunset.dto.room">
+        SELECT * FROM room
+    </select>
     <select id="selectById" resultType="com.resort.Sunset.dto.room">
         SELECT * FROM room WHERE room_id = #{rid}
     </select>
