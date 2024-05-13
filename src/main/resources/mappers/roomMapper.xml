@@ -8,4 +8,16 @@
     <select id="fileUpload" resultType="com.resort.Sunset.dto.room">
         INSERT INTO img_all(all_img) VALUES (#{fileName})
     </select>
+    <select id="duplicateBed" resultType="java.lang.String">
+        SELECT DISTINCT rb.room_bed
+        FROM room_count rc
+                 INNER JOIN room_bed rb ON rc.rb_id = rb.rb_id
+        WHERE rc.room_id = #{rid};
+    </select>
+    <select id="duplicateView" resultType="java.lang.String">
+        SELECT DISTINCT rv.room_view
+        FROM room_count rc
+                 INNER JOIN room_view rv ON rc.rv_id = rv.rv_id
+        WHERE rc.room_id = #{rid};
+    </select>
 </mapper>

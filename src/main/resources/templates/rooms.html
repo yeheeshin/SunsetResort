@@ -34,12 +34,11 @@
                         <img src="img/room/room-1.jpg" alt="">
                         <div class="ri-text">
                             <h4>Premium King Room</h4>
-                            <h3>159$<span>/Pernight</span></h3>
                             <table>
                                 <tbody>
                                     <tr>
                                         <td class="r-o">침대타입</td>
-                                        <td>30 ft</td>
+                                        <td th:text="${roomBedString}">30 ft</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">투숙인원</td>
@@ -51,7 +50,7 @@
                                     </tr>
                                     <tr>
                                         <td class="r-o">전망</td>
-                                        <td>Wifi, Television, Bathroom,... </td>
+                                        <td th:text="${roomViewString}">Wifi, Television, Bathroom,... </td>
                                     </tr>
                                 </tbody>
                             </table>

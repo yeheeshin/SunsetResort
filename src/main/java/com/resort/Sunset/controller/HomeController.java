@@ -15,11 +15,6 @@ public class HomeController {
     private final RoomService roomService;
 
 
-    @GetMapping("/room")
-    public String room() {
-        return "/rooms";
-    }
-
     @GetMapping("/about")
     public String about() {
         return "/about-us";

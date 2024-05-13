@@ -11,6 +11,6 @@ public class room_count {
     private int room_count;
 
     private Long rv_id;
-    private Long r_id;
+    private Long room_id;
     private Long rb_id;
 }
