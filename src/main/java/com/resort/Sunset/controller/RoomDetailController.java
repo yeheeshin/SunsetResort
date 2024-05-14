@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequiredArgsConstructor
@@ -18,8 +19,7 @@ public class RoomDetailController {
 
 
     @GetMapping("/roomDetail")
-    public String roomDetail(Model model) {
-        Long rid = 1L;
+    public String roomDetail(@RequestParam("id") Long rid, Model model) {
         room room = roomService.getRoom(rid);
 
         Long amId = room.getAm_id();

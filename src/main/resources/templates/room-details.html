@@ -37,10 +37,8 @@
             </div>
             <div class="rd-text">
                 <div class="rd-title">
-                    <h5 class="text-center">
-                        우아한 인테리어와 현대적 세련미가 조화롭게 어우러진 시그니엘 서울의
-                        그랜드 디럭스 룸은 초고층 객실에서 바라보는
-                        서울 도심의 파노라믹뷰와 최상의 휴식을 제공합니다.
+                    <h5 class="text-center" th:utext="${#strings.replace(rooms.intro, '\n', '<br>')}">
+                        intro~
                     </h5>
                     <div class="rdt-right">
                         <a href="#">예약 하기</a>
@@ -61,7 +59,7 @@
                     </li>
                     <li class="exexex">
                         <div class="roomTitle">투숙인원</div>
-                        <div>2명</div>
+                        <div th:text="${rooms.max_people}">2명</div>
                     </li>
                     <li class="exexex">
                         <div class="roomTitle">전망</div>
@@ -69,7 +67,7 @@
                     </li>
                     <li class="exexex">
                         <div class="roomTitle">객실면적</div>
-                        <div>30~50 ㎡</div>
+                        <div th:text="${rooms.area} + 'm'">30~50 ㎡</div>
                     </li>
                     <li class="exexex">
                         <div class="roomTitle">체크인/체크아웃</div>
