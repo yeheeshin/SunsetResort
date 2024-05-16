@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<div th:replace="fragments/header :: headerFragment"></div>
+<div th:include="fragments/nav.html"></div>
+
+<section class="room-details-section spad">
+    <div class="container">
+        <div class="room-details-item">
+            <div class="rd-text">
+                <div class="rd-title">
+                    <h5 class="text-center" th:utext="${#strings.replace(rooms.intro, '\n', '<br>')}">
+                        intro~
+                    </h5>
+                    <div class="rdt-right">
+                        <a href="#">예약 하기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-2 infoTitle">
+                <h3>객실 개요</h3>
+            </div>
+            <div class="col-10">
+                <ul>
+                    <li class="exexex">
+                        <div class="roomTitle">침대타입</div>
+                        <div>더블</div>
+                    </li>
+                    <li class="exexex">
+                        <div class="roomTitle">투숙인원</div>
+                        <div th:text="${rooms.max_people}">2명</div>
+                    </li>
+                    <li class="exexex">
+                        <div class="roomTitle">전망</div>
+                        <div>시티뷰/리버뷰/<br>시티뷰(전망욕실)/<br>리버뷰(전망욕실)</div>
+                    </li>
+                    <li class="exexex">
+                        <div class="roomTitle">객실면적</div>
+                        <div th:text="${rooms.area} + 'm'">30~50 ㎡</div>
+                    </li>
+                    <li class="exexex">
+                        <div class="roomTitle">체크인/체크아웃</div>
+                        <div>15:00/11:00</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-2 infoTitle">
+                <h3>특별 서비스</h3>
+            </div>
+            <div class="col-10">
+                <ul>
+                    <li class="xe" th:each="item : ${rooms.service.split('\\n')}">
+                        <span th:text="'- ' + ${item}"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-2 infoTitle">
+                <h3>어메니티</h3>
+            </div>
+            <div class="col-10">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="roomTitle">일반</div>
+                        <ul>
+                            <li class="xe" th:each="item : ${amenities.general.split('\\n')}">
+                                <span th:text="${item}"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <div class="roomTitle">욕실</div>
+                        <ul>
+                            <li class="xe" th:each="item : ${amenities.bath.split('\\n')}">
+                                <span th:text="${item}"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <div class="roomTitle">기타</div>
+                        <ul>
+                            <li class="xe" th:each="item : ${amenities.etc.split('\\n')}">
+                                <span th:text="${item}"></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+</section>
+
+
+<div th:replace="fragments/footer :: footerFragment"></div>
+
+</body>
+</html>
