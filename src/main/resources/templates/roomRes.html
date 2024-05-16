@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/roomRes.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<div th:replace="fragments/header :: headerFragment"></div>
+<div th:include="fragments/nav.html"></div>
+
+<aside class="destination-widget">
+    <div class="reservation">
+        <h4 class="reservation__title">제목</h4>
+        <ul class="reservation-list">
+            <li class="reservation-list__item">
+                <div class="reservation-list__img"><img src="/css/images/exRoom.jpg" alt="hotel_image"></div>
+                <div class="reservation-list__info">
+                    <h4 class="reservation-list__guest">그랜드 디럭스 더블 시티뷰 </h4>
+                    <span class="reservation-list__place">전망 시티뷰 / 리버뷰 / 시티뷰(전망욕실) / 리버뷰(전망욕실)</span>
+                </div>
+            </li>
+            <li class="reservation-list__item">
+                <div class="reservation-list__tab"></div>
+                <div class="reservation-list__info">
+                    <h4 class="reservation-list__guest">아쿠아리움 스페셜(객실과 함께 진행하는 프로모션)</h4>
+                    <span class="reservation-list__place">객실 + 롯데월드몰 아쿠아리움 입장권 2매(프로모션 내용)</span><br>
+                    <div class="reservation-list__price">
+                        <button>450,000 KRW </button>
+                    </div>
+                </div>
+            </li>
+            <li class="reservation-list__item">
+                <div class="reservation-list__tab"></div>
+                <div class="reservation-list__info">
+                    <h4 class="reservation-list__guest">일반 요금(객실의 전망에 따른 일반 요금)</h4>
+                    <span class="reservation-list__place">전망 시티뷰 / 리버뷰 / 시티뷰(전망욕실) / 리버뷰(전망욕실)</span><br>
+                    <span class="reservation-list__place">침대타입 더블 / 트윈 </span><br>
+                    <div class="reservation-list__price">
+                        <button>450,000 KRW </button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <h4 class="reservation__title">제목</h4>
+        <ul class="reservation-list">
+            <li class="reservation-list__item">
+                <div class="reservation-list__img"><img src="/css/images/exRoom.jpg" alt="hotel_image"></div>
+                <div class="reservation-list__info">
+                    <h4 class="reservation-list__guest">그랜드 디럭스 더블 시티뷰 </h4>
+                    <span class="reservation-list__place">전망 시티뷰 / 리버뷰 / 시티뷰(전망욕실) / 리버뷰(전망욕실)</span>
+                </div>
+            </li>
+            <li class="reservation-list__item">
+                <div class="reservation-list__tab"></div>
+                <div class="reservation-list__info">
+                    <h4 class="reservation-list__guest">아쿠아리움 스페셜(객실과 함께 진행하는 프로모션)</h4>
+                    <span class="reservation-list__place">객실 + 롯데월드몰 아쿠아리움 입장권 2매(프로모션 내용)</span>
+                </div>
+            </li>
+            <li class="reservation-list__item">
+                <div class="reservation-list__tab"></div>
+                <div class="reservation-list__info">
+                    <h4 class="reservation-list__guest">일반 요금(객실의 전망에 따른 일반 요금)</h4>
+                    <span class="reservation-list__place">전망 시티뷰 / 리버뷰 / 시티뷰(전망욕실) / 리버뷰(전망욕실)</span><br>
+                    <span class="reservation-list__place">침대타입 더블 / 트윈 </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</aside>
+
+<div th:replace="fragments/footer :: footerFragment"></div>
+
+</body>
+</html>

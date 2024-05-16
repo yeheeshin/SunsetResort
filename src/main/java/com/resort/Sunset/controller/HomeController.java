@@ -41,4 +41,10 @@ public class HomeController {
 
         return "/ex";
     }
+
+    @GetMapping("/roomRes")
+    public String roomRes() {
+        return "/roomRes";
+    }
+
 }

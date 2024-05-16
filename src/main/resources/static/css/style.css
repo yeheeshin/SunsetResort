@@ -1256,14 +1256,16 @@ ul, ol {
 .room-details-item .rd-text .rd-title .rdt-right .rating i {
 	color: #f5b917;
 }
-.room-details-item .rd-text .rd-title .rdt-right a {
+.room-details-item .rd-text .rd-title .rdt-right a,
+.reservation-list__price button{
 	display: inline-block;
 	color: #ffffff;
-	font-size: 13px;
+	font-size: 16px;
 	text-transform: uppercase;
 	font-weight: 700;
 	background: #dfa974;
 	padding: 14px 28px 13px;
+	border: none;
 }
 .room-details-item .rd-text h2 {
 	color: #dfa974;
