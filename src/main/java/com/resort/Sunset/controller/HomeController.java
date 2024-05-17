@@ -52,4 +52,10 @@ public class HomeController {
         return "/roomOrder";
     }
 
+    @GetMapping("/orderDe")
+    public String orderDe() {
+        return "/orderDetail";
+    }
+
+
 }

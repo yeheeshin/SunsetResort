@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/orderDetail.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<div th:replace="fragments/header :: headerFragment"></div>
+<div th:include="fragments/nav.html"></div>
+
+<div class="deContainer">
+    <div class="hotel-info">
+        <img src="/css/images/exRoom.jpg" alt="Hotel Room">
+        <div class="hotel-details">
+            <p>
+                <span class="infoDe">호텔 및 객실</span>
+                <span>시그니엘 서울, 그랜드 디럭스 더블 시티뷰</span>
+            </p>
+            <p>
+                <span class="infoDe">적용 상품</span>
+                <span>일반 요금</span>
+            </p>
+            <p>
+                <span class="infoDe">투숙 날짜</span>
+                <span>2024년 05월 23일 - 2024년 05월 24일 (1박)</span>
+            </p>
+            <p>
+                <span class="infoDe">객실 및 인원</span>
+                <span>객실 3, 성인 6, 어린이 0</span>
+            </p>
+        </div>
+    </div>
+    <div class="hotel-info">
+       <div class="hotel-details">
+           <p class="infoDe2">
+               요금정책
+           </p>
+           <ul>
+               <li>
+                   <span>River View (한강 전망) : ￦50,000 추가</span>
+               </li>
+               <li>
+                   <span>Scenic Bath (전망 욕실) : ￦50,000 추가</span>
+               </li>
+               <li>
+                   <span>River View & Scenic Bath : ￦100,000 추가</span>
+               </li>
+               <li>
+                   <span>※ 객실 타입에 따라 추가 가능한 전망은 상이합니다.</span>
+               </li>
+           </ul>
+       </div>
+        <div class="hotel-details">
+            <p>
+                <span class="infoDe">객실 요금</span>
+                <span class="Rprice">1,650,000 KRW</span>
+            </p>
+            <p>
+                <span class="infoDe">세금 및 봉사료</span>
+                <span class="Rprice">346,500 KRW</span>
+            </p>
+        </div>
+    </div>
+    <div class="total-cost">
+        총 요금: 1,996,500 KRW
+    </div><hr>
+    <form>
+        <label for="first-name">영문 이름*</label><br>
+        <input type="text" class="nameEng" id="first-name" name="first-name" placeholder="영문 성을 입력하세요">
+        <input type="text" class="nameEng" id="last-name" name="last-name" placeholder="영문 이름을 입력하세요">
+        <div class="warning">여권 이름을 입력해주세요. 영문 이름은 반드시 여권 이름을 입력합니다.</div><hr>
+
+        <label for="email">이메일*</label><br>
+        <input type="email" class="oneInput" id="email" name="email" placeholder="example@lotte.net"><hr>
+
+        <label for="phone-number">연락처*</label><br>
+        <input type="text" class="oneInput" id="phone-number" name="phone-number" placeholder="연락처"><hr>
+
+        <div class="btnCss2">
+            <button type="submit" class="btnCss">예약하기</button>
+        </div>
+    </form>
+</div>
+
+
+<div th:replace="fragments/footer :: footerFragment"></div>
+
+</body>
+</html>
