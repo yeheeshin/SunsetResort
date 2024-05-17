@@ -47,4 +47,9 @@ public class HomeController {
         return "/roomRes";
     }
 
+    @GetMapping("/rOrder")
+    public String roomOrder() {
+        return "/roomOrder";
+    }
+
 }

@@ -5,109 +5,231 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
+    <link rel="stylesheet" href="/css/ex.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 <div th:replace="fragments/header :: headerFragment"></div>
 <div th:include="fragments/nav.html"></div>
 
-<section class="room-details-section spad">
-    <div class="container">
-        <div class="room-details-item">
-            <div class="rd-text">
-                <div class="rd-title">
-                    <h5 class="text-center" th:utext="${#strings.replace(rooms.intro, '\n', '<br>')}">
-                        intro~
-                    </h5>
-                    <div class="rdt-right">
-                        <a href="#">예약 하기</a>
-                    </div>
-                </div>
+<div class="container2">
+    <p><h6>시그니엘 서울</h6></p>
+    <h4>그랜드 디럭스 더블 시티뷰, 일반 요금</h4>
+    <p class="mt">
+        <span class="infoModal">룸 프로모션 정보 > </span>
+        <span class="infoModal">객실 정보 및 이미지 > </span>
+    </p>
+    <hr><br>
+    <h5 class="tax">예약 옵션</h5><br>
+    <div class="booking-options">
+        <div class="room-details">
+            <span class="fontSize">객실 1</span>
+            <span class="rdetail">투숙 인원: 성인 2인, 어린이 0인</span><hr><br>
+            <div class="breakfast-option">
+                <label for="breakfast" class="fontSize">조식신청 (성인)</label>
+                <span class="rdetail">모든 투숙일에 적용됩니다.</span>
+                <div class="breakfast-selection mt">
+                    <span>성인 조식</span>
+                    <span>56,198 KRW / 1인, 1박</span>
+                    <input type="number" id="breakfast1" name="breakfast" min="0" max="10" value="0">
+                </div><br><hr>
+            </div>
+            <div class="additional-requests">
+                <label for="requests" class="fontSize">추가요청</label>
+                <textarea id="requests1" name="requests" placeholder="예시) 추가 베드를 요청합니다."></textarea>
             </div>
         </div>
-        <hr>
-        <div class="row">
-            <div class="col-2 infoTitle">
-                <h3>객실 개요</h3>
-            </div>
-            <div class="col-10">
-                <ul>
-                    <li class="exexex">
-                        <div class="roomTitle">침대타입</div>
-                        <div>더블</div>
-                    </li>
-                    <li class="exexex">
-                        <div class="roomTitle">투숙인원</div>
-                        <div th:text="${rooms.max_people}">2명</div>
-                    </li>
-                    <li class="exexex">
-                        <div class="roomTitle">전망</div>
-                        <div>시티뷰/리버뷰/<br>시티뷰(전망욕실)/<br>리버뷰(전망욕실)</div>
-                    </li>
-                    <li class="exexex">
-                        <div class="roomTitle">객실면적</div>
-                        <div th:text="${rooms.area} + 'm'">30~50 ㎡</div>
-                    </li>
-                    <li class="exexex">
-                        <div class="roomTitle">체크인/체크아웃</div>
-                        <div>15:00/11:00</div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-2 infoTitle">
-                <h3>특별 서비스</h3>
-            </div>
-            <div class="col-10">
-                <ul>
-                    <li class="xe" th:each="item : ${rooms.service.split('\\n')}">
-                        <span th:text="'- ' + ${item}"></span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-2 infoTitle">
-                <h3>어메니티</h3>
-            </div>
-            <div class="col-10">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="roomTitle">일반</div>
-                        <ul>
-                            <li class="xe" th:each="item : ${amenities.general.split('\\n')}">
-                                <span th:text="${item}"></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-4">
-                        <div class="roomTitle">욕실</div>
-                        <ul>
-                            <li class="xe" th:each="item : ${amenities.bath.split('\\n')}">
-                                <span th:text="${item}"></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-4">
-                        <div class="roomTitle">기타</div>
-                        <ul>
-                            <li class="xe" th:each="item : ${amenities.etc.split('\\n')}">
-                                <span th:text="${item}"></span>
-                            </li>
-                        </ul>
-                    </div>
+        <div>
 
-                </div>
+        </div>
+        <div class="pricing-details">
+            <p class="fontSize">객실 요금</p>
+            <p>
+                <span>2024년 05월 23일</span>
+                <span>550,000 KRW</span>
+            </p><br>
+            <p class="fontSize">옵션 요금</p>
+            <p>조식신청 (성인)</p>
+            <p>
+                <span>성인 조식 0 * 박</span>
+                <span> 0 KRW</span>
+            </p><br>
+            <p>
+                <span class="tax">세금 및 봉사료</span>
+                <span class="tax">115,500 KRW</span>
+            </p><hr><br>
+            <p>
+                <span class="fontSize">객실 1 총 요금</span>
+                <span class="fontSize">665,500 KRW</span>
+            </p>
+        </div>
+    </div><br>
+
+    <div class="booking-options">
+        <div class="room-details">
+            <span class="fontSize">객실 2</span>
+            <span class="rdetail">투숙 인원: 성인 2인, 어린이 0인</span><hr><br>
+            <div class="breakfast-option">
+                <label for="breakfast" class="fontSize">조식신청 (성인)</label>
+                <span class="rdetail">모든 투숙일에 적용됩니다.</span>
+                <div class="breakfast-selection mt">
+                    <span>성인 조식</span>
+                    <span>56,198 KRW / 1인, 1박</span>
+                    <input type="number" id="breakfast" name="breakfast" min="0" max="10" value="0">
+                </div><br><hr>
+            </div>
+            <div class="additional-requests">
+                <label for="requests" class="fontSize">추가요청</label>
+                <textarea id="requests" name="requests" placeholder="예시) 추가 베드를 요청합니다."></textarea>
             </div>
         </div>
-        <hr>
+        <div>
+
+        </div>
+        <div class="pricing-details">
+            <p class="fontSize">객실 요금</p>
+            <p>
+                <span>2024년 05월 23일</span>
+                <span>550,000 KRW</span>
+            </p><br>
+            <p class="fontSize">옵션 요금</p>
+            <p>조식신청 (성인)</p>
+            <p>
+                <span>성인 조식 0 * 박</span>
+                <span> 0 KRW</span>
+            </p><br>
+            <p>
+                <span class="tax">세금 및 봉사료</span>
+                <span class="tax">115,500 KRW</span>
+            </p><hr><br>
+            <p>
+                <span class="fontSize">객실 2 총 요금</span>
+                <span class="fontSize">665,500 KRW</span>
+            </p>
+        </div>
     </div>
-</section>
+    <hr><br>
+
+    <div class="row">
+        <div class="col-2 infoTitle">
+            <h4>요금정책</h4>
+        </div>
+        <div class="col-10">
+            <ul>
+                <li class="xe">
+                    <span>River View (한강 전망) : ￦50,000 추가</span>
+                </li>
+                <li class="xe">
+                    <span>Scenic Bath (전망 욕실) : ￦50,000 추가</span>
+                </li>
+                <li class="xe">
+                    <span>River View & Scenic Bath : ￦100,000 추가</span>
+                </li>
+                <li class="xe">
+                    <span>※ 객실 타입에 따라 추가 가능한 전망은 상이합니다.</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr><br>
+    <div class="row">
+        <div class="col-2 infoTitle">
+            <h4>취소규정</h4>
+        </div>
+        <div class="col-10">
+            <ul>
+                <li class="xe">
+                    <span>상기 홈페이지 요금은 정상에서 할인된 금액으로, 중복 할인은 불가능합니다.</span>
+                </li>
+                <li class="xe">
+                    <span>예약 취소 및 변경은 체크인 이틀 전 18:00(한국 시간)까지 가능합니다.</span>
+                </li>
+                <li class="xe">
+                    <span>무료 취소 기한(체크인 이틀 전 18:00) 이후 예약이 변경 및 취소될 경우, 예약 첫날에 해당하는 1박 객실 요금이 예약보증용 신용카드로 청구됩니다.</span>
+                </li>
+                <li class="xe">
+                    <span>예약 시점에 객실요금의 보증용으로 카드 선승인이 이루어질 수 있으며, 카드 승인 불가 시 예약이 임의로 취소될 수 있습니다.</span>
+                </li>
+                <li class="xe">
+                    <span>일부 프로모션 특가상품은 별도의 취소규정이 적용됩니다.</span>
+                </li>
+                <li class="xe">
+                    <span>
+                        일부 성수기(12/24, 12/31)의 취소 및 변경은 체크인 21일 전 18:00(호텔 시간)까지 가능하며, 도착 21일전 18:00까지 취소하지 않을 경우 1박 객실 요금이 예약보증용 신용카드로 청구됩니다.
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr><br>
+    <div class="row">
+        <div class="col-2 infoTitle">
+            <h4>객실 정보</h4>
+        </div>
+        <div class="col-10">
+            <ul>
+                <li class="exexex">
+                    <div class="roomTitle">체크인/체크아웃</div>
+                    <div>15:00/11:00</div>
+                </li>
+                <li class="exexex">
+                    <div class="roomTitle">투숙인원</div>
+                    <div>2명</div>
+                </li>
+                <li class="exexex">
+                    <div class="roomTitle">전망</div>
+                    <div>시티뷰/리버뷰/<br>시티뷰(전망욕실)/<br>리버뷰(전망욕실)</div>
+                </li>
+                <li class="exexex">
+                    <div class="roomTitle">객실면적</div>
+                    <div>30~50 ㎡</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr><br>
+    <div class="row">
+        <div class="col-2 infoTitle">
+            <h4>어메니티</h4>
+        </div>
+        <div class="col-10">
+            <div class="row">
+                <div class="col-4">
+                    <div class="roomTitle">일반</div>
+                    <ul>
+                        <li class="xe">
+                            <span></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <div class="roomTitle">욕실</div>
+                    <ul>
+                        <li class="xe">
+                            <span></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <div class="roomTitle">기타</div>
+                    <ul>
+                        <li class="xe">
+                            <span></span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <hr>
 
 
+
+
+
+</div>
 <div th:replace="fragments/footer :: footerFragment"></div>
 
 </body>
