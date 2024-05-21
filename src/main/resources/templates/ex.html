@@ -5,21 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
-    <link rel="stylesheet" href="/css/ex.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 <div th:replace="fragments/header :: headerFragment"></div>
 <div th:include="fragments/nav.html"></div>
-
-<form action="fileUp" method="post" enctype="multipart/form-data">
-    <input type="file" id="file" name="file" accept=".pdf" required />
-
-    <button type="submit">보내기</button>
-</form>
-
+<link rel="stylesheet" href="css/ex.css" type="text/css">
 
 <div th:replace="fragments/footer :: footerFragment"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js"></script>
+<script src="js/ex.js"></script>
 
 </body>
 </html>
