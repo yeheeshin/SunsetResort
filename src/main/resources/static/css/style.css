@@ -78,7 +78,6 @@ input:focus, select:focus, button:focus, textarea:focus {
 a:hover, a:focus {
 	text-decoration: none;
 	outline: none;
-	color: #fff;
 }
 ul, ol {
 	padding: 0;
