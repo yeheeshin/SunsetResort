@@ -1,0 +1,38 @@
+<!-- Header Section Begin -->
+<header class="header-section">
+    <div class="menu-item">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="logo">
+                        <a href="/">SUNSET RESORT</a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="nav-menu">
+                        <nav class="subMenu">
+                            <ul>
+                                <li><a href="/room">호텔찾기</a></li>
+                                <li><a href="/about">멤버십</a></li>
+                                <!-- 로그인 안 했을 때-->
+                                <li><a href="/room">예약조회</a></li>
+                                <li><a href="/about">로그인</a></li>
+                                <li><a href="/about">회원가입</a></li>
+
+                                <th:block th:if="1 == 2">
+                                    <!-- 로그인 했을 때-->
+                                    <li><a href="/room">쿠폰</a></li>
+                                    <li><a href="/about">마이 페이지</a></li>
+                                    <li><a href="/about">로그아웃</a></li>
+                                </th:block>
+                            </ul>
+                        </nav>
+                        <div class="nav-right search-switch">
+                            <i class="icon_search"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header><!-- Header End -->

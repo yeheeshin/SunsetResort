@@ -2357,3 +2357,55 @@ ul, ol {
 .exx{
 	text-align: center;
 }
+
+
+/*------------------------buyNav css-----------------------------*/
+
+.header-section {
+	height: 50px;
+	background-color: #f8f9fa; /* 배경색 설정, 필요에 따라 변경 */
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #e0e0e0; /* 하단에 경계선 추가, 필요에 따라 변경 */
+}
+.menu-item {
+	width: 100%;
+}
+.logo a {
+	font-size: 18px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #000; /* 로고 텍스트 색상 설정 */
+}
+.nav-menu {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.subMenu ul {
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.subMenu ul li a {
+	text-decoration: none;
+	color: gray; /* 메뉴 텍스트 색상 설정 */
+	font-size: 15px;
+}
+.subMenu ul li .dropdown {
+	display: none;
+}
+.subMenu ul li:hover .dropdown {
+	display: block;
+	position: absolute;
+	background-color: #fff;
+	border: 1px solid #d4d2d2;
+	padding: 10px;
+}
+.nav-right {
+	margin-left: 20px; /* 검색 아이콘과 메뉴 간 간격 설정 */
+}
+.subMenu ul li {
+	margin-right: 20px; /* 메뉴 아이템 간 간격 설정 */
+}
