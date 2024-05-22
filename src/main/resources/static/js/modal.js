@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
         dateFormat: "Y-m-d"
     });
 
-    // 모달 초기화 함수
+    // 모달 초기화 함수 (아직 사용 안 함)
     function resetModal() {
         const roomInfo = document.querySelector('.room-info');
         // 기본 상태로 초기화
@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 섹션 클릭 시 모달 열기
     collapseSection.addEventListener("click", function() {
-        resetModal();  // 모달 초기화
         modal.style.display = "block";
     });
 
@@ -66,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // 선택 완료 버튼 클릭 시 모달 닫기 및 초기화
     confirmSelectionBtn.onclick = function() {
         modal.style.display = "none";
-        resetModal();  // 모달 초기화
     }
 
     // 모달 외부 클릭 시 닫기
@@ -76,19 +74,21 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // 각 버튼에 대한 이벤트 처리
+    // 증가 버튼
     document.querySelectorAll('.decrease').forEach(function(button) {
         button.addEventListener('click', function() {
             decreaseCount(button);
         });
     });
 
+    // 감소 버튼
     document.querySelectorAll('.increase').forEach(function(button) {
         button.addEventListener('click', function() {
             increaseCount(button);
         });
     });
 
+    // 객실 추가 버튼
     document.querySelector('.btn-add-room').addEventListener('click', function(event) {
         event.preventDefault(); // 기본 동작 방지
         addRoom();
