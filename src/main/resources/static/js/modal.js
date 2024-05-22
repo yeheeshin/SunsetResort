@@ -14,8 +14,47 @@ document.addEventListener("DOMContentLoaded", function() {
         dateFormat: "Y-m-d"
     });
 
+    // 모달 초기화 함수
+    function resetModal() {
+        const roomInfo = document.querySelector('.room-info');
+        // 기본 상태로 초기화
+        roomInfo.innerHTML = `
+            <div class="room">
+                <div class="room-label">객실 1</div>
+                <div class="counter">
+                    <button class="decrease">-</button>
+                    <div class="count">성인 1</div>
+                    <button class="increase">+</button>
+                </div>
+                <div class="counter">
+                    <button class="decrease">-</button>
+                    <span class="count">어린이 1</span>
+                    <button class="increase">+</button>
+                </div>
+                <div class="counter">
+            
+                </div>
+            </div>
+
+        `;
+
+        // 새로 생성된 요소들에 이벤트 리스너 추가
+        roomInfo.querySelectorAll('.decrease').forEach(function(button) {
+            button.addEventListener('click', function() {
+                decreaseCount(button);
+            });
+        });
+
+        roomInfo.querySelectorAll('.increase').forEach(function(button) {
+            button.addEventListener('click', function() {
+                increaseCount(button);
+            });
+        });
+    }
+
     // 섹션 클릭 시 모달 열기
     collapseSection.addEventListener("click", function() {
+        resetModal();  // 모달 초기화
         modal.style.display = "block";
     });
 
@@ -24,9 +63,10 @@ document.addEventListener("DOMContentLoaded", function() {
         modal.style.display = "none";
     }
 
-    // 선택 완료 버튼 클릭 시 모달 닫기
+    // 선택 완료 버튼 클릭 시 모달 닫기 및 초기화
     confirmSelectionBtn.onclick = function() {
         modal.style.display = "none";
+        resetModal();  // 모달 초기화
     }
 
     // 모달 외부 클릭 시 닫기
@@ -49,7 +89,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    document.querySelector('.btn-add-room').addEventListener('click', function() {
+    document.querySelector('.btn-add-room').addEventListener('click', function(event) {
+        event.preventDefault(); // 기본 동작 방지
         addRoom();
     });
 
@@ -73,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-// 객실 추가 함수
+    // 객실 추가 함수
     function addRoom() {
         var roomInfo = document.querySelector('.room-info');
         var clone = roomInfo.firstElementChild.cloneNode(true);
@@ -106,10 +147,4 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
-
-
-
-
-
-
 });
