@@ -40,9 +40,6 @@
                     <h5 class="text-center" th:utext="${#strings.replace(rooms.intro, '\n', '<br>')}">
                         intro~
                     </h5>
-                    <div class="rdt-right">
-                        <a href="#">예약 하기</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -127,10 +124,13 @@
         <hr>
     </div>
 </section>
+
+<div th:replace="fragments/roomInfo :: infoFragment"></div>
+
+
 <!-- Room Details Section End -->
 <div th:replace="fragments/footer :: footerFragment"></div>
 <script src="js/roomDetail.js"></script>
-
 
 </body>
 

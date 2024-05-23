@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="infoFragment">
+    <form>
+        <div class="card card-body collCss fixed-bottom">
+            <div class="row first_coll">
+                <div class="col-1"></div>
+                <div class="col-1 vertical-line">호텔</div>
+                <div class="col-1">체크인</div>
+                <div class="col-1">1박</div>
+                <div class="col-1 vertical-line">체크아웃</div>
+                <div class="col-1">객실수</div>
+                <div class="col-1">성인</div>
+                <div class="col-1 vertical-line">어린이</div>
+                <div class="col-2"></div>
+                <div class="col-1"></div>
+            </div>
+            <a href="#" class="row second_coll" id="collapseExample">
+                <div class="col-1"></div>
+                <div class="col-1 vertical-line">선셋 리조트</div>
+                <div class="col-1">04월 23일(화)</div>
+                <div class="col-1">1박</div>
+                <div class="col-1 vertical-line">04월 24일(수)</div>
+                <div class="col-1">1</div>
+                <div class="col-1">2</div>
+                <div class="col-1 vertical-line">0</div>
+                <div class="col-2">
+                    <button class="btnCss">예약하기</button>
+                </div>
+                <div class="col-1"></div>
+            </a>
+        </div>
+    </form>
+
+    <div id="modal" class="modal">
+        <!-- 모달 내용 -->
+        <div class="modal-content">
+            <!-- 모달 닫기 버튼 -->
+            <span id="closeModalBtn" class="close">&times;</span>
+            <div class="modal-body">
+                <div class="booking-form">
+                    <h3>Booking Your Hotel</h3>
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-4">
+                                <!-- 캘린더 레이어 -->
+                                <div class="check-date">
+                                    <label for="date-in">Check In:</label>
+                                    <input type="text" id="date-in">
+                                    <i class="icon_calendar"></i>
+                                </div>
+                                <div class="check-date">
+                                    <label for="date-out">Check Out:</label>
+                                    <input type="text" id="date-out">
+                                    <i class="icon_calendar"></i>
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <!-- 객실 선택 레이어 -->
+                                <div class="s598-search__layer s598-person room-info">
+                                    <!-- 객실 선택 내용 -->
+                                    <!-- 여기에 객실 선택 UI 추가 -->
+                                    <div class="room">
+                                        <div class="room-label">객실 1</div>
+                                        <div class="counter">
+                                            <button class="decrease">-</button>
+                                            <div class="count">성인 1</div>
+                                            <button class="increase">+</button>
+                                        </div>
+                                        <div class="counter">
+                                            <button class="decrease">-</button>
+                                            <span class="count">어린이 1</span>
+                                            <button class="increase">+</button>
+                                        </div>
+                                        <div class="counter">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-add-room">객실 추가</button>
+
+                                <!-- 선택완료 버튼 -->
+                                <button id="confirmSelectionBtn" class="btn">선택완료</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</th:block>
+</html>
