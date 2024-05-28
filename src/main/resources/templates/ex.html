@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
+    <link rel="stylesheet" href="/css/ex.css">
 </head>
 <body>
 <div th:replace="fragments/header :: headerFragment"></div>
-<div th:include="fragments/buyNav.html"></div>
+<div th:include="fragments/nav.html"></div>
 
-<link rel="stylesheet" href="css/ex.css" type="text/css">
+<form action="fileUp" method="post" enctype="multipart/form-data">
+    <input type="file" id="img_name" name="img_name" accept=".png, .jpg, .jpeg" required />
+    프로모션 ID : <input type="number" id="pro_id" name="pro_id"/>
+    다이닝 ID : <input type="number" id="res_id" name="res_id"/>
+    객실 ID : <input type="number" id="room_id" name="room_id"/>
+    부대시설 ID : <input type="number" id="store_id" name="store_id"/>
 
+    <button type="submit">보내기</button>
+</form>
 
 
 <div th:replace="fragments/footer :: footerFragment"></div>
-
-<script src="js/ex.js"></script>
 
 </body>
 </html>

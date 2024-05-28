@@ -8,7 +8,7 @@ import lombok.Setter;
 public class img_all {
     private Long img_id;
 
-    private String all_img;
+    private String img_name;
 
     private Long pro_id;
     private Long res_id;

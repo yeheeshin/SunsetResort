@@ -1,5 +1,6 @@
 package com.resort.Sunset.controller;
 
+import com.resort.Sunset.dto.img_all;
 import com.resort.Sunset.dto.room;
 import com.resort.Sunset.form.fileForm;
 import com.resort.Sunset.service.RoomService;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.io.IOException;
+import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
@@ -17,11 +19,11 @@ public class FileController {
 
 
     @PostMapping("fileUp")
-    public String fileUpload(@ModelAttribute("allFile") fileForm fileForm) {
+    public String fileUpload(@ModelAttribute("allFile") fileForm fileData) {
 
         try {
-            String fileName = fileForm.uploadFileName(fileForm);
-            room roomFile = roomService.fileUpload(fileName);
+            Map<String, Object> fileAllData = fileForm.uploadFileName(fileData);
+            roomService.insertImg(fileAllData);
 
             return "rooms";
         } catch (IOException e) {

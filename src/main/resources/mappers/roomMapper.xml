@@ -5,22 +5,48 @@
     <select id="allRoom" resultType="com.resort.Sunset.dto.room">
         SELECT * FROM room
     </select>
+
     <select id="selectById" resultType="com.resort.Sunset.dto.room">
-        SELECT * FROM room WHERE room_id = #{rid}
+        SELECT * FROM room WHERE room_id = #{room_id}
     </select>
-    <select id="fileUpload" resultType="com.resort.Sunset.dto.room">
-        INSERT INTO img_all(all_img) VALUES (#{fileName})
-    </select>
+
     <select id="duplicateBed" resultType="java.lang.String">
         SELECT DISTINCT rb.room_bed
         FROM room_count rc
                  INNER JOIN room_bed rb ON rc.rb_id = rb.rb_id
-        WHERE rc.room_id = #{rid};
+        WHERE rc.room_id = #{room_id};
     </select>
+
     <select id="duplicateView" resultType="java.lang.String">
         SELECT DISTINCT rv.room_view
         FROM room_count rc
                  INNER JOIN room_view rv ON rc.rv_id = rv.rv_id
-        WHERE rc.room_id = #{rid};
+        WHERE rc.room_id = #{room_id};
     </select>
+
+    <insert id="insertImg" parameterType="map">
+        INSERT INTO img_all (img_name, pro_id, res_id, room_id, store_id)
+        VALUES
+        (
+        #{img_name},
+        <choose>
+            <when test="pro_id != null">#{pro_id}</when>
+            <otherwise>null</otherwise>
+        </choose>,
+        <choose>
+            <when test="res_id != null">#{res_id}</when>
+            <otherwise>null</otherwise>
+        </choose>,
+        <choose>
+            <when test="room_id != null">#{room_id}</when>
+            <otherwise>null</otherwise>
+        </choose>,
+        <choose>
+            <when test="store_id != null">#{store_id}</when>
+            <otherwise>null</otherwise>
+        </choose>
+        )
+    </insert>
+
+
 </mapper>

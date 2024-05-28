@@ -9,14 +9,20 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @Getter
 @Setter
 public class fileForm {
     private MultipartFile file;
+    private Long pro_id;
+    private Long res_id;
+    private Long room_id;
+    private Long store_id;
 
-    public static String uploadFileName(fileForm fileForm) throws IOException {
+    public static Map<String, Object> uploadFileName(fileForm fileForm) throws IOException {
         String filename = fileForm.getFile().getOriginalFilename();
         Path filePath = Paths.get(MyPath.filePath + filename);
         Files.write(filePath, fileForm.getFile().getBytes());
@@ -24,8 +30,13 @@ public class fileForm {
         UUID uuid = UUID.randomUUID();
         String fileName = uuid + "_" + filename;
 
-        System.out.println("fileName = " + fileName);
+        Map<String, Object> params = new HashMap<>();
+        params.put("img_name", fileName);
+        params.put("pro_id", fileForm.getPro_id());
+        params.put("res_id", fileForm.getRes_id());
+        params.put("room_id", fileForm.getRoom_id());
+        params.put("store_id", fileForm.getStore_id());
 
-        return fileName;
+        return params;
     }
 }

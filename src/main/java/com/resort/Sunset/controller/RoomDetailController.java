@@ -19,8 +19,8 @@ public class RoomDetailController {
 
 
     @GetMapping("/roomDetail")
-    public String roomDetail(@RequestParam("id") Long rid, Model model) {
-        room room = roomService.getRoom(rid);
+    public String roomDetail(@RequestParam("id") Long room_id, Model model) {
+        room room = roomService.getRoom(room_id);
 
         Long amId = room.getAm_id();
         amenities amenities = amenitiesService.getAmenities(amId);
