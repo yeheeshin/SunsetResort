@@ -25,7 +25,7 @@ public class FileController {
             Map<String, Object> fileAllData = fileForm.uploadFileName(fileData);
             roomService.insertImg(fileAllData);
 
-            return "rooms";
+            return "redirect:/room";
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
