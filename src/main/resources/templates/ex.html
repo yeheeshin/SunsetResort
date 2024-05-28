@@ -11,7 +11,7 @@
 <div th:include="fragments/nav.html"></div>
 
 <form action="fileUp" method="post" enctype="multipart/form-data">
-    <input type="file" id="file" name="file" accept=".png, .jpg, .jpeg" required />
+    <input type="file" id="file" name="file" accept=".png, .jpg, .jpeg" multiple required />
     프로모션 ID : <input type="number" id="pro_id" name="pro_id"/>
     다이닝 ID : <input type="number" id="res_id" name="res_id"/>
     객실 ID : <input type="number" id="room_id" name="room_id"/>
