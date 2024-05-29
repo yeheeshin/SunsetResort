@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-1">
             <label>소재</label>
-            <select th:field="*{pro_id}" required>
+            <select th:field="*{pro_id}">
                 <option value="">프로모션 선택</option>
                 <option th:each="selectPro : ${promotion}"
                         th:value="${selectPro.pro_id}"
@@ -25,7 +25,7 @@
         </div>
         <div class="col-1">
             <label>소재</label>
-            <select th:field="*{res_id}" required>
+            <select th:field="*{res_id}">
                 <option value="">다이닝 선택</option>
                 <option th:each="selectRes : ${restaurant}"
                         th:value="${selectRes.res_id}"
@@ -35,7 +35,7 @@
         </div>
         <div class="col-1">
             <label>소재</label>
-            <select th:field="*{room_id}" required>
+            <select th:field="*{room_id}">
                 <option value="">객실 선택</option>
                 <option th:each="selectRoom : ${rooms}"
                         th:value="${selectRoom.room_id}"
@@ -45,7 +45,7 @@
         </div>
         <div class="col-1">
             <label>소재</label>
-            <select th:field="*{store_id}" required>
+            <select th:field="*{store_id}">
                 <option value="">부대시설 선택</option>
                 <option th:each="selectStore : ${store}"
                         th:value="${selectStore.store_id}"
