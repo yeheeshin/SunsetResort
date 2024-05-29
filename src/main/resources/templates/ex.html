@@ -10,15 +10,55 @@
 <div th:replace="fragments/header :: headerFragment"></div>
 <div th:include="fragments/nav.html"></div>
 
-<form action="fileUp" method="post" enctype="multipart/form-data">
+<form action="/fileUp" method="post" th:object="${allFile}" enctype="multipart/form-data">
     <input type="file" id="file" name="file" accept=".png, .jpg, .jpeg" multiple required />
-    프로모션 ID : <input type="number" id="pro_id" name="pro_id"/>
-    다이닝 ID : <input type="number" id="res_id" name="res_id"/>
-    객실 ID : <input type="number" id="room_id" name="room_id"/>
-    부대시설 ID : <input type="number" id="store_id" name="store_id"/>
+    <div class="row">
+        <div class="col-1">
+            <label>소재</label>
+            <select th:field="*{pro_id}" required>
+                <option value="">프로모션 선택</option>
+                <option th:each="selectPro : ${promotion}"
+                        th:value="${selectPro.pro_id}"
+                        th:text="${selectPro.name}">
+                </option>
+            </select>
+        </div>
+        <div class="col-1">
+            <label>소재</label>
+            <select th:field="*{res_id}" required>
+                <option value="">다이닝 선택</option>
+                <option th:each="selectRes : ${restaurant}"
+                        th:value="${selectRes.res_id}"
+                        th:text="${selectRes.name}">
+                </option>
+            </select>
+        </div>
+        <div class="col-1">
+            <label>소재</label>
+            <select th:field="*{room_id}" required>
+                <option value="">객실 선택</option>
+                <option th:each="selectRoom : ${rooms}"
+                        th:value="${selectRoom.room_id}"
+                        th:text="${selectRoom.name}">
+                </option>
+            </select>
+        </div>
+        <div class="col-1">
+            <label>소재</label>
+            <select th:field="*{store_id}" required>
+                <option value="">부대시설 선택</option>
+                <option th:each="selectStore : ${store}"
+                        th:value="${selectStore.store_id}"
+                        th:text="${selectStore.name}">
+                </option>
+            </select>
+        </div>
+
+    </div>
 
     <button type="submit">보내기</button>
 </form>
+<br>
 
 
 <div th:replace="fragments/footer :: footerFragment"></div>

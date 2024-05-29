@@ -17,6 +17,10 @@ import java.util.Map;
 public class RoomService {
     private final RoomMapper roomMapper;
 
+    public List<room> selectAll() {
+        return roomMapper.allRoom();
+    }
+
     public room getRoom(Long room_id) {
         return roomMapper.selectById(room_id);
     }
