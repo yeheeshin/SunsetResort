@@ -12,9 +12,9 @@
 
 <form action="/fileUp" method="post" th:object="${allFile}" enctype="multipart/form-data">
     <input type="file" id="file" name="file" accept=".png, .jpg, .jpeg" multiple required />
-    <div class="row">
-        <div class="col-1">
-            <label>소재</label>
+    <br>
+        <div class="row uploadImg">
+            <label>프로모션</label>
             <select th:field="*{pro_id}">
                 <option value="">프로모션 선택</option>
                 <option th:each="selectPro : ${promotion}"
@@ -23,8 +23,9 @@
                 </option>
             </select>
         </div>
-        <div class="col-1">
-            <label>소재</label>
+
+        <div class="row uploadImg">
+            <label>다이닝</label>
             <select th:field="*{res_id}">
                 <option value="">다이닝 선택</option>
                 <option th:each="selectRes : ${restaurant}"
@@ -33,8 +34,9 @@
                 </option>
             </select>
         </div>
-        <div class="col-1">
-            <label>소재</label>
+
+        <div class="row uploadImg">
+            <label>객실</label>
             <select th:field="*{room_id}">
                 <option value="">객실 선택</option>
                 <option th:each="selectRoom : ${rooms}"
@@ -43,8 +45,9 @@
                 </option>
             </select>
         </div>
-        <div class="col-1">
-            <label>소재</label>
+
+        <div class="row uploadImg">
+            <label>부대시설</label>
             <select th:field="*{store_id}">
                 <option value="">부대시설 선택</option>
                 <option th:each="selectStore : ${store}"
@@ -54,8 +57,7 @@
             </select>
         </div>
 
-    </div>
-
+    <br>
     <button type="submit">보내기</button>
 </form>
 <br>
