@@ -32,23 +32,17 @@ document.addEventListener("DOMContentLoaded", function() {
                     <button class="increase">+</button>
                 </div>
                 <div class="counter">
-            
                 </div>
             </div>
-
         `;
 
         // 새로 생성된 요소들에 이벤트 리스너 추가
         roomInfo.querySelectorAll('.decrease').forEach(function(button) {
-            button.addEventListener('click', function() {
-                decreaseCount(button);
-            });
+            button.addEventListener('click', decreaseCount);
         });
 
         roomInfo.querySelectorAll('.increase').forEach(function(button) {
-            button.addEventListener('click', function() {
-                increaseCount(button);
-            });
+            button.addEventListener('click', increaseCount);
         });
     }
 
@@ -64,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 선택 완료 버튼 클릭 시 모달 닫기 및 초기화
     confirmSelectionBtn.onclick = function() {
+        event.preventDefault();
         modal.style.display = "none";
     }
 
@@ -74,18 +69,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // 증가 버튼
+    // 감소 버튼
     document.querySelectorAll('.decrease').forEach(function(button) {
-        button.addEventListener('click', function() {
-            decreaseCount(button);
-        });
+        button.addEventListener('click', decreaseCount);
     });
 
-    // 감소 버튼
+    // 증가 버튼
     document.querySelectorAll('.increase').forEach(function(button) {
-        button.addEventListener('click', function() {
-            increaseCount(button);
-        });
+        button.addEventListener('click', increaseCount);
     });
 
     // 객실 추가 버튼
@@ -95,7 +86,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // 성인 또는 어린이 수 감소 함수
-    function decreaseCount(button) {
+    function decreaseCount(event) {
+        event.preventDefault();
+        var button = event.target;
         var countElement = button.nextElementSibling;
         var count = parseInt(countElement.textContent.split(' ')[1]);
         if (count > 0) {
@@ -105,7 +98,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // 성인 또는 어린이 수 증가 함수
-    function increaseCount(button) {
+    function increaseCount(event) {
+        event.preventDefault();
+        var button = event.target;
         var countElement = button.previousElementSibling;
         var count = parseInt(countElement.textContent.split(' ')[1]);
         if (count < 2) {
@@ -136,15 +131,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // 새로 생성된 요소들에 이벤트 리스너 추가
         clone.querySelectorAll('.decrease').forEach(function(button) {
-            button.addEventListener('click', function() {
-                decreaseCount(button);
-            });
+            button.addEventListener('click', decreaseCount);
         });
 
         clone.querySelectorAll('.increase').forEach(function(button) {
-            button.addEventListener('click', function() {
-                increaseCount(button);
-            });
+            button.addEventListener('click', increaseCount);
         });
     }
 });
