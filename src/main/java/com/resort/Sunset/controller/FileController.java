@@ -24,7 +24,7 @@ public class FileController {
     public String fileUpload(fileForm fileData) {
 
         try {
-            List<MultipartFile> files = fileData.getFile();// -> list
+            List<MultipartFile> files = fileData.getFile(); // -> list
             for (MultipartFile file : files) {
                 Map<String, Object> fileAllData = fileForm.uploadFileName(file,fileData);
                 roomService.insertImg(fileAllData);
