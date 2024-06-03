@@ -40,6 +40,11 @@
                     <h5 class="text-center" th:utext="${#strings.replace(rooms.intro, '\n', '<br>')}">
                         intro~
                     </h5>
+                    <!-- 이미지 이름 출력 확인 -->
+<!--                    <div th:each="img : ${roomImg}">-->
+<!--                        <span th:if="${img.img_name != null}" th:text="${#strings.substringAfter(img.img_name, '_')}">Image Text</span>-->
+<!--                    </div>-->
+
                 </div>
             </div>
         </div>
