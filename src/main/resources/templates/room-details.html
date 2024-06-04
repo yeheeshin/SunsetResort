@@ -122,21 +122,92 @@
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </div>
         </div>
         <hr>
     </div>
 </section>
+<!-- Room Details Section End -->
 
 <div th:replace="fragments/roomInfo :: infoFragment"></div>
-
-
-<!-- Room Details Section End -->
 <div th:replace="fragments/footer :: footerFragment"></div>
-<script src="js/roomDetail.js"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    // 서버에서 전달된 JSON 데이터를 파싱
+    var imageListStr = /*[[${roomImgJson}]]*/ '[]';
+
+    // JSON 데이터가 유효한지 확인
+    try {
+        var imageList = JSON.parse(imageListStr);
+        if (!Array.isArray(imageList)) {
+            throw new Error('JSON 데이터가 배열이 아닙니다.');
+        }
+
+        // 각 이미지 객체의 img_name에서 '_'를 기준으로 분할하여 필요한 부분을 가져와서 배열로 저장
+        var imgNames = imageList.map(function(image) {
+            // '_'를 기준으로 분할하여 필요한 부분을 가져옴
+            var parts = image.img_name.split('_');
+            // '_' 이후의 문자열 반환
+            return parts.slice(1).join('_');
+        });
+
+        // img_name 값을 콘솔에 출력
+        console.log(imgNames);
+    } catch (error) {
+        console.error('JSON 파싱 오류:', error);
+    }
+
+    $(document).ready(function(){
+        var currentIndex = 0;
+
+        function showSlide(index) {
+            if (index < 0 || index >= imgNames.length) {
+                console.error('Invalid index:', index);
+                return;
+            }
+
+            var imageUrl = "/sunset_gallery/" + imgNames[index]; // 이미지 객체의 URL 속성 사용
+            if (!imageUrl) {
+                console.error('Image URL not found for index:', index);
+                return;
+            }
+
+            $(".room-details-item img").attr("src", imageUrl);
+        }
+
+        if (imgNames.length > 0) {
+            showSlide(currentIndex); // 초기 슬라이드 표시
+        } else {
+            console.error('imgNames is empty');
+        }
+
+        function nextSlide() {
+            currentIndex++;
+            if (currentIndex >= imgNames.length) {
+                currentIndex = 0;
+            }
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = imgNames.length - 1;
+            }
+            showSlide(currentIndex);
+        }
+
+        $(".prev").click(function(){
+            prevSlide();
+        });
+
+        $(".next").click(function(){
+            nextSlide();
+        });
+    });
+    /*]]>*/
+</script>
 
 </body>
-
 </html>

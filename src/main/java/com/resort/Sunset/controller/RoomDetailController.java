@@ -1,5 +1,7 @@
 package com.resort.Sunset.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.resort.Sunset.dto.amenities;
 import com.resort.Sunset.dto.img_all;
 import com.resort.Sunset.dto.room;
@@ -37,10 +39,19 @@ public class RoomDetailController {
 
         System.out.println("amId = " + amId);
 
+        // roomImg를 JSON 형식으로 변환
+        ObjectMapper objectMapper = new ObjectMapper();
+        String roomImgJson = "";
+        try {
+            roomImgJson = objectMapper.writeValueAsString(roomImg);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
         model.addAttribute("rooms", room);
         model.addAttribute("amenities", amenities);
         model.addAttribute("roomImg", roomImg);
-
+        model.addAttribute("roomImgJson", roomImgJson);
         return "/room-details";
     }
 
