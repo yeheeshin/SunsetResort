@@ -19,4 +19,9 @@ public class ImgAllService {
     public List<img_all> getRoomImg(Long room_id) {
         return imgAllMapper.selectByRoomId(room_id);
     }
+
+    // 객실 이미지 전체 가져오기
+    public List<img_all> getAllImg() {
+        return imgAllMapper.selectAllRoomImg();
+    }
 }
