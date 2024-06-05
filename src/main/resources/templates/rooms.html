@@ -31,14 +31,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6" th:each="room, index : ${roomInfo}">
                     <div class="room-item">
-                        <div th:if="${index.index < allImg.size()}">
-                            <img th:if="${allImg.get(index.index).getRoom_id() == room.room_id}"
-                                 th:with="fileName=${#strings.substringAfter(allImg.get(index.index).getImg_name(), '_')}"
-                                 th:src="${'/sunset_gallery/' + fileName}"
-                                 alt="Room Image">
-                            <img th:if="${allImg.get(index.index).getRoom_id() != room.room_id}"
-                                 src="img/room/room-1.jpg" alt="Room Image">
-                        </div>
+                        <img src="img/room/room-1.jpg" alt="">
                         <div class="ri-text">
                             <h4 th:text="${room.name}">Premium King Room</h4>
                             <table>
