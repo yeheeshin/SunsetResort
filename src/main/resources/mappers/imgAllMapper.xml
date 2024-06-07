@@ -5,4 +5,8 @@
     <select id="selectByRoomId" resultType="com.resort.Sunset.dto.img_all">
         SELECT * FROM img_all WHERE room_id = #{room_id}
     </select>
+
+    <select id="selectByResId" resultType="com.resort.Sunset.dto.img_all">
+        SELECT * FROM img_all WHERE res_id = #{res_id}
+    </select>
 </mapper>

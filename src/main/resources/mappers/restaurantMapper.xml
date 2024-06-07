@@ -5,4 +5,8 @@
     <select id="selectAll" resultType="com.resort.Sunset.dto.restaurant">
         SELECT * FROM restaurant
     </select>
+
+    <select id="selectResId" resultType="com.resort.Sunset.dto.restaurant">
+        SELECT * FROM restaurant where res_id = #{res_id}
+    </select>
 </mapper>

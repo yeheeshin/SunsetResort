@@ -16,7 +16,13 @@ import java.util.List;
 public class ImgAllService {
     private final ImgAllMapper imgAllMapper;
 
+    // 특정 id를 가진 객실의 이미지 가져오기
     public List<img_all> getRoomImg(Long room_id) {
         return imgAllMapper.selectByRoomId(room_id);
+    }
+
+    // 특정 id를 가진 객실의 이미지 가져오기
+    public List<img_all> getResImg(Long res_id) {
+        return imgAllMapper.selectByResId(res_id);
     }
 }

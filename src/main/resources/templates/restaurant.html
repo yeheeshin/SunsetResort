@@ -35,7 +35,7 @@
                          th:attr="data-setbg=${'/sunset_gallery/' + imgName}">
                     <div class="bi-text">
                             <span class="b-tag" th:text="${dining.diningType}">Travel Trip</span>
-                            <h4><a href="/res_detail" th:text="${dining.name}">Tremblant In Canada</a></h4>
+                            <h4><a th:href="@{/res_detail(id=${dining.res_id})}" th:text="${dining.name}">Tremblant In Canada</a></h4>
                         </div>
                     </div>
                 </div>

@@ -18,6 +18,11 @@ public class RestaurantService {
     public List<restaurant> selectAll() {
         return restaurantMapper.selectAll();
     }
+
+    // 레스토랑 id로 정보 조회
+    public restaurant selectResId(Long res_id) {
+        return restaurantMapper.selectResId(res_id);
+    }
 }
 
 

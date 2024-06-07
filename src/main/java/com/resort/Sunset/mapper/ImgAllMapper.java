@@ -10,6 +10,9 @@ import java.util.List;
 public interface ImgAllMapper {
     // id로 객실 이미지 가져오기
     List<img_all> selectByRoomId(Long room_id);
+
+    // id로 레스토랑 이미지 가져오기
+    List<img_all> selectByResId(Long res_id);
 }
 
 
