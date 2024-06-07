@@ -30,34 +30,36 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6" th:each="room, index : ${roomInfo}">
-                    <div class="room-item">
-                        <img th:with="imgName=${#strings.substringAfter(room.room_img, '_')}"
-                             th:src="'/sunset_gallery/' + ${imgName}" alt="">
-                        <div class="ri-text">
-                            <h4 th:text="${room.name}">Premium King Room</h4>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="r-o">침대타입</td>
-                                        <td th:text="${roomBed.get(index.index)}">30 ft</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">투숙인원</td>
-                                        <td th:text="${room.max_people} + ' 명'">Max persion 3</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">객실면적</td>
-                                        <td th:text="${room.area} + ' m²'">King Beds m²</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">전망</td>
-                                        <td th:text="${roomView.get(index.index)}">Wifi, Television, Bathroom,... </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <a th:href="@{/roomDetail(id=${room.room_id})}" class="primary-btn">More Details</a>
+                    <a th:href="@{/roomDetail(id=${room.room_id})}">
+                        <div class="room-item">
+                            <img th:with="imgName=${#strings.substringAfter(room.room_img, '_')}"
+                                 th:src="'/sunset_gallery/' + ${imgName}" alt="">
+                            <div class="ri-text">
+                                <h4 th:text="${room.name}">Premium King Room</h4>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="r-o">침대타입</td>
+                                            <td th:text="${roomBed.get(index.index)}">30 ft</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">투숙인원</td>
+                                            <td th:text="${room.max_people} + ' 명'">Max persion 3</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">객실면적</td>
+                                            <td th:text="${room.area} + ' m²'">King Beds m²</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">전망</td>
+                                            <td th:text="${roomView.get(index.index)}">Wifi, Television, Bathroom,... </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+<!--                                <a th:href="@{/roomDetail(id=${room.room_id})}" class="primary-btn">More Details</a>-->
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="col-lg-12">
