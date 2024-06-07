@@ -15,4 +15,5 @@ public class restaurant {
     private String type;
     private String diningType;
     private String menu;
+    private String res_img;
 }

@@ -30,11 +30,6 @@ public class HomeController {
         return "/about-us";
     }
 
-    @GetMapping("/blog")
-    public String blog() {
-        return "/blog";
-    }
-
     @GetMapping("/blogDetail")
     public String blogDetail() {
         return "/blog-details";

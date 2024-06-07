@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+</head>
+
+<body>
+<div th:replace="fragments/header :: headerFragment"></div>
+<div th:include="fragments/nav.html"></div>
+    <!-- Breadcrumb Section Begin -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <h2>Restaurant</h2>
+                        <div class="bt-option">
+                            <a href="./home.html">Home</a>
+                            <span>Blog Grid</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Blog Section Begin -->
+    <section class="blog-section blog-page spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6" th:each="dining : ${restaurants}">
+                    <div class="blog-item set-bg"
+                         th:with="imgName=${#strings.substringAfter(dining.res_img, '_')}"
+                         th:attr="data-setbg=${'/sunset_gallery/' + imgName}">
+                    <div class="bi-text">
+                            <span class="b-tag" th:text="${dining.diningType}">Travel Trip</span>
+                            <h4><a href="/res_detail" th:text="${dining.name}">Tremblant In Canada</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section End -->
+<div th:replace="fragments/footer :: footerFragment"></div>
+
+</body>
+
+</html>
