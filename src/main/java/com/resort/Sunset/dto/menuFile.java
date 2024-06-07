@@ -8,8 +8,9 @@ import lombok.Setter;
 public class menuFile {
     private Long file_id;
 
-    private String fileName;
+    private String file_name;
     private String delete_flag;
+    private String menu_name;
 
     private Long res_id;
 }

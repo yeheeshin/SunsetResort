@@ -40,11 +40,6 @@
                     <h5 class="text-center" th:text="${restaurant.intro}">
                         intro~
                     </h5>
-                    <!-- 이미지 이름 출력 확인 -->
-<!--                    <div th:each="img : ${roomImg}">-->
-<!--                        <span th:if="${img.img_name != null}" th:text="${#strings.substringAfter(img.img_name, '_')}">Image Text</span>-->
-<!--                    </div>-->
-
                 </div>
             </div>
         </div>
@@ -80,7 +75,7 @@
             </div>
         </div>
         <hr>
-        <div class="row">
+        <div class="row" th:if="${restaurant.content} != 'NO'">
             <div class="col-2 infoTitle">
                 <h3>추가정보</h3>
             </div>
@@ -88,14 +83,19 @@
                 <ul>
                     <li class="xe">
                         <span th:utext="${#strings.replace(restaurant.content, '\n', '<br>')}"></span>
+                        <br>
                     </li>
                 </ul>
             </div>
+            <hr>
         </div>
-        <hr>
         <div class="row">
             <div class="col-2 infoTitle">
-                <h3>대표 메뉴</h3>
+                <h3>대표 메뉴</h3><br>
+                <div th:each="menuFile : ${menuFiles}">
+                    <a th:href="'/sunset_menu/' + ${menuFile.file_name}"
+                       th:text="${menuFile.menu_name} + ' 메뉴'" class="primary-btn res_menu" style="color: black" target="_blank">아침 메뉴</a><br><br>
+                </div>
             </div>
             <div class="col-10">
                 <ul>
