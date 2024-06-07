@@ -17,6 +17,7 @@ public class room {
     private String service;
     private String information;
     private String intro;
+    private String room_img;
 
     private Long am_id;
 }
