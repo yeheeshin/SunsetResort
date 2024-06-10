@@ -2409,3 +2409,12 @@ ul, ol {
 .subMenu ul li {
 	margin-right: 20px; /* 메뉴 아이템 간 간격 설정 */
 }
+.nav_menu2 {
+	justify-content: center;
+
+}
+.icon_search {
+	display: inline-block;
+	transform: scaleX(-1); /* 좌우로 뒤집기 */
+	font-size: 0.9em; /* 아이콘 크기 줄이기 (아이콘 폰트의 경우) */
+}

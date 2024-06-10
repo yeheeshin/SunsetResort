@@ -8,6 +8,7 @@
 </head>
 <body>
 <div th:replace="fragments/header :: headerFragment"></div>
+<div th:include="fragments/buyNav.html"></div>
 <div th:include="fragments/nav.html"></div>
 
 <form action="/fileUp" method="post" th:object="${allFile}" enctype="multipart/form-data">

@@ -52,7 +52,7 @@ public class RoomDetailController {
         model.addAttribute("amenities", amenities);
         model.addAttribute("roomImg", roomImg);
         model.addAttribute("roomImgJson", roomImgJson);
-        return "/room-details";
+        return "room_details";
     }
 
 }
