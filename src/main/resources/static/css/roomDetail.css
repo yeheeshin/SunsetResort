@@ -108,3 +108,17 @@ ul {
 .con2{
     max-width: 85%;
 }
+.store_num{
+    border: solid 1px #e8e8e8;
+    background-color: #e8e8e8;
+    border-radius: 10px;
+}
+.tel {
+    font-weight: bold;
+}
+.box-padding {
+    padding: 20px;
+}
+.fontInfo {
+    font-size: 18px;
+}

@@ -76,12 +76,21 @@
                 <h3>추가정보</h3>
             </div>
             <div class="col-10">
-                <h5 th:utext="${#strings.replace(store.content, '\n', '<br>')}">
+                <div class="fontInfo" th:utext="${#strings.replace(store.content, '\n', '<br>')}">
                     intro~
-                </h5>
+                </div>
+            </div>
+        </div><br><br>
+        <div class="row store_num">
+            <div class="col-2 infoTitle">
+                <h3 class="box-padding">문의 안내</h3>
+            </div>
+            <div class="col-10 box-padding">
+                <span class="tel fontInfo"> TEL</span>
+                <span class="fontInfo"> +82-2-3213-1383~4</span>
             </div>
         </div>
-        <hr>
+
     </div>
 </section>
 <!-- Room Details Section End -->
