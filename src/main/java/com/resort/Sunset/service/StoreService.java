@@ -23,6 +23,11 @@ public class StoreService {
     public store getStore(Long store_id) {
         return storeMapper.selectByStoreId(store_id);
     }
+
+    // 3개 부대시설 정보 가져오기
+    public List<store> getTop() {
+        return storeMapper.selectByTop();
+    }
 }
 
 

@@ -12,6 +12,9 @@ public interface StoreMapper {
 
     // id로 부대시설 상세 페이지 가져오기
     store selectByStoreId(Long store_id);
+
+    // 3개의 부대시설 정보 가져오기
+    List<store> selectByTop();
 }
 
 

@@ -9,4 +9,8 @@
     <select id="selectByStoreId" resultType="com.resort.Sunset.dto.store">
         SELECT * FROM store where store_id = ${store_id}
     </select>
+
+    <select id="selectByTop" resultType="com.resort.Sunset.dto.store">
+        SELECT * FROM store LIMIT 3;
+    </select>
 </mapper>

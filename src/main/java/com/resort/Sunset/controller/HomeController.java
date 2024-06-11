@@ -25,6 +25,15 @@ public class HomeController {
     private final RestaurantService restaurantService;
     private final RoomService roomService;
 
+    @GetMapping("/")
+    public String home(Model model) {
+        List<store> top = storeService.getTop();
+
+        model.addAttribute("top", top);
+
+        return "index";
+    }
+
     @GetMapping("/about")
     public String about() {
         return "/about-us";
