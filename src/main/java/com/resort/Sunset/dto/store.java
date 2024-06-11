@@ -16,4 +16,5 @@ public class store {
     private String name;
     private LocalTime open_time;
     private String store_type;
+    private String store_img;
 }

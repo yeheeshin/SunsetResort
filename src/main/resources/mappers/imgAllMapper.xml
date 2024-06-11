@@ -9,4 +9,8 @@
     <select id="selectByResId" resultType="com.resort.Sunset.dto.img_all">
         SELECT * FROM img_all WHERE res_id = #{res_id}
     </select>
+
+    <select id="selectByStoreId" resultType="com.resort.Sunset.dto.img_all">
+        SELECT * FROM img_all WHERE store_id = #{store_id}
+    </select>
 </mapper>

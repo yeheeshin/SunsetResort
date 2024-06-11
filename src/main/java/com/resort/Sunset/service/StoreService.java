@@ -18,6 +18,11 @@ public class StoreService {
     public List<store> selectAll() {
         return storeMapper.selectAll();
     }
+
+    // id로 부대시설 상세페이지 조회
+    public store getStore(Long store_id) {
+        return storeMapper.selectByStoreId(store_id);
+    }
 }
 
 

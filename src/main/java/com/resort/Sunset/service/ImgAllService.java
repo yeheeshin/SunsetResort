@@ -25,4 +25,8 @@ public class ImgAllService {
     public List<img_all> getResImg(Long res_id) {
         return imgAllMapper.selectByResId(res_id);
     }
+
+    public List<img_all> getStoreImg(Long store_id) {
+        return imgAllMapper.selectByStoreId(store_id);
+    }
 }

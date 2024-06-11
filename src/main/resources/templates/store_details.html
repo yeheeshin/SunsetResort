@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+</head>
+
+<body>
+<div th:replace="fragments/header :: headerFragment"></div>
+<div th:include="fragments/buyNav.html"></div>
+<link rel="stylesheet" href="css/roomDetail.css" type="text/css">
+<!-- Breadcrumb Section Begin -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2 th:text="${store.name}">Our Rooms</h2>
+                    <div class="bt-option">
+                        <a href="/">Home</a>
+                        <span>Rooms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Section End -->
+
+<!-- Room Details Section Begin -->
+<section class="room-details-section spad">
+    <div class="container" style="max-width: 85%">
+        <div class="room-details-item">
+            <div class="image-wrapper" style="position: relative;">
+                <img src="img/room/room-details.jpg" alt="" style="width: 1900px">
+                <button class="prev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%);">&#60;</button>
+                <button class="next" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);">&#62;</button>
+            </div>
+            <div class="rd-text">
+                <div class="rd-title">
+                    <h5 class="text-center" th:utext="${#strings.replace(store.intro, '\n', '<br>')}">
+                        intro~
+                    </h5>
+                    <!-- 이미지 이름 출력 확인 -->
+<!--                    <div th:each="img : ${roomImg}">-->
+<!--                        <span th:if="${img.img_name != null}" th:text="${#strings.substringAfter(img.img_name, '_')}">Image Text</span>-->
+<!--                    </div>-->
+
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-2 infoTitle">
+                <h3>부대시설 개요</h3>
+            </div>
+            <div class="col-10">
+                <ul>
+                    <li class="exexex">
+                        <div class="roomTitle">타입</div>
+                        <div th:text="${store.store_type}">2명</div>
+                    </li>
+                    <li class="exexex">
+                        <div class="roomTitle">위치</div>
+                        <div th:text="${store.location}"></div>
+                    </li>
+                    <li class="exexex">
+                        <div class="roomTitle">이용시간</div>
+                        <div th:text="${store.open_time} + ' ~ ' + ${store.close_time}">30~50 ㎡</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-2 infoTitle">
+                <h3>추가정보</h3>
+            </div>
+            <div class="col-10">
+                <h5 th:utext="${#strings.replace(store.content, '\n', '<br>')}">
+                    intro~
+                </h5>
+            </div>
+        </div>
+        <hr>
+    </div>
+</section>
+<!-- Room Details Section End -->
+
+<div th:replace="fragments/roomInfo :: infoFragment"></div>
+<div th:replace="fragments/footer :: footerFragment"></div>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    // 서버에서 전달된 JSON 데이터를 파싱
+    var imageListStr = /*[[${storeImgJson}]]*/ '[]';
+
+    // JSON 데이터가 유효한지 확인
+    try {
+        var imageList = JSON.parse(imageListStr);
+        if (!Array.isArray(imageList)) {
+            throw new Error('JSON 데이터가 배열이 아닙니다.');
+        }
+
+        // 각 이미지 객체의 img_name에서 '_'를 기준으로 분할하여 필요한 부분을 가져와서 배열로 저장
+        var imgNames = imageList.map(function(image) {
+            // '_'를 기준으로 분할하여 필요한 부분을 가져옴
+            var parts = image.img_name.split('_');
+            // '_' 이후의 문자열 반환
+            return parts.slice(1).join('_');
+        });
+
+        // img_name 값을 콘솔에 출력
+        console.log(imgNames);
+    } catch (error) {
+        console.error('JSON 파싱 오류:', error);
+    }
+
+    $(document).ready(function(){
+        var currentIndex = 0;
+
+        function showSlide(index) {
+            if (index < 0 || index >= imgNames.length) {
+                console.error('Invalid index:', index);
+                return;
+            }
+
+            var imageUrl = "/sunset_gallery/" + imgNames[index]; // 이미지 객체의 URL 속성 사용
+            if (!imageUrl) {
+                console.error('Image URL not found for index:', index);
+                return;
+            }
+
+            $(".room-details-item img").attr("src", imageUrl);
+        }
+
+        if (imgNames.length > 0) {
+            showSlide(currentIndex); // 초기 슬라이드 표시
+        } else {
+            console.error('imgNames is empty');
+        }
+
+        function nextSlide() {
+            currentIndex++;
+            if (currentIndex >= imgNames.length) {
+                currentIndex = 0;
+            }
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = imgNames.length - 1;
+            }
+            showSlide(currentIndex);
+        }
+
+        $(".prev").click(function(){
+            prevSlide();
+        });
+
+        $(".next").click(function(){
+            nextSlide();
+        });
+    });
+    /*]]>*/
+</script>
+
+</body>
+</html>
