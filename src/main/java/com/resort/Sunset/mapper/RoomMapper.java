@@ -23,4 +23,7 @@ public interface RoomMapper {
 
     // 객실이 가지고 있는 객실 이미지들
     List<String> oneRoomImg(Long room_id);
+
+    // 4개의 객실 정보 가져오기
+    List<room> selectTop();
 }

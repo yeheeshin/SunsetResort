@@ -27,9 +27,11 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model) {
-        List<store> top = storeService.getTop();
+        List<store> storeTop = storeService.getTop();
+        List<room> roomTop = roomService.getTop();
 
-        model.addAttribute("top", top);
+        model.addAttribute("storeTop", storeTop);
+        model.addAttribute("roomTop", roomTop);
 
         return "index";
     }

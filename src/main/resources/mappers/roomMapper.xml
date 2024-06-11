@@ -10,6 +10,10 @@
         SELECT * FROM room WHERE room_id = #{room_id}
     </select>
 
+    <select id="selectTop" resultType="com.resort.Sunset.dto.room">
+        SELECT * FROM room LIMIT 4;
+    </select>
+
     <select id="duplicateBed" resultType="java.lang.String">
         SELECT DISTINCT rb.room_bed
         FROM room_count rc

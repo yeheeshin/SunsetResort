@@ -25,6 +25,11 @@ public class RoomService {
         return roomMapper.selectById(room_id);
     }
 
+    // 4개의 객실 정보 가져오기
+    public List<room> getTop() {
+        return roomMapper.selectTop();
+    }
+
     public void insertImg(Map<String, Object> params) {
         roomMapper.insertImg(params);
     }

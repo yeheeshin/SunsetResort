@@ -741,7 +741,7 @@ ul, ol {
 	position: absolute;
 	left: 45px;
 	right: 25px;
-	bottom: -250px;
+	bottom: -130px;
 	-webkit-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
@@ -1952,11 +1952,11 @@ ul, ol {
 }
 /*-------------------------------- Respinsive Media Styles --------------------------------*/
 
-@media only screen and (min-width: 1554px) and (max-width: 1920px) {
-	.hp-room-items .hp-room-item .hr-text {
-		bottom: -200px;
-	}
-}
+/*@media only screen and (min-width: 1554px) and (max-width: 1920px) {*/
+/*	.hp-room-items .hp-room-item .hr-text {*/
+/*		bottom: -200px;*/
+/*	}*/
+/*}*/
 @media only screen and (min-width: 1200px) and (max-width: 1250px) {
 	.hp-room-items .hp-room-item .hr-text {
 		bottom: -288px;
