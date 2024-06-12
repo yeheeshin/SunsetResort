@@ -10,7 +10,6 @@ public class img_all {
 
     private String img_name;
 
-    private Long pro_id;
     private Long res_id;
     private Long room_id;
     private Long store_id;

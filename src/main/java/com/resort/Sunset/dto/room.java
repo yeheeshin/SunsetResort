@@ -1,7 +1,5 @@
 package com.resort.Sunset.dto;
 
-import com.resort.Sunset.dto.enumType.Rview;
-import com.resort.Sunset.dto.enumType.bed_type;
 import com.resort.Sunset.dto.enumType.room_class;
 import lombok.Getter;
 import lombok.Setter;

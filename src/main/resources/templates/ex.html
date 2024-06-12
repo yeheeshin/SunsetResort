@@ -15,17 +15,6 @@
     <input type="file" id="file" name="file" accept=".png, .jpg, .jpeg" multiple required />
     <br>
         <div class="row uploadImg">
-            <label>프로모션</label>
-            <select th:field="*{pro_id}">
-                <option value="">프로모션 선택</option>
-                <option th:each="selectPro : ${promotion}"
-                        th:value="${selectPro.pro_id}"
-                        th:text="${selectPro.name}">
-                </option>
-            </select>
-        </div>
-
-        <div class="row uploadImg">
             <label>다이닝</label>
             <select th:field="*{res_id}">
                 <option value="">다이닝 선택</option>

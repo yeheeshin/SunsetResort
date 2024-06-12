@@ -33,7 +33,6 @@ public class fileForm {
 
         Map<String, Object> params = new HashMap<>();
         params.put("img_name", fileName);
-        params.put("pro_id", fileForm.getPro_id());
         params.put("res_id", fileForm.getRes_id());
         params.put("room_id", fileForm.getRoom_id());
         params.put("store_id", fileForm.getStore_id());

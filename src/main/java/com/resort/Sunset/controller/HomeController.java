@@ -1,11 +1,9 @@
 package com.resort.Sunset.controller;
 
-import com.resort.Sunset.dto.promotion;
 import com.resort.Sunset.dto.restaurant;
 import com.resort.Sunset.dto.room;
 import com.resort.Sunset.dto.store;
 import com.resort.Sunset.form.fileForm;
-import com.resort.Sunset.service.PromotionService;
 import com.resort.Sunset.service.RestaurantService;
 import com.resort.Sunset.service.RoomService;
 import com.resort.Sunset.service.StoreService;
@@ -20,7 +18,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class HomeController {
 
-    private final PromotionService promotionService;
     private final StoreService storeService;
     private final RestaurantService restaurantService;
     private final RoomService roomService;
@@ -53,13 +50,11 @@ public class HomeController {
 
     @GetMapping("/ex")
     public String ex(fileForm fileForm, Model model) {
-        // 갖고 있는 프로모션, 부대시설, 레스토랑, 객실 모두 조회
-        List<promotion> promotions = promotionService.selectAll();
+        // 갖고 있는 부대시설, 레스토랑, 객실 모두 조회
         List<store> stores = storeService.selectAll();
         List<restaurant> restaurants = restaurantService.selectAll();
         List<room> rooms = roomService.selectAll();
 
-        model.addAttribute("promotion", promotions);
         model.addAttribute("store", stores);
         model.addAttribute("restaurant", restaurants);
         model.addAttribute("rooms", rooms);

@@ -29,14 +29,10 @@
     </select>
 
     <insert id="insertImg" parameterType="map">
-        INSERT INTO img_all (img_name, pro_id, res_id, room_id, store_id)
+        INSERT INTO img_all (img_name, res_id, room_id, store_id)
         VALUES
         (
         #{img_name},
-        <choose>
-            <when test="pro_id != null">#{pro_id}</when>
-            <otherwise>null</otherwise>
-        </choose>,
         <choose>
             <when test="res_id != null">#{res_id}</when>
             <otherwise>null</otherwise>
