@@ -51,10 +51,14 @@ document.addEventListener("DOMContentLoaded", function() {
         // 모든 countA 클래스를 가진 요소를 찾음
         var countA = document.querySelectorAll('.countA');
         var countC = document.querySelectorAll('.countC');
+        var countR = document.querySelectorAll('.room-label');
+
+
 
         // 총합을 저장할 변수 초기화
         var totalA = 0;
         var totalC = 0;
+        var totalR = 0;
 
         // 각 요소에 대해 반복문 실행
         countA.forEach(function(element) {
@@ -77,14 +81,26 @@ document.addEventListener("DOMContentLoaded", function() {
             // 추출한 숫자를 총합에 더함
             totalC += count;
         });
+        countR.forEach(function(element) {
+            // 각 요소의 텍스트 콘텐츠를 가져옴
+            var textContent = element.textContent;
+
+            // 공백을 기준으로 분할하여 숫자 부분을 추출
+            var count = parseInt(textContent.split(' ')[1]);
+
+            // 추출한 숫자를 총합에 더함
+            totalR = count;
+        });
 
         // childCount 클래스를 가진 요소를 찾음
         var adultCountElement = document.querySelector('.adultCount');
         var childCountElement = document.querySelector('.childCount');
+        var roomCountElement = document.querySelector('.roomCount');
 
         // childCount 요소의 텍스트 콘텐츠를 totalCount로 설정
         adultCountElement.textContent = totalA;
         childCountElement.textContent = totalC;
+        roomCountElement.textContent = totalR;
     }
 
     // 섹션 클릭 시 모달 열기
@@ -109,8 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // 모달 외부 클릭 시 닫기
     window.onclick = function(event) {
         if (event.target == modal) {
-
-
+            countModal();
             modal.style.display = "none";
         }
     }
