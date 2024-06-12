@@ -53,14 +53,14 @@ body {
 }
 
 .reservation-list__img {
-    width: 150px;
-    height: 100px;
+    width: auto;
+    height: 120px;
     margin-right: 10px;
 }
 
 .reservation-list__img img {
-    width: 150px;
-    height: 100px;
+    width: auto;
+    height: 120px;
 }
 
 .reservation-list__info {

@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -63,7 +64,7 @@ public class HomeController {
         return "/ex";
     }
 
-    @GetMapping("/roomRes")
+    @PostMapping("/roomRes")
     public String roomRes() {
         return "/roomRes";
     }
