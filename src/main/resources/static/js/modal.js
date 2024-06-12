@@ -53,8 +53,6 @@ document.addEventListener("DOMContentLoaded", function() {
         var countC = document.querySelectorAll('.countC');
         var countR = document.querySelectorAll('.room-label');
 
-
-
         // 총합을 저장할 변수 초기화
         var totalA = 0;
         var totalC = 0;
@@ -101,6 +99,22 @@ document.addEventListener("DOMContentLoaded", function() {
         adultCountElement.textContent = totalA;
         childCountElement.textContent = totalC;
         roomCountElement.textContent = totalR;
+
+        var openDate = document.querySelector('.col-1.openDate');
+        var finDate = document.querySelector('.col-1.vertical-line.finDate');
+        var sleepDate = document.querySelector('.col-1.sleepDay');
+
+        var openMon = dateInInput.value.split('-')[1]
+        var openDay = dateInInput.value.split('-')[2]
+        var finMon = dateOutInput.value.split('-')[1]
+        var finDay = dateOutInput.value.split('-')[2]
+
+        var sleepDay = parseInt(finDay) - parseInt(openDay)
+
+        openDate.textContent = openMon + "월 " + openDay + "일";
+        finDate.textContent = finMon + "월 " + finDay + "일";
+        sleepDate.textContent = sleepDay + "박";
+
     }
 
     // 섹션 클릭 시 모달 열기
