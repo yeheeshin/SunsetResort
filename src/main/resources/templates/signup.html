@@ -10,29 +10,34 @@
 <div th:replace="fragments/header :: headerFragment"></div>
 
 <!--ring div starts here-->
-<div class="ring">
-    <div class="signup">
-        <h2>회원 가입</h2>
-        <div class="inputBx">
-            <input type="text" placeholder="이름">
-        </div>
-        <div class="inputBx">
-            <input type="email" placeholder="Email">
-        </div>
-        <div class="inputBx">
-            <input type="password" placeholder="비밀번호">
-        </div>
-        <div class="inputBx">
-            <input type="password" placeholder="비밀번호 확인">
-        </div>
-        <div class="inputBx">
-            <input type="submit" value="회원가입">
-        </div>
-        <div class="links">
-            <a href="login">이미 회원이신가요?</a>
+<form method="post" action="sign" th:object="${user}">
+    <div class="ring">
+        <div class="signup">
+            <h2>회원 가입</h2>
+            <div class="inputBx">
+                <input th:field="*{email}" type="email" placeholder="Email">
+            </div>
+            <div class="inputBx">
+                <input th:field="*{name}" type="text" placeholder="이름">
+            </div>
+            <div class="inputBx">
+                <input th:field="*{phone}" type="text" placeholder="전화번호">
+            </div>
+            <div class="inputBx">
+                <input th:field="*{pwd}" type="password" placeholder="비밀번호">
+            </div>
+            <div class="inputBx">
+                <input type="password" placeholder="비밀번호 확인">
+            </div>
+            <div class="inputBx">
+                <input type="submit" value="회원가입">
+            </div>
+            <div class="links">
+                <a href="login">이미 회원이신가요?</a>
+            </div>
         </div>
     </div>
-</div>
+</form>
 <!--ring div ends here-->
 <div th:replace="fragments/footer :: footerFragment"></div>
 </body>

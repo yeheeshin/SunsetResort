@@ -14,7 +14,6 @@ import java.time.LocalDate;
 public class users {
     private Long user_id;
 
-    private LocalDate birth;
     private String email;
     private String name;
     private String phone;

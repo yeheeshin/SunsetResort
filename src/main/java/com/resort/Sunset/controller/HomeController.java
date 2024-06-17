@@ -3,14 +3,17 @@ package com.resort.Sunset.controller;
 import com.resort.Sunset.dto.restaurant;
 import com.resort.Sunset.dto.room;
 import com.resort.Sunset.dto.store;
+import com.resort.Sunset.dto.users;
 import com.resort.Sunset.form.fileForm;
 import com.resort.Sunset.service.RestaurantService;
 import com.resort.Sunset.service.RoomService;
 import com.resort.Sunset.service.StoreService;
+import com.resort.Sunset.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -22,6 +25,7 @@ public class HomeController {
     private final StoreService storeService;
     private final RestaurantService restaurantService;
     private final RoomService roomService;
+    private final UserService userService;
 
     @GetMapping("/")
     public String home(Model model) {
@@ -86,8 +90,18 @@ public class HomeController {
     }
 
     @GetMapping("/sign")
-    public String signUp() {
+    public String signUp(Model model) {
+        users user = new users();
+
+        model.addAttribute("user", user);
         return "/signup";
+    }
+
+    @PostMapping("/sign")
+    public String join(Model model, @ModelAttribute("user")users user) {
+        userService.saveUser(user);
+
+        return "/login";
     }
 
     @GetMapping("/error")
