@@ -27,11 +27,11 @@ public class SecurityConfig {
                 )
                 .formLogin(formLogin ->
                         formLogin
-                                .loginPage("/user/login")
+                                .loginPage("/login")
                                 .usernameParameter("email")
                                 .passwordParameter("pwd")
                                 .defaultSuccessUrl("/", true)
-                                .failureUrl("/user/loginError")
+                                .failureUrl("/error")
                 )
                 .logout(logout ->
                         logout
