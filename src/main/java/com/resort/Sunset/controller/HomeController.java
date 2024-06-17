@@ -84,4 +84,9 @@ public class HomeController {
     public String login() {
         return "/login";
     }
+
+    @GetMapping("/sign")
+    public String signUp() {
+        return "/signup";
+    }
 }

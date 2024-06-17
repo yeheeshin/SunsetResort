@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+<body>
+<div th:replace="fragments/header :: headerFragment"></div>
+
+<!--ring div starts here-->
+<div class="ring">
+    <div class="signup">
+        <h2>Signup</h2>
+        <div class="inputBx">
+            <input type="text" placeholder="Username">
+        </div>
+        <div class="inputBx">
+            <input type="email" placeholder="Email">
+        </div>
+        <div class="inputBx">
+            <input type="password" placeholder="Password">
+        </div>
+        <div class="inputBx">
+            <input type="password" placeholder="Confirm Password">
+        </div>
+        <div class="inputBx">
+            <input type="submit" value="Sign up">
+        </div>
+        <div class="links">
+            <a href="#">Already have an account? Login</a>
+        </div>
+    </div>
+</div>
+<!--ring div ends here-->
+<div th:replace="fragments/footer :: footerFragment"></div>
+</body>
+</html>
