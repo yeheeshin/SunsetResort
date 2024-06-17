@@ -29,14 +29,20 @@ public class OrderController {
     public String room_res(Model model) {
         List<Long> longs = roomService.allRoomIds();
         List<room> allRoom = new ArrayList<>();
+        List<String> roomView = new ArrayList<>();
 
-        for (Long roomId : longs) {
-            room room = roomService.getRoom(roomId);
+        for (int i =0; i < longs.size(); i++) {
 
+            List<String> view = roomService.roomView(longs.get(i));
+            roomView.add(i, String.join(" / ", view));
+
+            room room = roomService.getRoom(longs.get(i));
             allRoom.add(room);
+
         }
 
         model.addAttribute("allRoom", allRoom);
+        model.addAttribute("roomView", roomView);
 
         return "/roomRes";
     }

@@ -17,7 +17,7 @@
 <aside class="destination-widget">
     <div class="reservation">
         <h4 class="reservation__title">제목</h4>
-        <ul class="reservation-list" th:each="room : ${allRoom}">
+        <ul class="reservation-list" th:each="room, index : ${allRoom}">
             <li class="reservation-list__item">
                 <div class="reservation-list__img">
                     <img th:with="imgName=${#strings.substringAfter(room.room_img, '_')}"
@@ -25,7 +25,7 @@
                 </div>
                 <div class="reservation-list__info">
                     <h4 class="reservation-list__guest" th:text="${room.name}">그랜드 디럭스 더블 시티뷰 </h4>
-                    <span class="reservation-list__place">전망 시티뷰 / 리버뷰 / 시티뷰(전망욕실) / 리버뷰(전망욕실)</span>
+                    <span class="reservation-list__place" th:text="${roomView.get(index.index)}">전망 시티뷰 / 리버뷰 / 시티뷰(전망욕실) / 리버뷰(전망욕실)</span>
                     <div class="reservation-list__price">
                         <button>450,000 KRW </button>
                     </div>
