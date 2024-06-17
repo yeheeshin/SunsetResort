@@ -1,5 +1,5 @@
 <!-- Header Section Begin -->
-<header class="header-section2">
+<header class="header-section2" xmlns:sec="http://www.w3.org/1999/xhtml">
     <div class="menu-item">
         <div class="container">
             <div class="row">
@@ -15,15 +15,17 @@
                                 <li><a href="/contact">호텔 찾기</a></li>
                                 <li><a href="/about">멤버십</a></li>
                                 <!-- 로그인 안 했을 때-->
-                                <li><a href="/room">예약조회</a></li>
-                                <li><a href="/about">로그인</a></li>
-                                <li><a href="/about">회원가입</a></li>
+                                <th:block sec:authorize="isAnonymous()">
+                                    <li><a href="/room">예약조회</a></li>
+                                    <li><a href="/login">로그인</a></li>
+                                    <li><a href="/sign">회원가입</a></li>
+                                </th:block>
 
-                                <th:block th:if="1 == 2">
+                                <th:block sec:authorize="isAuthenticated()">
                                     <!-- 로그인 했을 때-->
                                     <li><a href="/room">쿠폰</a></li>
                                     <li><a href="/about">마이 페이지</a></li>
-                                    <li><a href="/about">로그아웃</a></li>
+                                    <li><a href="/logout">로그아웃</a></li>
                                 </th:block>
                             </ul>
                         </nav>
