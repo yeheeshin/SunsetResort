@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+<div th:replace="fragments/header :: headerFragment"></div>
+
+<!--ring div starts here-->
+<div class="ring">
+    <i style="--clr:#A9D0F5;"></i>
+    <i style="--clr:#2E64FE;"></i>
+    <i style="--clr:#2E9AFE;"></i>
+    <div class="login">
+        <h2>Login</h2>
+        <div class="inputBx">
+            <input type="text" placeholder="Username">
+        </div>
+        <div class="inputBx">
+            <input type="password" placeholder="Password">
+        </div>
+        <div class="inputBx">
+            <input type="submit" value="Sign in">
+        </div>
+        <div class="links">
+            <a href="#">Forget Password</a>
+            <a href="#">Signup</a>
+        </div>
+    </div>
+</div>
+<!--ring div ends here-->
+<div th:replace="fragments/footer :: footerFragment"></div>
+</body>
+</html>
