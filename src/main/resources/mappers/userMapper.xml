@@ -7,7 +7,7 @@
     </select>
 
     <insert id="saveUser" parameterType="com.resort.Sunset.dto.users">
-        insert into users (birth, email, name, phone, pwd)
-        VALUES (#{birth}, #{email}, #{name}, #{phone}, #{pwd})
+        insert into users (email, name, phone, pwd)
+        VALUES (#{email}, #{name}, #{phone}, #{pwd})
     </insert>
 </mapper>

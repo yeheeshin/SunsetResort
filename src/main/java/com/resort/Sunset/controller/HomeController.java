@@ -10,6 +10,7 @@ import com.resort.Sunset.service.RoomService;
 import com.resort.Sunset.service.StoreService;
 import com.resort.Sunset.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +27,7 @@ public class HomeController {
     private final RestaurantService restaurantService;
     private final RoomService roomService;
     private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
 
     @GetMapping("/")
     public String home(Model model) {
@@ -99,6 +101,8 @@ public class HomeController {
 
     @PostMapping("/sign")
     public String join(Model model, @ModelAttribute("user")users user) {
+        user.setPwd(passwordEncoder.encode(user.getPwd()));
+
         userService.saveUser(user);
 
         return "/login";

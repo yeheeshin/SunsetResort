@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class UserService {
     private final UserMapper userMapper;
-    private final PasswordEncoder passwordEncoder;
 
     // id로 유저 정보 가져오기
     public users getUser(String email) {
@@ -21,7 +20,6 @@ public class UserService {
 
     // 회원가입
     public void saveUser(users user) {
-        user.setPwd(passwordEncoder.encode(user.getPwd()));
         userMapper.saveUser(user);
     }
 }
