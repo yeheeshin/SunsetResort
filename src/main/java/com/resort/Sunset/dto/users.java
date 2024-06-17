@@ -1,13 +1,17 @@
 package com.resort.Sunset.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
-public class user {
+@AllArgsConstructor
+@NoArgsConstructor
+public class users {
     private Long user_id;
 
     private LocalDate birth;
