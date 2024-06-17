@@ -70,11 +70,6 @@ public class HomeController {
         return "/ex";
     }
 
-    @PostMapping("/roomRes")
-    public String roomRes() {
-        return "/roomRes";
-    }
-
     @GetMapping("/rOrder")
     public String roomOrder() {
         return "/roomOrder";

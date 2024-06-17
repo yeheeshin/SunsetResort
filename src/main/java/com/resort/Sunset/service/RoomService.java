@@ -42,6 +42,7 @@ public class RoomService {
         return roomMapper.duplicateView(room_id);
     }
 
+    // 모든 객실 pk 가져오기
     public List<Long> allRoomIds() {
         List<room> rooms = roomMapper.allRoom();
 
