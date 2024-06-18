@@ -6,12 +6,35 @@ document.addEventListener("DOMContentLoaded", function() {
     const dateInInput = document.getElementById("date-in");
     const dateOutInput = document.getElementById("date-out");
 
-    // Flatpickr 설정
-    flatpickr(dateInInput, {
-        dateFormat: "Y-m-d"
+    // 오늘 날짜와 내일 날짜 계산
+    var today = new Date();
+    var tomorrow = new Date();
+    tomorrow.setDate(today.getDate() + 1);
+
+    var year = today.getFullYear();
+    var month = ('0' + (today.getMonth() + 1)).slice(-2);
+    var day = ('0' + today.getDate()).slice(-2);
+    var nextDay = ('0' + tomorrow.getDate()).slice(-2);
+
+    var startDate = year + '-' + month + '-' + day;
+    var endDate = year + '-' + month + '-' + nextDay;
+
+    // flatpickr 설정
+    var checkInPicker = flatpickr("#date-in", {
+        dateFormat: "Y-m-d",
+        defaultDate: startDate,
+        onChange: function(selectedDates, dateStr, instance) {
+            var minCheckoutDate = new Date(selectedDates[0]);
+            minCheckoutDate.setDate(minCheckoutDate.getDate() + 1);
+            checkOutPicker.set('minDate', minCheckoutDate);
+            checkOutPicker.setDate(minCheckoutDate);
+        }
     });
-    flatpickr(dateOutInput, {
-        dateFormat: "Y-m-d"
+
+    var checkOutPicker = flatpickr("#date-out", {
+        dateFormat: "Y-m-d",
+        defaultDate: endDate,
+        minDate: tomorrow
     });
 
     // 모달 초기화 함수 (아직 사용 안 함)
