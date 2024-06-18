@@ -18,12 +18,12 @@
             <a href="#" class="row second_coll" id="collapseExample">
                 <div class="col-1"></div>
                 <div class="col-1 vertical-line">선셋 리조트</div>
-                <div class="col-1 openDate">04월 23일(화)</div>
-                <div class="col-1 sleepDay">1 박</div>
-                <div class="col-1 vertical-line finDate">04월 24일(수)</div>
-                <div class="col-1 roomCount">1</div>
-                <div class="col-1 adultCount">2</div>
-                <div class="col-1 vertical-line childCount">0</div>
+                <div class="col-1 openDate" id="openDate">2024-02-02</div>
+                <div class="col-1 sleepDay" id="sleepDay">1 박</div>
+                <div class="col-1 vertical-line finDate" id="finDate">2024-02-03</div>
+                <div class="col-1 roomCount" id="roomCount">1</div>
+                <div class="col-1 adultCount" id="adultCount">2</div>
+                <div class="col-1 vertical-line childCount" id="childCount">0</div>
                 <div class="col-2">
                     <button class="btnCss">예약하기</button>
                 </div>
@@ -89,5 +89,47 @@
         </div>
 
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var today = new Date();
+
+            var year = today.getFullYear();
+            var month = ('0' + (today.getMonth() + 1)).slice(-2);
+            var day = ('0' + today.getDate()).slice(-2);
+
+            var dayInt = parseInt(day, 10);
+
+            var startDate = year + '-' + month  + '-' + day;
+            var closeDate = year + '-' + month  + '-' + (dayInt+1);
+
+            console.log(startDate);
+
+            // 기본값 설정
+            const defaultValues = {
+                sleepDay: '1 박',
+                roomCount: '1',
+                adultCount: '1',
+                childCount: '0'
+            };
+
+            // 로컬 스토리지에서 값 불러오기
+            const openDate = localStorage.getItem('openDate') || startDate;
+            const sleepDay = localStorage.getItem('sleepDay') || defaultValues.sleepDay;
+            const finDate = localStorage.getItem('finDate') || closeDate;
+            const roomCount = localStorage.getItem('roomCount') || defaultValues.roomCount;
+            const adultCount = localStorage.getItem('adultCount') || defaultValues.adultCount;
+            const childCount = localStorage.getItem('childCount') || defaultValues.childCount;
+
+            // 데이터를 표시할 요소에 할당
+            document.getElementById('openDate').textContent = openDate;
+            document.getElementById('sleepDay').textContent = sleepDay;
+            document.getElementById('finDate').textContent = finDate;
+            document.getElementById('roomCount').textContent = roomCount;
+            document.getElementById('adultCount').textContent = adultCount;
+            document.getElementById('childCount').textContent = childCount;
+
+        });
+    </script>
 </th:block>
 </html>

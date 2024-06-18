@@ -46,6 +46,24 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    function saveData() {
+        // 각 요소의 값을 가져오기
+        const openDate = document.getElementById('openDate').textContent;
+        const sleepDay = document.getElementById('sleepDay').textContent;
+        const finDate = document.getElementById('finDate').textContent;
+        const roomCount = document.getElementById('roomCount').textContent;
+        const adultCount = document.getElementById('adultCount').textContent;
+        const childCount = document.getElementById('childCount').textContent;
+
+        // 로컬 스토리지에 저장
+        localStorage.setItem('openDate', openDate);
+        localStorage.setItem('sleepDay', sleepDay);
+        localStorage.setItem('finDate', finDate);
+        localStorage.setItem('roomCount', roomCount);
+        localStorage.setItem('adultCount', adultCount);
+        localStorage.setItem('childCount', childCount);
+    }
+
     // 객실, 성인, 어린이 수 값 가져오기
     function countModal() {
         // 모든 countA 클래스를 가진 요소를 찾음
@@ -104,15 +122,18 @@ document.addEventListener("DOMContentLoaded", function() {
         var finDate = document.querySelector('.col-1.vertical-line.finDate');
         var sleepDate = document.querySelector('.col-1.sleepDay');
 
+        var openYear = dateInInput.value.split('-')[0]
         var openMon = dateInInput.value.split('-')[1]
         var openDay = dateInInput.value.split('-')[2]
+
+        var finYear = dateOutInput.value.split('-')[0]
         var finMon = dateOutInput.value.split('-')[1]
         var finDay = dateOutInput.value.split('-')[2]
 
         var sleepDay = parseInt(finDay) - parseInt(openDay)
 
-        openDate.textContent = openMon + "월 " + openDay + "일";
-        finDate.textContent = finMon + "월 " + finDay + "일";
+        openDate.textContent = openYear + "-" + openMon + "-" + openDay;
+        finDate.textContent = finYear + "-" + finMon + "-" + finDay;
         sleepDate.textContent = sleepDay + "박";
 
     }
@@ -125,6 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // 모달 닫기
     closeModalBtn.onclick = function() {
         countModal();
+        saveData();
         modal.style.display = "none";
     }
 
@@ -132,6 +154,7 @@ document.addEventListener("DOMContentLoaded", function() {
     confirmSelectionBtn.onclick = function() {
         event.preventDefault();
         countModal();
+        saveData();
 
         modal.style.display = "none";
     }
@@ -140,6 +163,7 @@ document.addEventListener("DOMContentLoaded", function() {
     window.onclick = function(event) {
         if (event.target == modal) {
             countModal();
+            saveData();
             modal.style.display = "none";
         }
     }

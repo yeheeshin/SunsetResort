@@ -27,7 +27,7 @@
                     <h4 class="reservation-list__guest" th:text="${room.name}">그랜드 디럭스 더블 시티뷰 </h4>
                     <span class="reservation-list__place" th:text="${roomView.get(index.index)}">전망 시티뷰 / 리버뷰 / 시티뷰(전망욕실) / 리버뷰(전망욕실)</span>
                     <div class="reservation-list__price">
-                        <button th:text="${#numbers.formatInteger(roomPrice.get(index.index),0, 'COMMA') + ' 원'}">450,000 KRW</button>                     </div>
+                        <button th:text="${#numbers.formatInteger(roomPrice.get(index.index),0, 'COMMA') + ' KRW'}">450,000 KRW</button>                     </div>
                 </div>
             </li>
         </ul>
