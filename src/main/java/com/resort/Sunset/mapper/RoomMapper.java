@@ -2,6 +2,7 @@ package com.resort.Sunset.mapper;
 
 import com.resort.Sunset.dto.img_all;
 import com.resort.Sunset.dto.room;
+import com.resort.Sunset.dto.room_price;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -26,4 +27,7 @@ public interface RoomMapper {
 
     // 4개의 객실 정보 가져오기
     List<room> selectTop();
+
+    // 객실 가격 가져오기
+    room_price getPrice(Long room_id, String diff);
 }

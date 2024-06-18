@@ -2,11 +2,15 @@ package com.resort.Sunset.service;
 
 import com.resort.Sunset.dto.img_all;
 import com.resort.Sunset.dto.room;
+import com.resort.Sunset.dto.room_price;
 import com.resort.Sunset.mapper.RoomMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -53,5 +57,21 @@ public class RoomService {
         }
 
         return roomIds;
+    }
+
+    // 성수기, 비수기에 따른 객실 가격 가져오기
+    public room_price getPrice(Long room_id) {
+        String diff = "";
+        LocalDate nowDate = LocalDate.now();
+        int monthValue = nowDate.getMonthValue();
+
+        if (monthValue == 6 || monthValue == 7 || monthValue == 8) {
+            diff = "peak";
+        } else {
+            diff = "off";
+        }
+
+        return roomMapper.getPrice(room_id, diff);
+
     }
 }
