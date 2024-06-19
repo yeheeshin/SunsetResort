@@ -24,19 +24,20 @@
     <h5 class="tax">예약 옵션</h5><br>
     <div class="booking-options">
         <div class="room-details">
-            <span class="fontSize">객실 1</span>
-            <span class="rdetail">투숙 인원: 성인 2인, 어린이 0인</span><hr><br>
+            <span class="fontSize" th:text="'객실 * ' + ${resForm.hidden_adultCount}">객실</span>
+            <span class="rdetail"
+                  th:text="'투숙 인원: 성인 ' + ${resForm.hidden_adultCount} + '인, 어린이 ' + ${resForm.hidden_childCount} + '인 '">투숙 인원: 성인 2인, 어린이 0인</span><hr><br>
             <div class="breakfast-option">
-                <label for="breakfast" class="fontSize">조식신청 (성인)</label>
+                <label class="fontSize">조식신청 (성인)</label>
                 <span class="rdetail">모든 투숙일에 적용됩니다.</span>
                 <div class="breakfast-selection mt">
                     <span>성인 조식</span>
                     <span>56,198 KRW / 1인, 1박</span>
-                    <input type="number" id="breakfast1" name="breakfast" min="0" max="10" value="0">
+                    <input type="number" id="breakfast1" name="breakfast" min="0" th:max="${resForm.hidden_adultCount}" value="0">
                 </div><br><hr>
             </div>
             <div class="additional-requests">
-                <label for="requests" class="fontSize">추가요청</label>
+                <label class="fontSize">추가요청</label>
                 <textarea id="requests1" name="requests" placeholder="예시) 추가 베드를 요청합니다."></textarea>
             </div>
         </div>
@@ -46,7 +47,7 @@
         <div class="pricing-details">
             <p class="fontSize">객실 요금</p>
             <p>
-                <span>2024년 05월 23일</span>
+                <span th:text="${resForm.hidden_openDate}">2024년 05월 23일</span>
                 <span>550,000 KRW</span>
             </p><br>
             <p class="fontSize">옵션 요금</p>
@@ -60,55 +61,11 @@
                 <span class="tax">115,500 KRW</span>
             </p><hr><br>
             <p>
-                <span class="fontSize">객실 1 총 요금</span>
+                <span class="fontSize">객실 총 요금</span>
                 <span class="fontSize">665,500 KRW</span>
             </p>
         </div>
     </div><br>
-
-    <div class="booking-options">
-        <div class="room-details">
-            <span class="fontSize">객실 2</span>
-            <span class="rdetail">투숙 인원: 성인 2인, 어린이 0인</span><hr><br>
-            <div class="breakfast-option">
-                <label for="breakfast" class="fontSize">조식신청 (성인)</label>
-                <span class="rdetail">모든 투숙일에 적용됩니다.</span>
-                <div class="breakfast-selection mt">
-                    <span>성인 조식</span>
-                    <span>56,198 KRW / 1인, 1박</span>
-                    <input type="number" id="breakfast" name="breakfast" min="0" max="10" value="0">
-                </div><br><hr>
-            </div>
-            <div class="additional-requests">
-                <label for="requests" class="fontSize">추가요청</label>
-                <textarea id="requests" name="requests" placeholder="예시) 추가 베드를 요청합니다."></textarea>
-            </div>
-        </div>
-        <div>
-
-        </div>
-        <div class="pricing-details">
-            <p class="fontSize">객실 요금</p>
-            <p>
-                <span>2024년 05월 23일</span>
-                <span>550,000 KRW</span>
-            </p><br>
-            <p class="fontSize">옵션 요금</p>
-            <p>조식신청 (성인)</p>
-            <p>
-                <span>성인 조식 0 * 박</span>
-                <span> 0 KRW</span>
-            </p><br>
-            <p>
-                <span class="tax">세금 및 봉사료</span>
-                <span class="tax">115,500 KRW</span>
-            </p><hr><br>
-            <p>
-                <span class="fontSize">객실 2 총 요금</span>
-                <span class="fontSize">665,500 KRW</span>
-            </p>
-        </div>
-    </div>
     <hr><br>
 
     <div class="row">

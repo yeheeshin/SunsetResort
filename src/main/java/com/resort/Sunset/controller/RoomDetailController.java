@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.resort.Sunset.dto.amenities;
 import com.resort.Sunset.dto.img_all;
 import com.resort.Sunset.dto.room;
+import com.resort.Sunset.form.resForm;
 import com.resort.Sunset.service.AmenitiesService;
 import com.resort.Sunset.service.ImgAllService;
 import com.resort.Sunset.service.RoomService;
@@ -12,6 +13,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -53,6 +56,17 @@ public class RoomDetailController {
         model.addAttribute("roomImg", roomImg);
         model.addAttribute("roomImgJson", roomImgJson);
         return "room_details";
+    }
+
+    // 객실 에약
+    @PostMapping("/rEx")
+    public String roomRes(@ModelAttribute resForm resForm, Model model) {
+
+        model.addAttribute("resForm", resForm);
+        System.out.println("resForm.getAdultCount() = " + resForm.getHidden_adultCount());
+        System.out.println("resForm.getRoom_id() = " + resForm.getRoom_id());
+
+        return "/roomOrder";
     }
 
 }

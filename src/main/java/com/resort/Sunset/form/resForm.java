@@ -6,9 +6,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class resForm {
-    private String checkIn;
-    private String checkOut;
-    private String adult;
-    private String child;
+    private Long room_id;
+    private String hidden_openDate;
+    private String hidden_sleepDay;
+    private String hidden_finDate;
+    private String hidden_roomCount;
+    private String hidden_childCount;
+    private String hidden_adultCount;
 
 }

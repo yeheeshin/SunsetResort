@@ -2,6 +2,7 @@ package com.resort.Sunset.controller;
 
 import com.resort.Sunset.dto.*;
 import com.resort.Sunset.form.fileForm;
+import com.resort.Sunset.form.resForm;
 import com.resort.Sunset.service.RestaurantService;
 import com.resort.Sunset.service.RoomService;
 import com.resort.Sunset.service.StoreService;
@@ -48,6 +49,7 @@ public class OrderController {
         model.addAttribute("allRoom", allRoom);
         model.addAttribute("roomView", roomView);
         model.addAttribute("roomPrice", roomPrice);
+        model.addAttribute("resForm", new resForm());
 
         return "/roomRes";
     }
