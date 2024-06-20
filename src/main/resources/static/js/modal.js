@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var checkInPicker = flatpickr("#date-in", {
         dateFormat: "Y-m-d",
         defaultDate: startDate,
+        minDate: startDate,
         onChange: function(selectedDates, dateStr, instance) {
             var minCheckoutDate = new Date(selectedDates[0]);
             minCheckoutDate.setDate(minCheckoutDate.getDate() + 1);
@@ -46,16 +47,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="room-label">객실 1</div>
                 <div class="counter">
                     <button class="decrease">-</button>
-                    <div class="count">성인 1</div>
+                    <div class="count countA">성인 1</div>
                     <button class="increase">+</button>
                 </div>
                 <div class="counter">
                     <button class="decrease">-</button>
-                    <span class="count">어린이 1</span>
+                    <div class="count countC">어린이 1</div>
                     <button class="increase">+</button>
                 </div>
-                <div class="counter">
-                </div>
+                <div class="counter"></div>
             </div>
         `;
 
@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // 선택 완료 버튼 클릭 시 모달 닫기 및 초기화
-    confirmSelectionBtn.onclick = function() {
+    confirmSelectionBtn.onclick = function(event) {
         event.preventDefault();
         countModal();
         saveData();
