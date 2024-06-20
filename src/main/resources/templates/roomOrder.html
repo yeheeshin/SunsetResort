@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/css/roomOrder.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <style>
+    </style>
 </head>
 <body>
 <div th:replace="fragments/header :: headerFragment"></div>
@@ -15,13 +17,9 @@
 
 <div class="container2">
     <p><h6>시그니엘 서울</h6></p>
-    <h4>그랜드 디럭스 더블 시티뷰, 일반 요금</h4>
-    <p class="mt">
-        <span class="infoModal">룸 프로모션 정보 > </span>
-        <span class="infoModal">객실 정보 및 이미지 > </span>
-    </p>
+    <h4 th:text="${selRoom.name}">그랜드 디럭스 더블 시티뷰, 일반 요금</h4>
     <hr><br>
-    <h5 class="tax">예약 옵션</h5><br>
+    <h5>예약 옵션</h5><br>
     <div class="booking-options">
         <div class="room-details">
             <span class="fontSize" th:text="'객실 * ' + ${resForm.hidden_adultCount}">객실</span>
@@ -32,8 +30,12 @@
                 <span class="rdetail">모든 투숙일에 적용됩니다.</span>
                 <div class="breakfast-selection mt">
                     <span>성인 조식</span>
-                    <span>56,198 KRW / 1인, 1박</span>
-                    <input type="number" id="breakfast1" name="breakfast" min="0" th:max="${resForm.hidden_adultCount}" value="0">
+                    <span>56,000 KRW / 1인, 1박</span>
+                    <div class="product-count row">
+                        <div class="qtyminus">-</div>
+                        <input type="number" name="quantity" th:max="${resForm.hidden_adultCount}" value="0" class="qty">
+                        <div class="qtyplus">+</div>
+                    </div>
                 </div><br><hr>
             </div>
             <div class="additional-requests">
@@ -48,21 +50,24 @@
             <p class="fontSize">객실 요금</p>
             <p>
                 <span th:text="${resForm.hidden_openDate}">2024년 05월 23일</span>
-                <span>550,000 KRW</span>
+                <span th:text="${#numbers.formatInteger(selPrice.price, 0, 'COMMA')} + ' KRW * ' + ${resForm.hidden_adultCount}">550,000 KRW</span>
             </p><br>
             <p class="fontSize">옵션 요금</p>
             <p>조식신청 (성인)</p>
             <p>
-                <span>성인 조식 0 * 박</span>
-                <span> 0 KRW</span>
-            </p><br>
+                <span class="breakfast-count">성인 조식 0 * 박</span>
+                <span class="breakfast-price">0 KRW</span>
+            </p>
+            <br>
             <p>
-                <span class="tax">세금 및 봉사료</span>
-                <span class="tax">115,500 KRW</span>
-            </p><hr><br>
+                <span class="tax-label">세금 및 봉사료</span>
+                <span class="tax">0 KRW</span>
+            </p>
+            <hr>
+            <br>
             <p>
                 <span class="fontSize">객실 총 요금</span>
-                <span class="fontSize">665,500 KRW</span>
+                <span class="total-price">총 금액: 0 KRW</span>
             </p>
         </div>
     </div><br>
@@ -131,16 +136,16 @@
                     <div>15:00/11:00</div>
                 </li>
                 <li class="exexex">
-                    <div class="roomTitle">투숙인원</div>
+                    <div class="roomTitle">최대 투숙인원</div>
                     <div>2명</div>
                 </li>
                 <li class="exexex">
                     <div class="roomTitle">전망</div>
-                    <div>시티뷰/리버뷰/<br>시티뷰(전망욕실)/<br>리버뷰(전망욕실)</div>
+                    <div th:text="${oneView}">시티뷰/리버뷰/<br>시티뷰(전망욕실)/<br>리버뷰(전망욕실)</div>
                 </li>
                 <li class="exexex">
                     <div class="roomTitle">객실면적</div>
-                    <div>30~50 ㎡</div>
+                    <div th:text="${selRoom.area}">30~50 ㎡</div>
                 </li>
             </ul>
         </div>
@@ -153,30 +158,29 @@
         <div class="col-10">
             <div class="row">
                 <div class="col-4">
-                    <div class="roomTitle">일반</div>
+                    <div class="roomTitle" style="text-align:center;">일반</div>
                     <ul>
-                        <li class="xe">
-                            <span></span>
+                        <li class="xe" th:each="item : ${amenities.general.split('\\n')}">
+                            <span th:text="${item}"></span>
                         </li>
                     </ul>
                 </div>
                 <div class="col-4">
-                    <div class="roomTitle">욕실</div>
+                    <div class="roomTitle" style="text-align:center;">욕실</div>
                     <ul>
-                        <li class="xe">
-                            <span></span>
+                        <li class="xe" th:each="item : ${amenities.bath.split('\\n')}">
+                            <span th:text="${item}"></span>
                         </li>
                     </ul>
                 </div>
                 <div class="col-4">
-                    <div class="roomTitle">기타</div>
+                    <div class="roomTitle" style="text-align:center;">기타</div>
                     <ul>
-                        <li class="xe">
-                            <span></span>
+                        <li class="xe" th:each="item : ${amenities.etc.split('\\n')}">
+                            <span th:text="${item}"></span>
                         </li>
                     </ul>
                 </div>
-
             </div>
         </div>
     </div>
@@ -184,10 +188,12 @@
 
 
 
-
+    <input type="hidden" id="hidden_room_price" th:value="${selPrice.price}">
+    <input type="hidden" id="hidden_adult_count" th:value="${resForm.hidden_adultCount}">
 
 </div>
 <div th:replace="fragments/footer :: footerFragment"></div>
+<script src="js/roomOrder.js"></script>
 
 </body>
 </html>

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.resort.Sunset.dto.amenities;
 import com.resort.Sunset.dto.img_all;
 import com.resort.Sunset.dto.room;
+import com.resort.Sunset.dto.room_price;
 import com.resort.Sunset.form.resForm;
 import com.resort.Sunset.service.AmenitiesService;
 import com.resort.Sunset.service.ImgAllService;
@@ -65,6 +66,22 @@ public class RoomDetailController {
         model.addAttribute("resForm", resForm);
         System.out.println("resForm.getAdultCount() = " + resForm.getHidden_adultCount());
         System.out.println("resForm.getRoom_id() = " + resForm.getRoom_id());
+
+        Long roomId = resForm.getRoom_id();
+        room selRoom = roomService.getRoom(roomId);
+
+        room_price selPrice = roomService.getPrice(roomId);
+
+        List<String> roomView = roomService.roomView(roomId);
+        String oneView = String.join(" / ", roomView);
+
+        Long amId = selRoom.getAm_id();
+        amenities amenities = amenitiesService.getAmenities(amId);
+
+        model.addAttribute("selRoom", selRoom);
+        model.addAttribute("selPrice", selPrice);
+        model.addAttribute("oneView", oneView);
+        model.addAttribute("amenities", amenities);
 
         return "/roomOrder";
     }
