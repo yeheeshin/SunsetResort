@@ -9,6 +9,70 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .containerEx {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            background-color: white;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Box shadow added */
+            z-index: 1000;
+        }
+        .left, .right {
+            width: 48%;
+        }
+        .left {
+            border-right: 1px solid #ddd;
+            padding-right: 20px;
+        }
+        .right {
+            padding-left: 20px;
+        }
+        .info {
+            margin-bottom: 20px;
+        }
+        .info p {
+            margin: 5px 0;
+        }
+        .total {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .package {
+            background-color: #f0f0f0;
+            color: black;
+            border: 1px solid #ddd;
+        }
+        .member {
+            background-color: orange;
+        }
+        .non-member {
+            background-color: gray;
+        }
     </style>
 </head>
 <body>
@@ -191,6 +255,26 @@
     <input type="hidden" id="hidden_room_price" th:value="${selPrice.price}">
     <input type="hidden" id="hidden_adult_count" th:value="${resForm.hidden_adultCount}">
 
+</div>
+
+<div class="containerEx">
+    <div class="left">
+        <div class="info">
+            <p>2024년 06월 20일 - 2024년 06월 21일 (1 박)</p>
+            <p>객실 1개 | 성인 2인 어린이 0인</p>
+        </div>
+        <div class="buttons">
+            <button class="btn member">1,012,770 KRW 회원으로 예약하기</button>
+        </div>
+    </div>
+    <div class="right">
+        <div class="info">
+            <p>객실 요금 (객실 1, 박 1) <span style="float:right;">900,000 KRW</span></p>
+            <p>성인 조식 <span style="float:right;">0 KRW</span></p>
+            <p>세금 및 봉사료 <span style="float:right;">189,000 KRW</span></p>
+            <p class="total">총 요금 <span style="float:right;">1,089,000 KRW</span></p>
+        </div>
+    </div>
 </div>
 <div th:replace="fragments/footer :: footerFragment"></div>
 <script src="js/roomOrder.js"></script>
