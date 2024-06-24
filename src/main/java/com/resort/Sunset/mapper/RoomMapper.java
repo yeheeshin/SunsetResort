@@ -30,4 +30,7 @@ public interface RoomMapper {
 
     // 객실 가격 가져오기
     room_price getPrice(Long room_id, String diff);
+
+    // 특정 날짜에 객실을 예약한 수
+    int isRoom(Map<String, Object> params);
 }

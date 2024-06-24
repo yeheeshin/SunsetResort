@@ -34,6 +34,13 @@
         where room_id = #{room_id} and diff = #{diff}
     </select>
 
+    <select id="isRoom" parameterType="map" resultType="int">
+        select count(*)
+        from room_reserve
+        where room_id = #{room_id}
+          and (out_date &gt; #{in_date} and in_date &lt; #{out_date})
+    </select>
+
     <insert id="insertImg" parameterType="map">
         INSERT INTO img_all (img_name, res_id, room_id, store_id)
         VALUES

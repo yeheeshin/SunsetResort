@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -73,5 +74,17 @@ public class RoomService {
 
         return roomMapper.getPrice(room_id, diff);
 
+    }
+
+    public boolean isRoomAvailable(int room_id, LocalDate in_date, LocalDate out_date) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("room_id", room_id);
+        params.put("in_date", in_date);
+        params.put("out_date", out_date);
+
+        int room = roomMapper.isRoom(params);
+
+        // 나중엔 남은 객실 수에 따른 로직 추가 예정, 현재는 예약이 1개라도 있다면 안됨!
+        return room == 0;
     }
 }
