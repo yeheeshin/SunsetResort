@@ -16,7 +16,7 @@
 <aside class="destination-widget">
         <div class="reservation">
             <h4 class="reservation__title">제목</h4>
-            <ul class="reservation-list" th:each="room, index : ${allRoom}">
+            <ul class="reservation-list" th:each="room, index : ${roomIds}">
                 <form th:id="'ex_room_' + ${index.index}" th:action="@{/rEx(id=${room.room_id})}" method="post" onsubmit="checkFormData()">
                     <li class="reservation-list__item">
                         <div class="reservation-list__img">

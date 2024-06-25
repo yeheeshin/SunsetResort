@@ -3,6 +3,7 @@ package com.resort.Sunset.service;
 import com.resort.Sunset.dto.img_all;
 import com.resort.Sunset.dto.room;
 import com.resort.Sunset.dto.room_price;
+import com.resort.Sunset.dto.room_reserve;
 import com.resort.Sunset.mapper.RoomMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.parameters.P;
@@ -81,5 +82,12 @@ public class RoomService {
         List<Long> roomIds = roomMapper.isRoom();
 
         return roomIds;
+    }
+
+    // 날짜에 따른 객실 예약 가능 여부 확인
+    public Long checkRoomRes(Long room_id, LocalDate in_date, LocalDate out_date) {
+        Long roomReserve = roomMapper.checkRoomRes(room_id, in_date, out_date);
+
+        return roomReserve;
     }
 }

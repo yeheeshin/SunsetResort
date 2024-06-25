@@ -3,8 +3,10 @@ package com.resort.Sunset.mapper;
 import com.resort.Sunset.dto.img_all;
 import com.resort.Sunset.dto.room;
 import com.resort.Sunset.dto.room_price;
+import com.resort.Sunset.dto.room_reserve;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -33,4 +35,9 @@ public interface RoomMapper {
 
     // 객실 예약이 가능한 지, 알아보기
     List<Long> isRoom();
+
+    // 날짜에 따른 객실 예약 가능 여부 확인
+    Long checkRoomRes(Long room_id, LocalDate in_date, LocalDate out_date);
+
+
 }
