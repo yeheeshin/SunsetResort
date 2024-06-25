@@ -95,3 +95,6 @@ body {
 .reservation-list__price button {
     font-size: 15px;
 }
+.reservation-list form{
+    width: 100%;
+}

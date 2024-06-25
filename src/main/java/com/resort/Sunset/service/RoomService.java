@@ -76,7 +76,7 @@ public class RoomService {
 
     }
 
-    public boolean isRoomAvailable(int room_id, LocalDate in_date, LocalDate out_date) {
+    public Long isRoomAvailable(Long room_id, LocalDate in_date, LocalDate out_date) {
         Map<String, Object> params = new HashMap<>();
         params.put("room_id", room_id);
         params.put("in_date", in_date);
@@ -84,7 +84,14 @@ public class RoomService {
 
         int room = roomMapper.isRoom(params);
 
+        if (room == 0) {
+            return room_id;
+        } else {
+            return 0L;
+        }
+
+        
         // 나중엔 남은 객실 수에 따른 로직 추가 예정, 현재는 예약이 1개라도 있다면 안됨!
-        return room == 0;
+
     }
 }

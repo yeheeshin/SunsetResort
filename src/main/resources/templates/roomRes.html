@@ -12,43 +12,42 @@
 <div th:replace="fragments/header :: headerFragment"></div>
 <div th:include="fragments/buyNav.html"></div>
 
-<div th:replace="fragments/roomInfo :: infoFragment"></div>
 
 <aside class="destination-widget">
-    <form id="ex_room" action="rEx" method="post">
         <div class="reservation">
             <h4 class="reservation__title">제목</h4>
             <ul class="reservation-list" th:each="room, index : ${allRoom}">
-                <li class="reservation-list__item">
-                    <div class="reservation-list__img">
-                        <img th:with="imgName=${#strings.substringAfter(room.room_img, '_')}"
-                             th:src="'/sunset_gallery/' + ${imgName}" alt="">
-                    </div>
-                    <div class="reservation-list__info">
-                        <h4 class="reservation-list__guest" th:text="${room.name}">그랜드 디럭스 더블 시티뷰 </h4>
-                        <span class="reservation-list__place" th:text="${roomView.get(index.index)}">전망 시티뷰 / 리버뷰 / 시티뷰(전망욕실) / 리버뷰(전망욕실)</span>
-                        <div class="reservation-list__price">
-                            <button id="sel_room" class="select_room" th:value="${room.room_id}" th:text="${#numbers.formatInteger(roomPrice.get(index.index),0, 'COMMA') + ' KRW'}">450,000 KRW</button>                     </div>
-                    </div>
-                </li>
+                <form th:id="'ex_room_' + ${index.index}" th:action="@{/rEx(id=${room.room_id})}" method="post" onsubmit="checkFormData()">
+                    <li class="reservation-list__item">
+                        <div class="reservation-list__img">
+                            <img th:with="imgName=${#strings.substringAfter(room.room_img, '_')}"
+                                 th:src="'/sunset_gallery/' + ${imgName}" alt="">
+                        </div>
+                        <div class="reservation-list__info">
+                            <h4 class="reservation-list__guest" th:text="${room.name}">그랜드 디럭스 더블 시티뷰 </h4>
+                            <span class="reservation-list__place" th:text="${roomView.get(index.index)}">전망 시티뷰 / 리버뷰 / 시티뷰(전망욕실) / 리버뷰(전망욕실)</span>
+                            <div class="reservation-list__price">
+                                <button id="sel_room" class="select_room" th:text="${#numbers.formatInteger(roomPrice.get(index.index),0, 'COMMA') + ' KRW'}">450,000 KRW</button>                     </div>
+                        </div>
+                    </li>
+                    <input type="hidden" name="hidden_openDate" th:id="'hidden_openDate_' + ${index.index}">
+                    <input type="hidden" name="hidden_sleepDay" th:id="'hidden_sleepDay_' + ${index.index}">
+                    <input type="hidden" name="hidden_finDate" th:id="'hidden_finDate_' + ${index.index}">
+                    <input type="hidden" name="hidden_roomCount" th:id="'hidden_roomCount_' + ${index.index}">
+                    <input type="hidden" name="hidden_adultCount" th:id="'hidden_adultCount_' + ${index.index}">
+                    <input type="hidden" name="hidden_childCount" th:id="'hidden_childCount_' + ${index.index}">
+
+                </form>
             </ul>
         </div>
-        <input type="hidden" name="hidden_openDate" id="hidden_openDate">
-        <input type="hidden" name="hidden_sleepDay" id="hidden_sleepDay">
-        <input type="hidden" name="hidden_finDate" id="hidden_finDate">
-        <input type="hidden" name="hidden_roomCount" id="hidden_roomCount">
-        <input type="hidden" name="hidden_adultCount" id="hidden_adultCount">
-        <input type="hidden" name="hidden_childCount" id="hidden_childCount">
-        <input type="hidden" name="room_id" id="room_id">
-    </form>
 
 </aside>
 
 <div th:replace="fragments/footer :: footerFragment"></div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-
+    // 각 폼에 데이터를 설정하는 함수
+    function setFormData(index) {
         // 로컬 스토리지에서 값 불러오기
         const openDate = localStorage.getItem('openDate');
         const sleepDay = localStorage.getItem('sleepDay');
@@ -57,22 +56,19 @@
         const adultCount = localStorage.getItem('adultCount');
         const childCount = localStorage.getItem('childCount');
 
+        document.getElementById('hidden_openDate_' + index).value = openDate;
+        document.getElementById('hidden_sleepDay_' + index).value = sleepDay;
+        document.getElementById('hidden_finDate_' + index).value = finDate;
+        document.getElementById('hidden_roomCount_' + index).value = roomCount;
+        document.getElementById('hidden_adultCount_' + index).value = adultCount;
+        document.getElementById('hidden_childCount_' + index).value = childCount;
+    }
 
-        document.querySelectorAll('.select_room').forEach(function (button) {
-            button.addEventListener('click', function () {
-                document.getElementById('room_id').value = button.value;
-                console.log(document.getElementById('room_id').value)
-                document.getElementById('hidden_openDate').value = openDate;
-                document.getElementById('hidden_sleepDay').value = sleepDay;
-                document.getElementById('hidden_finDate').value = finDate;
-                document.getElementById('hidden_roomCount').value = roomCount;
-                document.getElementById('hidden_adultCount').value = adultCount;
-                document.getElementById('hidden_childCount').value = childCount;
-
-                document.getElementById('ex_room').submit();
-            });
-        });
+    // 모든 폼에 대해 데이터를 설정
+    document.querySelectorAll('form[id^="ex_room_"]').forEach((form, index) => {
+        setFormData(index);
     });
 </script>
+<div th:replace="fragments/roomInfo :: infoFragment"></div>
 </body>
 </html>

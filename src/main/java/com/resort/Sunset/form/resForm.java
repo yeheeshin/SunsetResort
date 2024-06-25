@@ -6,7 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class resForm {
-    private Long room_id;
     private String hidden_openDate;
     private String hidden_sleepDay;
     private String hidden_finDate;

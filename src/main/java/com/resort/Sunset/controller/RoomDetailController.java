@@ -61,14 +61,13 @@ public class RoomDetailController {
 
     // 객실 에약
     @PostMapping("/rEx")
-    public String roomRes(@ModelAttribute resForm resForm, Model model) {
+    public String roomRes(@ModelAttribute resForm resForm, Model model, @RequestParam("id") Long roomId) {
 
         model.addAttribute("resForm", resForm);
         System.out.println("resForm.getAdultCount() = " + resForm.getHidden_adultCount());
-        System.out.println("resForm.getRoom_id() = " + resForm.getRoom_id());
 
-        Long roomId = resForm.getRoom_id();
         room selRoom = roomService.getRoom(roomId);
+        System.out.println("selRoom.getRoom_id() = " + selRoom.getRoom_id());
 
         room_price selPrice = roomService.getPrice(roomId);
 

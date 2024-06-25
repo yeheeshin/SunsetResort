@@ -86,7 +86,7 @@
     <h5>예약 옵션</h5><br>
     <div class="booking-options">
         <div class="room-details">
-            <span class="fontSize" th:text="'객실 * ' + ${resForm.hidden_adultCount}">객실</span>
+            <span class="fontSize" th:text="'객실 * ' + ${resForm.hidden_sleepDay}">객실</span>
             <span class="rdetail"
                   th:text="'투숙 인원: 성인 ' + ${resForm.hidden_adultCount} + '인, 어린이 ' + ${resForm.hidden_childCount} + '인 '">투숙 인원: 성인 2인, 어린이 0인</span><hr><br>
             <div class="breakfast-option">
@@ -114,7 +114,7 @@
             <p class="fontSize">객실 요금</p>
             <p>
                 <span th:text="${resForm.hidden_openDate}">2024년 05월 23일</span>
-                <span th:text="${#numbers.formatInteger(selPrice.price, 0, 'COMMA')} + ' KRW * ' + ${resForm.hidden_adultCount}">550,000 KRW</span>
+                <span th:text="${#numbers.formatInteger(selPrice.price, 0, 'COMMA')} + ' KRW * ' + ${resForm.hidden_sleepDay}">550,000 KRW</span>
             </p><br>
             <p class="fontSize">옵션 요금</p>
             <p>조식신청 (성인)</p>

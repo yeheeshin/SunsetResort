@@ -22,6 +22,14 @@
     </div>
 
     <form action="roomRes" method="post" class="collapse" id="collapseExample">
+        <input type="hidden" name="hidden_openDate" id="hidden_openDate">
+        <input type="hidden" name="hidden_sleepDay" id="hidden_sleepDay">
+        <input type="hidden" name="hidden_finDate" id="hidden_finDate">
+        <input type="hidden" name="hidden_roomCount" id="hidden_roomCount">
+        <input type="hidden" name="hidden_adultCount" id="hidden_adultCount">
+        <input type="hidden" name="hidden_childCount" id="hidden_childCount">
+        <input type="hidden" name="room_id" id="room_id">
+
         <div class="card card-body collCss">
             <div class="row first_coll">
                 <div class="col-1"></div>
@@ -154,6 +162,13 @@
                 document.getElementById('roomCount').textContent = roomCount;
                 document.getElementById('adultCount').textContent = adultCount;
                 document.getElementById('childCount').textContent = childCount;
+
+                // 데이터를 숨겨진 입력 필드에 할당
+                document.getElementById('hidden_openDate').value = openDate;
+                document.getElementById('hidden_finDate').value = finDate;
+                document.getElementById('hidden_roomCount').value = roomCount;
+                document.getElementById('hidden_adultCount').value = adultCount;
+                document.getElementById('hidden_childCount').value = childCount;
             });
         </script>
 

@@ -2,6 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <th:block th:fragment="infoFragment">
     <form action="roomRes" method="post">
+        <input type="hidden" name="hidden_openDate" id="hidden_openDate">
+        <input type="hidden" name="hidden_sleepDay" id="hidden_sleepDay">
+        <input type="hidden" name="hidden_finDate" id="hidden_finDate">
+        <input type="hidden" name="hidden_roomCount" id="hidden_roomCount">
+        <input type="hidden" name="hidden_adultCount" id="hidden_adultCount">
+        <input type="hidden" name="hidden_childCount" id="hidden_childCount">
+
         <div class="card card-body collCss fixed-bottom">
             <div class="row first_coll">
                 <div class="col-1"></div>
@@ -90,7 +97,7 @@
 
     </div>
 
-    <script>
+    <script th:inline="javascript">
         document.addEventListener('DOMContentLoaded', (event) => {
             var today = new Date();
 
@@ -128,6 +135,14 @@
             document.getElementById('roomCount').textContent = roomCount;
             document.getElementById('adultCount').textContent = adultCount;
             document.getElementById('childCount').textContent = childCount;
+
+            // 데이터를 숨겨진 입력 필드에 할당
+            document.getElementById('hidden_openDate').value = openDate;
+            document.getElementById('hidden_sleepDay').value = sleepDay;
+            document.getElementById('hidden_finDate').value = finDate;
+            document.getElementById('hidden_roomCount').value = roomCount;
+            document.getElementById('hidden_adultCount').value = adultCount;
+            document.getElementById('hidden_childCount').value = childCount;
 
         });
     </script>
