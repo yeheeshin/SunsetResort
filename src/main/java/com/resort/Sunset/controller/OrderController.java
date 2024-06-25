@@ -27,22 +27,11 @@ public class OrderController {
     @PostMapping("/roomRes")
     public String room_res(@ModelAttribute resForm resForm,
                            Model model) {
-        List<Long> longs = roomService.allRoomIds();
-        List<Long> roomAvailable = new ArrayList<>();
+        List<Long> roomAvailable = roomService.isRoomAvailable();
 
         List<room> allRoom = new ArrayList<>();
         List<String> roomView = new ArrayList<>();
         List<Integer> roomPrice = new ArrayList<>();
-
-        for (int i =0; i < longs.size(); i++) {
-            Long roomAvId = roomService.isRoomAvailable(longs.get(i),
-                    LocalDate.parse(resForm.getHidden_openDate()), LocalDate.parse(resForm.getHidden_finDate()));
-
-            if (roomAvId != 0) {
-                roomAvailable.add(roomAvId);
-                System.out.println("roomAvId = " + roomAvId);
-            }
-        }
 
 
         for (int i = 0; i < roomAvailable.size(); i++) {
