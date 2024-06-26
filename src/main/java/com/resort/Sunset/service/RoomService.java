@@ -77,13 +77,6 @@ public class RoomService {
 
     }
 
-    // 예약 가능한 객실 번호 return
-    public List<Long> isRoomAvailable() {
-        List<Long> roomIds = roomMapper.isRoom();
-
-        return roomIds;
-    }
-
     // 날짜에 따른 객실 예약 가능 여부 확인
     public Long checkRoomRes(Long room_id, LocalDate in_date, LocalDate out_date) {
         Long roomReserve = roomMapper.checkRoomRes(room_id, in_date, out_date);

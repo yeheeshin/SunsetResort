@@ -8,8 +8,6 @@ import lombok.Setter;
 public class room_count {
     private Long rc_id;
 
-    private boolean room_status;
-
     private Long rv_id;
     private Long room_id;
     private Long rb_id;

@@ -34,12 +34,6 @@
         where room_id = #{room_id} and diff = #{diff}
     </select>
 
-    <select id="isRoom" resultType="long">
-        select DISTINCT room_id
-        from room_count
-        where room_status = '1'
-    </select>
-
     <select id="checkRoomRes" parameterType="map" resultType="_long">
         SELECT room_id
         FROM room_reserve

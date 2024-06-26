@@ -33,9 +33,6 @@ public interface RoomMapper {
     // 객실 가격 가져오기
     room_price getPrice(Long room_id, String diff);
 
-    // 객실 예약이 가능한 지, 알아보기
-    List<Long> isRoom();
-
     // 날짜에 따른 객실 예약 가능 여부 확인
     Long checkRoomRes(Long room_id, LocalDate in_date, LocalDate out_date);
 
