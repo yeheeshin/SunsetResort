@@ -78,8 +78,8 @@ public class RoomService {
     }
 
     // 날짜에 따른 객실 예약 가능 여부 확인
-    public Long checkRoomRes(Long room_id, LocalDate in_date, LocalDate out_date) {
-        Long roomReserve = roomMapper.checkRoomRes(room_id, in_date, out_date);
+    public List<Long> checkRoomRes(LocalDate in_date, LocalDate out_date) {
+        List<Long> roomReserve = roomMapper.checkRoomRes(in_date, out_date);
 
         return roomReserve;
     }

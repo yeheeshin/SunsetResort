@@ -34,7 +34,7 @@ public interface RoomMapper {
     room_price getPrice(Long room_id, String diff);
 
     // 날짜에 따른 객실 예약 가능 여부 확인
-    Long checkRoomRes(Long room_id, LocalDate in_date, LocalDate out_date);
+    List<Long> checkRoomRes(LocalDate in_date, LocalDate out_date);
 
 
 }

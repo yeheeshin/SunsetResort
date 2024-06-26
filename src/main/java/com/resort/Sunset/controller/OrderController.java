@@ -26,9 +26,6 @@ public class OrderController {
 
     @PostMapping("/roomRes")
     public String room_res(@ModelAttribute resForm resForm, Model model) {
-        List<Long> longs = roomService.allRoomIds();
-
-        List<Long> avRoom = new ArrayList<>();
         List<room> roomIds = new ArrayList<>();
         List<String> roomView = new ArrayList<>();
         List<Integer> roomPrice = new ArrayList<>();
@@ -39,15 +36,8 @@ public class OrderController {
         System.out.println("out_date = " + out_date);
         System.out.println("in_date = " + in_date);
 
-        for (int i = 0; i < longs.size(); i++) {
-            Long roomId = longs.get(i);
-
-            Long aLong = roomService.checkRoomRes(roomId, in_date, out_date);
-
-            if (aLong != null) {
-                avRoom.add(aLong);
-            }
-        }
+        // 예약 가능한 객실 id
+        List<Long> avRoom = roomService.checkRoomRes(in_date, out_date);
 
         for (int i = 0; i < avRoom.size(); i++) {
             // 예약 가능한 객실 정보 가져오기

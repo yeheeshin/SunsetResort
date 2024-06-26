@@ -34,13 +34,18 @@
         where room_id = #{room_id} and diff = #{diff}
     </select>
 
-    <select id="checkRoomRes" parameterType="map" resultType="_long">
+    <sql id="reservedRooms">
         SELECT room_id
         FROM room_reserve
-        WHERE room_id = #{room_id}
-        AND (
-        (in_date &lt;= #{out_date} AND out_date &gt;= #{in_date})
-        );
+        WHERE (in_date &lt;= #{out_date} AND out_date &gt;= #{in_date})
+    </sql>
+
+    <select id="checkRoomRes" resultType="_long">
+        SELECT distinct room_id
+        FROM room
+        WHERE room_id NOT IN (
+        <include refid="reservedRooms" />
+        )
     </select>
 
     <insert id="insertImg" parameterType="map">
