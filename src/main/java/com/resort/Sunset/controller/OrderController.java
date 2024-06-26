@@ -59,5 +59,13 @@ public class OrderController {
         return "/roomRes";
     }
 
+    // 예약 상
+    @PostMapping("/orderDe")
+    public String orderDe(@ModelAttribute room_reserve reserve) {
+        System.out.println("reserve.getRe_id() = " + reserve.getAdd_request());
+        
+        return "/orderDetail";
+    }
+
 
 }

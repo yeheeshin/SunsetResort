@@ -78,11 +78,27 @@ $(document).ready(function() {
         $(".break-price").text(formatPrice(breakfastTotal));
         $(".tax-price").text(formatPrice(taxTotal));
         $(".total").text(`${formattedTotalPrice}`);
+
+
+
+        $("breakfast").val(quantity);
     }
 
     $(".qtyminus, .qtyplus, .qty").on("click input", function() {
         updateTotalPrice();
     });
+
+    $("#roomOrderForm").submit(function(event) {
+        // 텍스트 영역의 값을 숨겨진 필드에 설정
+        var additionalRequest = $("#requests1").val();
+        $("#add_request").val(additionalRequest);
+
+        // breakfast 필드가 비어 있으면 기본값을 설정
+        if ($("#breakfast").val() === "") {
+            $("#breakfast").val(0);
+        }
+    });
+
 
     // Initial call to set the values correctly
     updateTotalPrice();

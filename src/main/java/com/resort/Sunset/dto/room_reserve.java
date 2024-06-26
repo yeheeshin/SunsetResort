@@ -14,6 +14,8 @@ public class room_reserve {
     private LocalDate in_date;
     private LocalDate out_date;
     private int people;
+    private int breakfast;
+    private int room_count;
 
     private Long room_id;
     private Long user_id;

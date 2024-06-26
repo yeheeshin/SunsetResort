@@ -70,12 +70,6 @@ public class HomeController {
         return "/ex";
     }
 
-    @GetMapping("/orderDe")
-    public String orderDe() {
-        return "/orderDetail";
-    }
-
-
     @GetMapping("/login")
     public String login() {
         return "/login";
