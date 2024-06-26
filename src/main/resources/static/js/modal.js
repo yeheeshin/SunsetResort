@@ -145,20 +145,23 @@ document.addEventListener("DOMContentLoaded", function() {
         var finDate = document.querySelector('.col-1.vertical-line.finDate');
         var sleepDate = document.querySelector('.col-1.sleepDay');
 
-        var openYear = dateInInput.value.split('-')[0]
-        var openMon = dateInInput.value.split('-')[1]
-        var openDay = dateInInput.value.split('-')[2]
+        var openYear = dateInInput.value.split('-')[0];
+        var openMon = dateInInput.value.split('-')[1];
+        var openDay = dateInInput.value.split('-')[2];
 
-        var finYear = dateOutInput.value.split('-')[0]
-        var finMon = dateOutInput.value.split('-')[1]
-        var finDay = dateOutInput.value.split('-')[2]
+        var finYear = dateOutInput.value.split('-')[0];
+        var finMon = dateOutInput.value.split('-')[1];
+        var finDay = dateOutInput.value.split('-')[2];
 
-        var sleepDay = parseInt(finDay) - parseInt(openDay)
+        // Date 객체를 사용하여 날짜 차이 계산
+        var startDate = new Date(openYear, openMon - 1, openDay);
+        var endDate = new Date(finYear, finMon - 1, finDay);
+        var timeDiff = endDate - startDate;
+        var sleepDay = timeDiff / (1000 * 60 * 60 * 24);
 
         openDate.textContent = openYear + "-" + openMon + "-" + openDay;
         finDate.textContent = finYear + "-" + finMon + "-" + finDay;
         sleepDate.textContent = sleepDay + "박";
-
     }
 
     // 섹션 클릭 시 모달 열기
