@@ -73,6 +73,11 @@ $(document).ready(function() {
         const totalPrice = roomPrice + breakfastTotal + taxTotal;
         const formattedTotalPrice = formatPrice(totalPrice);
         $(".total-price").text(`총 금액: ${formattedTotalPrice}`);
+        $(".total-res").text(`${formattedTotalPrice} 으로 예약하기`);
+        $(".room-price").text(formatPrice(roomPrice));
+        $(".break-price").text(formatPrice(breakfastTotal));
+        $(".tax-price").text(formatPrice(taxTotal));
+        $(".total").text(`${formattedTotalPrice}`);
     }
 
     $(".qtyminus, .qtyplus, .qty").on("click input", function() {
@@ -81,4 +86,5 @@ $(document).ready(function() {
 
     // Initial call to set the values correctly
     updateTotalPrice();
+
 });

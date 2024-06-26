@@ -172,19 +172,38 @@
 <div class="containerEx">
     <div class="left">
         <div class="info">
-            <p>2024년 06월 20일 - 2024년 06월 21일 (1 박)</p>
-            <p>객실 1개 | 성인 2인 어린이 0인</p>
+            <p th:text="${resForm.hidden_openDate} + ' ~ ' + ${resForm.hidden_finDate}">
+                2024년 06월 20일 - 2024년 06월 21일 (1 박)
+            </p>
+            <p th:text="'객실 ' + ${resForm.hidden_roomCount} + '개' + ' | 성인 ' + ${resForm.hidden_adultCount} + '인 어린이 ' + ${resForm.hidden_childCount} + '인 '">
+                객실 1개 | 성인 2인 어린이 0인
+            </p>
         </div>
         <div class="buttons">
-            <button class="btn member">1,012,770 KRW 회원으로 예약하기</button>
+            <button class="btnCss total-res">1,012,770 KRW 회원으로 예약하기</button>
         </div>
     </div>
     <div class="right">
         <div class="info">
-            <p>객실 요금 (객실 1, 박 1) <span style="float:right;">900,000 KRW</span></p>
-            <p>성인 조식 <span style="float:right;">0 KRW</span></p>
-            <p>세금 및 봉사료 <span style="float:right;">189,000 KRW</span></p>
-            <p class="total">총 요금 <span style="float:right;">1,089,000 KRW</span></p>
+            <p>
+                객실 요금
+                <span class="room-price" style="float:right;">
+                    900,000 KRW
+                </span>
+            </p>
+            <p>
+                성인 조식
+                <span class="break-price" style="float:right;">
+                    0 KRW
+                </span>
+            </p>
+            <p>
+                세금 및 봉사료
+                <span class="tax-price" style="float:right;">
+                    189,000 KRW
+                </span>
+            </p>
+            <p>총 요금 <span class="total" style="float:right;">1,089,000 KRW</span></p>
         </div>
     </div>
 </div>
