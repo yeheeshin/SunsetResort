@@ -3,10 +3,7 @@ package com.resort.Sunset.controller;
 import com.resort.Sunset.dto.*;
 import com.resort.Sunset.form.fileForm;
 import com.resort.Sunset.form.resForm;
-import com.resort.Sunset.service.RestaurantService;
-import com.resort.Sunset.service.RoomService;
-import com.resort.Sunset.service.StoreService;
-import com.resort.Sunset.service.UserService;
+import com.resort.Sunset.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -23,6 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderController {
     private final RoomService roomService;
+    private final RoomReserveService roomReserveService;
 
     @PostMapping("/roomRes")
     public String room_res(@ModelAttribute resForm resForm, Model model) {
@@ -59,12 +57,13 @@ public class OrderController {
         return "/roomRes";
     }
 
-    // 예약 상
+    // 예약 상세
     @PostMapping("/orderDe")
     public String orderDe(@ModelAttribute room_reserve reserve) {
-        System.out.println("reserve.getRe_id() = " + reserve.getAdd_request());
-        
-        return "/orderDetail";
+
+        roomReserveService.saveRoomRes(reserve);
+
+        return "/index";
     }
 
 

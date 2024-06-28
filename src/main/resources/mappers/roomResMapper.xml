@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.resort.Sunset.mapper.RoomReserveMapper">
+    <select id="selectByResId" resultType="com.resort.Sunset.dto.room_reserve">
+        SELECT * FROM room_reserve WHERE re_id = #{re_id} and user_id = #{user_id}
+    </select>
+
+    <insert id="saveRoomRes" parameterType="com.resort.Sunset.dto.room_reserve">
+        insert into room_reserve (add_request, child, in_date, out_date, people, room_id, user_id, breakfast, room_count)
+        values (#{add_request}, #{child}, #{in_date}, #{out_date}, #{people}, #{room_id}, #{user_id}, #{breakfast}, #{room_count})
+    </insert>
+</mapper>
