@@ -21,6 +21,7 @@ import java.util.List;
 public class OrderController {
     private final RoomService roomService;
     private final RoomReserveService roomReserveService;
+    private final UserService userService;
 
     @PostMapping("/roomRes")
     public String room_res(@ModelAttribute resForm resForm, Model model) {
@@ -60,7 +61,10 @@ public class OrderController {
     // 예약 상세
     @PostMapping("/orderDe")
     public String orderDe(@ModelAttribute room_reserve reserve) {
+//        users users = userService.nowUser();
 
+        // 로그인 안 할 경우, 오류 메시지 띄우기 추가 하기
+//        reserve.setUser_id(users.getUser_id());
         roomReserveService.saveRoomRes(reserve);
 
         return "/index";
