@@ -16,7 +16,7 @@
                                 <li><a href="/about">멤버십</a></li>
                                 <!-- 로그인 안 했을 때-->
                                 <th:block sec:authorize="isAnonymous()">
-                                    <li><a href="/room">예약조회</a></li>
+                                    <li><a href="/myPage">예약조회</a></li>
                                     <li><a href="/login">로그인</a></li>
                                     <li><a href="/sign">회원가입</a></li>
                                 </th:block>
@@ -24,7 +24,7 @@
                                 <th:block sec:authorize="isAuthenticated()">
                                     <!-- 로그인 했을 때-->
                                     <li><a href="/room">쿠폰</a></li>
-                                    <li><a href="/about">마이 페이지</a></li>
+                                    <li><a href="/myPage">마이 페이지</a></li>
                                     <li><a href="/logout">로그아웃</a></li>
                                 </th:block>
                             </ul>

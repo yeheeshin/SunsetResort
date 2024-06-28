@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+</head>
+<body>
+<div th:replace="fragments/header :: headerFragment"></div>
+<div th:include="fragments/buyNav.html"></div>
+<link rel="stylesheet" href="/css/myPage.css">
+
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <h3>Sunset Resort</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+      <li>
+        <a href="#">예약 내역</a>
+      </li>
+      <li>
+        <a href="#">내 정보</a>
+      </li>
+    </ul>
+
+<!--    <ul class="list-unstyled CTAs">-->
+<!--      <li>-->
+<!--        <a href="#" class="download">Download source</a>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <a href="#" class="article">Back to article</a>-->
+<!--      </li>-->
+<!--    </ul>-->
+  </nav>
+
+  <!-- Page Content  -->
+  <div class="content row">
+    <div class="reservation-item col-5">
+      <img src="/img/room/room-1.jpg" alt="고잉호텔 고잉 스위트룸">
+      <div class="reservation-details">
+        <p>고잉 스위트룸</p>
+        <p>2022.05.13 ~ 2022.05.14</p>
+        <p>120,000원</p>
+        <p>2022년 05월 13일 - card</p>
+        <a href="#" class="btn">예약 정보</a>
+      </div>
+    </div>
+    <div class="reservation-item col-5">
+      <img src="/img/room/room-1.jpg" alt="고잉호텔 고잉 스위트룸">
+      <div class="reservation-details">
+        <p>고잉 스위트룸</p>
+        <p>2022.05.13 ~ 2022.05.14</p>
+        <p>120,000원</p>
+        <p>2022년 05월 13일 - card</p>
+        <a href="#" class="btn">예약 정보</a>
+      </div>
+    </div>    <div class="reservation-item col-5">
+    <img src="/img/room/room-1.jpg" alt="고잉호텔 고잉 스위트룸">
+    <div class="reservation-details">
+      <p>고잉 스위트룸</p>
+      <p>2022.05.13 ~ 2022.05.14</p>
+      <p>120,000원</p>
+      <p>2022년 05월 13일 - card</p>
+      <a href="#" class="btn">예약 정보</a>
+    </div>
+  </div>
+    <div class="reservation-item col-5">
+      <img src="/img/room/room-1.jpg" alt="고잉호텔 고잉 스위트룸">
+      <div class="reservation-details">
+        <p>고잉 스위트룸</p>
+        <p>2022.05.13 ~ 2022.05.14</p>
+        <p>120,000원</p>
+        <p>2022년 05월 13일 - card</p>
+        <a href="#" class="btn">예약 정보</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div th:replace="fragments/footer :: footerFragment"></div>
+
+</body>
+</html>
