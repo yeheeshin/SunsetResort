@@ -10,4 +10,8 @@
         insert into room_reserve (add_request, child, in_date, out_date, people, room_id, user_id, breakfast, room_count)
         values (#{add_request}, #{child}, #{in_date}, #{out_date}, #{people}, #{room_id}, #{user_id}, #{breakfast}, #{room_count})
     </insert>
+
+    <select id="selectByUserId" resultType="com.resort.Sunset.dto.room_reserve">
+        SELECT * FROM room_reserve WHERE user_id = #{user_id}
+    </select>
 </mapper>

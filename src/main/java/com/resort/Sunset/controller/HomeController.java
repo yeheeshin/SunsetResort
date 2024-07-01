@@ -75,11 +75,6 @@ public class HomeController {
         return "/login";
     }
 
-    @GetMapping("/myPage")
-    public String myPage() {
-        return "/myPage";
-    }
-
     @GetMapping("/sign")
     public String signUp(Model model) {
         users user = new users();

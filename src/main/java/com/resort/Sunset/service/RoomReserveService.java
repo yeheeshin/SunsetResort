@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -21,5 +23,10 @@ public class RoomReserveService {
     // 예약 저장
     public void saveRoomRes(room_reserve room_reserve) {
         reserveMapper.saveRoomRes(room_reserve);
+    }
+
+    // 회원 id로 예약 목록 가져오기
+    public List<room_reserve> getResById(Long user_id) {
+        return reserveMapper.selectByUserId(user_id);
     }
 }
