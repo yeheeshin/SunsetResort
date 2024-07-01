@@ -50,7 +50,7 @@ body {
     width: 100%;
 }
 
-.signup .inputBx input {
+.signup .inputBx input, .btnCancel {
     position: relative;
     width: 100%;
     padding: 12px 20px;

@@ -2,6 +2,7 @@ package com.resort.Sunset.controller;
 
 import com.resort.Sunset.dto.room;
 import com.resort.Sunset.dto.room_reserve;
+import com.resort.Sunset.dto.users;
 import com.resort.Sunset.service.RoomReserveService;
 import com.resort.Sunset.service.RoomService;
 import com.resort.Sunset.service.UserService;
@@ -41,4 +42,11 @@ public class MyPageController {
         return "/myPage";
     }
 
+    @GetMapping("/info")
+    public String myInfo(Model model) {
+        users users = userService.nowUser();
+        model.addAttribute("user", users);
+
+        return "/myInfo";
+    }
 }
