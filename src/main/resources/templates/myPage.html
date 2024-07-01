@@ -18,7 +18,7 @@
     </div>
 
     <ul class="list-unstyled components">
-      <li>
+      <li style="background-color: #e0e0e0;">
         <a href="#">예약 내역</a>
       </li>
       <li>
@@ -38,13 +38,13 @@
 
   <!-- Page Content  -->
   <div class="content row">
-    <div class="reservation-item col-5" th:each="res : ${resList}">
-      <img src="/img/room/room-1.jpg" alt="고잉호텔 고잉 스위트룸">
+    <div class="reservation-item col-5" th:each="res, index : ${resList}">
+      <img th:with="imgName=${#strings.substringAfter(roomInfo.get(index.index).room_img, '_')}"
+           th:src="'/sunset_gallery/' + ${imgName}" alt="고잉호텔 고잉 스위트룸">
       <div class="reservation-details">
-        <p>고잉 스위트룸</p>
-        <p>2022.05.13 ~ 2022.05.14</p>
-        <p>120,000원</p>
-        <p>2022년 05월 13일 - card</p>
+        <p th:text="${roomInfo.get(index.index).name}">고잉 스위트룸</p>
+        <p th:text="${res.in_date} + ' ~ ' + ${res.out_date}">2022.05.13 ~ 2022.05.14</p>
+        <p th:text="'성인 ' + ${res.people} + '인, 어린이 ' + ${res.child} + '인 '">120,000원</p>
         <a href="#" class="btn">예약 정보</a>
       </div>
     </div>
