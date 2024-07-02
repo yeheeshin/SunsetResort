@@ -40,9 +40,9 @@
 <script th:inline="javascript">
 
     $(document).ready(function(){
-        var loginError = [[${loginError}]];
-        if(loginError != null){
-            alert(loginError);
+        var errorMessage = [[${errorMessage}]];
+        if(errorMessage != null){
+            alert(errorMessage);
         }
     });
 </script>

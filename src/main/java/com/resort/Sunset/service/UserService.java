@@ -48,10 +48,6 @@ public class UserService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String name = authentication.getName();
 
-        if (userMapper.selectByEmail(name) == null) {
-            throw new IllegalStateException("로그인 해라");
-        }
-
         return userMapper.selectByEmail(name);
     }
 }

@@ -25,6 +25,12 @@ public class OrderController {
 
     @PostMapping("/roomRes")
     public String room_res(@ModelAttribute resForm resForm, Model model) {
+        if (userService.nowUser() == null) {
+            model.addAttribute("errorMessage", "로그인 후, 예약 바랍니다.");
+
+            return "/login";
+        }
+
         List<room> roomIds = new ArrayList<>();
         List<String> roomView = new ArrayList<>();
         List<Integer> roomPrice = new ArrayList<>();

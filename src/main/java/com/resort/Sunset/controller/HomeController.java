@@ -87,7 +87,7 @@ public class HomeController {
         String duplicateUser = userService.isDuplicateUser(user);
 
         if(duplicateUser != ""){
-            model.addAttribute("signUpError", duplicateUser);
+            model.addAttribute("errorMessage", duplicateUser);
 
             return "/signup";
         }
@@ -101,7 +101,7 @@ public class HomeController {
 
     @GetMapping("/loginError")
     public String errorPage(Model model) {
-        model.addAttribute("loginError", "아이디 또는 비밀번호를 확인해주세요");
+        model.addAttribute("errorMessage", "아이디 또는 비밀번호를 확인해주세요");
 
         return "/login";
     }
