@@ -98,11 +98,12 @@
                 </div>
             </div>
             <div class="col-10">
-                <ul>
-                    <li class="xe">
-                        <span th:utext="${#strings.replace(restaurant.menu, '\n', '<br>')}"></span>
-                    </li>
-                </ul>
+                <div class="row xe">
+                    <div class="col-4" th:each="menu : ${res_menu}">
+                        <div th:utext="${#strings.replace(menu, '\n', '<br>')}">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <hr>

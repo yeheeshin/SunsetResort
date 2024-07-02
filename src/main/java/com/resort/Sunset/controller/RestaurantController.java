@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -50,9 +51,14 @@ public class RestaurantController {
             e.printStackTrace();
         }
 
+        List<String> res_menu = Arrays.asList(restaurant.getMenu().split(";"));
+
+        System.out.println("res_menu.get(0) = " + res_menu.get(0));
+
         model.addAttribute("restaurant", restaurant);
         model.addAttribute("resImgJson", resImgJson);
         model.addAttribute("menuFiles", menuFiles);
+        model.addAttribute("res_menu", res_menu);
 
         return "/res_detail";
     }
