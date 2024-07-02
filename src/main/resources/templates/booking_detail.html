@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제목</title>
+    <link rel="stylesheet" href="/css/booking_detail.css">
+</head>
+<body>
+<div th:replace="fragments/header :: headerFragment"></div>
+<div th:include="fragments/buyNav.html"></div>
+
+<!-- 예약 목록으로 돌아가기 버튼 추가 -->
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-left ee">
+            <button onclick="location.href='/myPage'" class="btn mt-3">예약 목록으로 돌아가기</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <table class="table table-bordered details-table">
+            <tr>
+                <th class="hotel-serivce-th">
+                    호텔 서비스 정보
+                    <i class="fa fa-bed" aria-hidden="true"></i>
+                </th>
+                <th>
+                    승객 정보
+                </th>
+            </tr>
+            <tr>
+                <td class="hotel-service-td">
+                    <div class="row">
+                        <div class="col-5">
+                            <img th:with="imgName=${#strings.substringAfter(room.room_img, '_')}"
+                                 th:src="'/sunset_gallery/' + ${imgName}" class="img-thumbnail img-fluid img-responsive">
+                        </div>
+                        <div class="col-7">
+                            <h2 th:text="${room.name}">스테이브리지 스위트 레이크 부에나 비스타</h2>
+                            <p class="hotel-phone">호텔 전화: 407-238-0777</p>
+                            <div class="service-applied d-flex align-items-center justify-content-center">
+                                <p>체크인 / 아웃 </p>
+                                <p th:text=" ' : ' + ${res.in_date} + ' ~ ' + ${res.out_date}">날짜</p>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td rowspan="3" class="passenger-details-td">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="passenger-detail">
+                                <div class="passenger-detail-wrapper">
+                                    <div class="room-detail">
+                                        <div class="room-title">
+                                            <h2 th:text="${room.name}">두 개의 침실 스위트 - 트리오 - 일반 시즌 - 가능</h2>
+                                        </div>
+                                        <div class="passenger-data d-flex align-items-start">
+                                            <div class="passenger-type">
+                                                <h2>이름 : </h2>
+                                                <h2>번호 : </h2>
+                                            </div>
+                                            <div class="passenger-name">
+                                                <p>베티나 나바로 </p>
+                                                <p>010-2222-3333</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="passenger-text">
+                                        <p th:text="'성인 ' + ${res.people} + ' 인, 어린이 ' + ${res.child} + '인 '">
+                                            성인 어린이
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="dotted"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-td">
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="row">
+        <table class="table table-bordered policies-table">
+            <tr>
+                <th>
+                    취소 규정
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="row">
+                        <div class="col-11">
+                            <ul>
+                                <li class="xe">
+                                    <span>상기 홈페이지 요금은 정상에서 할인된 금액으로, 중복 할인은 불가능합니다.</span>
+                                </li>
+                                <li class="xe">
+                                    <span>예약 취소 및 변경은 체크인 이틀 전 18:00(한국 시간)까지 가능합니다.</span>
+                                </li>
+                                <li class="xe">
+                                    <span>무료 취소 기한(체크인 이틀 전 18:00) 이후 예약이 변경 및 취소될 경우, 예약 첫날에 해당하는 1박 객실 요금이 예약보증용 신용카드로 청구됩니다.</span>
+                                </li>
+                                <li class="xe">
+                                    <span>예약 시점에 객실요금의 보증용으로 카드 선승인이 이루어질 수 있으며, 카드 승인 불가 시 예약이 임의로 취소될 수 있습니다.</span>
+                                </li>
+                                <li class="xe">
+                                    <span>일부 프로모션 특가상품은 별도의 취소규정이 적용됩니다.</span>
+                                </li>
+                                <li class="xe">
+                    <span>
+                        일부 성수기(12/24, 12/31)의 취소 및 변경은 체크인 21일 전 18:00(호텔 시간)까지 가능하며, 도착 21일전 18:00까지 취소하지 않을 경우 1박 객실 요금이 예약보증용 신용카드로 청구됩니다.
+                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footerFragment"></div>
+
+</body>
+</html>

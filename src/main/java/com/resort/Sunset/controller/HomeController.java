@@ -5,10 +5,7 @@ import com.resort.Sunset.dto.room;
 import com.resort.Sunset.dto.store;
 import com.resort.Sunset.dto.users;
 import com.resort.Sunset.form.fileForm;
-import com.resort.Sunset.service.RestaurantService;
-import com.resort.Sunset.service.RoomService;
-import com.resort.Sunset.service.StoreService;
-import com.resort.Sunset.service.UserService;
+import com.resort.Sunset.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -16,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -96,4 +94,5 @@ public class HomeController {
     public String errorPage() {
         return "/error";
     }
+
 }

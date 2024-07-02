@@ -74,5 +74,20 @@ public class MyPageController {
         return "redirect:/myPage";
     }
 
+    @GetMapping("/exx")
+    public String ex2(@RequestParam("id") Long re_id, Model model) {
+
+        room_reserve res = roomReserveService.getRes(re_id);
+        model.addAttribute("res", res);
+
+        Long roomId = res.getRoom_id();
+        room room = roomService.getRoom(roomId);
+        model.addAttribute("room", room);
+
+//        users users = userService.nowUser();
+//        model.addAttribute("users", users);
+
+        return "booking_detail";
+    }
 
 }

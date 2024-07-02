@@ -20,6 +20,10 @@ public class RoomReserveService {
         return reserveMapper.selectByResId(re_id, user_id);
     }
 
+    public room_reserve getRes(Long re_id) {
+        return reserveMapper.selectByReId(re_id);
+    }
+
     // 예약 저장
     public void saveRoomRes(room_reserve room_reserve) {
         reserveMapper.saveRoomRes(room_reserve);
