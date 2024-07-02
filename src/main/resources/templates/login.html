@@ -28,7 +28,7 @@
                 <input type="submit" value="Sign in">
             </div>
             <div class="links">
-                <a href="#">비밀번호를 잊으셨나요?</a>
+<!--                <a href="#">비밀번호를 잊으셨나요?</a>-->
                 <a href="/sign">회원가입</a>
             </div>
         </div>
@@ -36,5 +36,15 @@
 </form>
 <!--ring div ends here-->
 <div th:replace="fragments/footer :: footerFragment"></div>
+
+<script th:inline="javascript">
+
+    $(document).ready(function(){
+        var loginError = [[${loginError}]];
+        if(loginError != null){
+            alert(loginError);
+        }
+    });
+</script>
 </body>
 </html>

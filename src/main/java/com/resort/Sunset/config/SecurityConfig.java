@@ -35,7 +35,7 @@ public class SecurityConfig{
                                 .usernameParameter("email")
                                 .passwordParameter("pwd")
                                 .defaultSuccessUrl("/", true)
-                                .failureUrl("/error")
+                                .failureUrl("/loginError")
                 )
                 .logout(logout ->
                         logout

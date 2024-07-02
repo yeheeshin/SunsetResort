@@ -90,9 +90,11 @@ public class HomeController {
         return "/login";
     }
 
-    @GetMapping("/error")
-    public String errorPage() {
-        return "/error";
+    @GetMapping("/loginError")
+    public String errorPage(Model model) {
+        model.addAttribute("loginError", "아이디 또는 비밀번호를 확인해주세요");
+
+        return "/login";
     }
 
 }
