@@ -10,4 +10,11 @@
         insert into users (email, name, phone, pwd)
         VALUES (#{email}, #{name}, #{phone}, #{pwd})
     </insert>
+
+    <update id="updateUser" parameterType="com.resort.Sunset.dto.users">
+        update users
+        set name = #{name}, phone = #{phone}
+        where user_id = #{user_id}
+    </update>
+
 </mapper>

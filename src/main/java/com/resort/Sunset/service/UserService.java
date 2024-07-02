@@ -24,6 +24,11 @@ public class UserService {
         userMapper.saveUser(user);
     }
 
+    // 사용자 정보 업데이트
+    public void updateUser(users user) {
+        userMapper.updateUser(user);
+    }
+
     public users nowUser() {
         // 현재 사용자 정보
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

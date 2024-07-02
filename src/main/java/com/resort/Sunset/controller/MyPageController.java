@@ -8,9 +8,13 @@ import com.resort.Sunset.service.RoomService;
 import com.resort.Sunset.service.UserService;
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +26,8 @@ public class MyPageController {
     private final RoomReserveService roomReserveService;
     private final UserService userService;
     private final RoomService roomService;
+
+    private final PasswordEncoder passwordEncoder;
 
     @GetMapping("/myPage")
     public String myPage(Model model) {
@@ -49,4 +55,24 @@ public class MyPageController {
 
         return "/myInfo";
     }
+
+    @PostMapping("/userEdit")
+    public String editUser(Model model, @ModelAttribute users user, @RequestParam("pwd") String pwd) {
+        users nowUser = userService.nowUser();
+
+        if (passwordEncoder.matches(pwd,nowUser.getPwd())) {
+            nowUser.setName(user.getName());
+            nowUser.setPhone(user.getPhone());
+
+            userService.updateUser(nowUser);
+
+            System.out.println("여기 지났다네");
+        }
+
+        System.out.println(pwd + "??????");
+
+        return "redirect:/myPage";
+    }
+
+
 }

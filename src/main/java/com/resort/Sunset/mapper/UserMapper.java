@@ -8,6 +8,8 @@ public interface UserMapper {
     users selectByEmail(String email);
 
     void saveUser(users user);
+
+    void updateUser(users user);
 }
 
 

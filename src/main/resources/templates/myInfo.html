@@ -42,16 +42,16 @@
       <div class="signup">
         <h2>정보 수정</h2>
         <div class="inputBx">
-          <input type="email" th:value="${user.email}" placeholder="Email">
+          <input type="email" th:value="${user.email}" id="email" name="email" placeholder="Email" readonly>
         </div>
         <div class="inputBx">
-          <input type="text" th:value="${user.name}" placeholder="이름">
+          <input type="text" th:value="${user.name}" id="name" name="name" placeholder="이름">
         </div>
         <div class="inputBx">
-          <input type="text" th:value="${user.phone}" placeholder="전화번호">
+          <input type="text" th:value="${user.phone}" id="phone" name="phone" placeholder="전화번호">
         </div>
         <div class="inputBx">
-          <input type="password" placeholder="비밀번호">
+          <input type="password" id="pwd" name="pwd" placeholder="비밀번호">
         </div>
         <div class="inputBx">
           <input type="password" placeholder="비밀번호 확인">
@@ -63,6 +63,7 @@
         </div>
       </div>
     </div>
+    <input type="hidden" th:value="${user.user_id}" id="user_id" name="user_id">
   </form>
 
 </div>
