@@ -67,7 +67,7 @@ public class OrderController {
 //        reserve.setUser_id(users.getUser_id());
         roomReserveService.saveRoomRes(reserve);
 
-        return "/index";
+        return "redirect:/";
     }
 
 
