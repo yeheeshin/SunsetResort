@@ -6,6 +6,10 @@
         SELECT * FROM users WHERE email = #{email}
     </select>
 
+    <select id="selectByPhone" resultType="com.resort.Sunset.dto.users">
+        SELECT * FROM users WHERE phone = #{phone}
+    </select>
+
     <insert id="saveUser" parameterType="com.resort.Sunset.dto.users">
         insert into users (email, name, phone, pwd)
         VALUES (#{email}, #{name}, #{phone}, #{pwd})

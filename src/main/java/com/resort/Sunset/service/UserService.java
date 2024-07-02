@@ -29,6 +29,20 @@ public class UserService {
         userMapper.updateUser(user);
     }
 
+    // 회원 가입 시, 이메일 체크
+    public String isDuplicateUser(users user) {
+        users email = userMapper.selectByEmail(user.getEmail());
+        users phone = userMapper.selectByPhone(user.getPhone());
+
+        if (email != null) {
+            return "이미 사용 중인 이메일 입니다.";
+        } else if (phone != null) {
+            return "이미 사용 중인 전화번호 입니다.";
+        } else {
+            return "";
+        }
+    }
+
     public users nowUser() {
         // 현재 사용자 정보
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

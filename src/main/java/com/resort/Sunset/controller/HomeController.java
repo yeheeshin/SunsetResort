@@ -75,6 +75,7 @@ public class HomeController {
 
     @GetMapping("/sign")
     public String signUp(Model model) {
+
         users user = new users();
 
         model.addAttribute("user", user);
@@ -83,6 +84,14 @@ public class HomeController {
 
     @PostMapping("/sign")
     public String join(Model model, @ModelAttribute("user")users user) {
+        String duplicateUser = userService.isDuplicateUser(user);
+
+        if(duplicateUser != ""){
+            model.addAttribute("signUpError", duplicateUser);
+
+            return "/signup";
+        }
+
         user.setPwd(passwordEncoder.encode(user.getPwd()));
 
         userService.saveUser(user);

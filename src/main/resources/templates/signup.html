@@ -27,7 +27,8 @@
                 <input th:field="*{pwd}" type="password" placeholder="비밀번호">
             </div>
             <div class="inputBx">
-                <input type="password" placeholder="비밀번호 확인">
+                <input type="password" id="pwcheck" placeholder="비밀번호 확인">
+                <span id="passwordMatchMessage"></span>
             </div>
             <div class="inputBx">
                 <input type="submit" value="회원가입">
@@ -40,5 +41,45 @@
 </form>
 <!--ring div ends here-->
 <div th:replace="fragments/footer :: footerFragment"></div>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    document.addEventListener('DOMContentLoaded', function() {
+        var passwordInput = document.getElementById('pwd');
+        var confirmPasswordInput = document.getElementById('pwcheck');
+        var passwordMatchMessage = document.getElementById('passwordMatchMessage');
+
+        passwordInput.addEventListener('input', function() {
+            checkPasswordMatch();
+        });
+
+        confirmPasswordInput.addEventListener('input', function() {
+            checkPasswordMatch();
+        });
+
+        function checkPasswordMatch() {
+            var password = passwordInput.value;
+            var confirmPassword = confirmPasswordInput.value;
+
+            if (password === confirmPassword) {
+                passwordMatchMessage.innerHTML = '비밀번호가 일치합니다.';
+                passwordMatchMessage.style.color = 'green';
+            } else {
+                passwordMatchMessage.innerHTML = '비밀번호가 일치하지 않습니다.';
+                passwordMatchMessage.style.color = 'red';
+            }
+        }
+
+        $(document).ready(function(){
+            var signUpError = [[${signUpError}]];
+            if(signUpError != null){
+                alert(signUpError);
+            }
+        });
+    });
+
+    /*]]>*/
+</script>
+
 </body>
 </html>
