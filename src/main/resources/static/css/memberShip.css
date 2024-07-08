@@ -5,7 +5,7 @@ body {
     margin: 0;
     height: 100%;
     list-style: none;
-    overflow: hidden;
+    overflow: auto;
     font-family: 'Lato', Calibri, Arial, sans-serif;
 }
 .progressDiv {
@@ -19,7 +19,7 @@ body {
     border-radius: 2px;
     box-shadow: 0px 1px 1px 1px #ccc;
     padding: 10px;
-    margin: 10px;
+    margin: 30px;
 }
 
 .statChartHolder {
@@ -158,4 +158,112 @@ body {
     font-family: 'Lato', Calibri, Arial, sans-serif;
     color: #B6B5B5;
     padding: 5px;
+}
+
+.main-head {
+    background: #0D1440;
+    box-shadow: 0px 1px 10px -6px rgba(0, 0, 0, .15);
+    padding: 1rem;
+    margin-bottom: 0;
+    margin-top: 5rem;
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.pricing-table {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 4px;
+    transition: .3s;
+    height: 530px;
+}
+
+.pricing-table:hover {
+    box-shadow: 0px 1px 10px -4px rgba(0, 0, 0, .15);
+}
+
+.pricing-table .pricing-label {
+    border-radius: 2px;
+    padding: .25rem .5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.pricing-table h2 {
+    color: #3b3b3b;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.pricing-table h5 {
+    color: #B3B3B3;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.pricing-table .pricing-features {
+    margin-top: 2rem;
+}
+
+.pricing-table .pricing-features .feature {
+    font-size: 14px;
+    margin: .5rem 0;
+    color: #B3B3B3;
+}
+
+.pricing-table .pricing-features .feature span {
+    display: inline-block;
+    float: right;
+    color: #3b3b3b;
+    font-weight: 500;
+}
+.purple .pricing-label {
+    background: #cad2ff;
+    color: #627afe;
+}
+.turquoise .pricing-label {
+    background: #b9edee;
+    color: #3bccd2;
+}
+.red .pricing-label {
+    background: #ffc4c4;
+    color: #ff5e5e;
+}
+.container {
+    width: 90%;
+    max-width: 90%;
+}
+.black .pricing-label {
+    background: #DAD9D9FF;
+    color: black;
+}
+.tb .turquoise1 {
+    background-color: #3bccd2;
+    color: #3bccd2;
+}
+.tb .purple1 {
+    background-color: #627afe;
+    color: #627afe;
+}
+.tb .red1 {
+    background-color: #ff5e5e;
+    color: #ff5e5e;
+}
+.tb .black1 {
+    background-color: black;
+    color: black;
+}
+.bottom_color {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    padding: 0px 12px;
+}
+.tb {
+    width: 25%;
 }

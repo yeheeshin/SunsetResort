@@ -4,50 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
-    <link rel="stylesheet" href="/css/memberShip.css">
 </head>
 <body>
 <div th:replace="fragments/header :: headerFragment"></div>
 <div th:include="fragments/buyNav.html"></div>
-<div th:include="fragments/nav.html"></div>
+<link rel="stylesheet" href="/css/memberShip.css">
 
-<div class="progressDiv">
-    <div class="statChartHolder">
-        <div class="progress-pie-chart" data-percent="67"><!--Pie Chart -->
-            <div class="ppc-progress">
-                <div class="ppc-progress-fill"></div>
-            </div>
-            <div class="ppc-percents">
-                <div class="pcc-percents-wrapper">
-                    <span>%</span>
+<div class="container">
+    <!-- 파이 차트 부분 -->
+    <div class="progressDiv">
+        <div class="statChartHolder">
+            <div class="progress-pie-chart" data-percent="67"><!--Pie Chart -->
+                <div class="ppc-progress">
+                    <div class="ppc-progress-fill"></div>
+                </div>
+                <div class="ppc-percents">
+                    <div class="pcc-percents-wrapper">
+                        <span>%</span>
+                    </div>
+                </div>
+            </div><!--End Chart -->
+        </div>
+        <div class="statRightHolder">
+            <ul>
+                <li> <h3 class="blue">0 P</h3> <span>유효 적립 포인트</span></li>
+                <li> <h3 class="purple">0 박</h3> <span>투숙 일수</span></li>
+            </ul>
+
+            <ul>
+                <h5 class="membership">
+                    등급평가 및 조정은 승급 기준 충족 시, 매월 10일에 반영됩니다.
+                </h5>
+                <h5 class="membership">
+                    연간 총 12회 등급 상향 가능하며, 최대 23개월 까지 등급이 유지됩니다.
+                </h5>
+                <h5 class="membership">
+                    전환 포인트 및 이벤트 프로모션 포인트는 실적 산정에 제외됩니다.
+                </h5>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- 등급 기준 -->
+    <div class="row">
+        <!-- Turquoise Table -->
+        <div class="col-md-3 tb">
+            <div class="pricing-table turquoise">
+                <!-- Table Head -->
+                <div class="pricing-label">0P</div>
+                <h2>Basic, 베이직</h2>
+                <!-- Features -->
+                <div class="pricing-features">
+                    <div class="feature">포인트 적립 <span>4%</span></div>
+                    <div class="feature">식음할인<span>5%</span></div>
                 </div>
             </div>
-        </div><!--End Chart -->
+            <div class="bottom_color turquoise1">
+                안녕하세요
+            </div>
+        </div>
+        <!-- Purple Table -->
+        <div class="col-md-3 tb">
+            <div class="pricing-table purple">
+                <!-- Table Head -->
+                <div class="pricing-label">1,500P</div>
+                <h2>Standard, 스탠다드</h2>
+                <!-- Features -->
+                <div class="pricing-features">
+                    <div class="feature">포인트 적립<span>6%</span></div>
+                    <div class="feature">금액 바우처<span>$10</span></div>
+                    <div class="feature">Laundry 할인<span>10%</span></div>
+                    <div class="feature">식음 할인<span>5%</span></div>
+                </div>
+            </div>
+            <div class="bottom_color purple1">
+                안녕하세요
+            </div>
+        </div>
+        <!-- Red Table -->
+        <div class="col-md-3 tb">
+            <div class="pricing-table red">
+                <!-- Table Head -->
+                <div class="pricing-label">20,000P</div>
+                <h2>Deluxe, 디럭스</h2>
+                <!-- Features -->
+                <div class="pricing-features">
+                    <div class="feature">포인트 적립<span>8%</span></div>
+                    <div class="feature">금액 바우처<span>$50 2매</span></div>
+                    <div class="feature">Laundry 할인<span>15%</span></div>
+                    <div class="feature">식음 할인<span>10%</span></div>
+                    <div class="feature">객실 업그레이드<span></span></div>
+                    <div class="feature">Late Check Out<span></span></div>
+                </div>
+            </div>
+            <div class="bottom_color red1">
+                안녕하세요
+            </div>
+        </div>
+        <!-- Black Table -->
+        <div class="col-md-3 tb">
+            <div class="pricing-table black">
+                <!-- Table Head -->
+                <div class="pricing-label">70,000P</div>
+                <h2>Premium, 프리미엄</h2>
+                <!-- Features -->
+                <div class="pricing-features">
+                    <div class="feature">포인트 적립<span>10%</span></div>
+                    <div class="feature">조식 이용권<span>1인</span></div>
+                    <div class="feature">클럽 라운지 이용권<span>1인</span></div>
+                    <div class="feature">금액 바우처<span>$50*2매</span></div>
+                    <div class="feature">Laundry 할인<span>20%</span></div>
+                    <div class="feature">식음 할인<span>10%</span></div>
+                    <div class="feature">객실 업그레이드<span></span></div>
+                    <div class="feature">Late Check Out<span></span></div>
+                    <div class="feature">1박 무료 숙박권<span></span></div>
+                </div>
+            </div>
+            <div class="bottom_color black1">
+                .
+            </div>
+        </div>
     </div>
-    <div class="statRightHolder">
-        <ul>
-            <li> <h3 class="blue">0 P</h3> <span>유효 적립 포인트</span></li>
-            <li> <h3 class="purple">0 박</h3> <span>투숙 일수</span></li>
-        </ul>
-
-        <ul>
-            <h5 class="membership">
-                등급평가 및 조정은 승급 기준 충족 시, 매월 10일에 반영됩니다.
-            </h5>
-            <h5 class="membership">
-                연간 총 12회 등급 상향 가능하며, 최대 23개월 까지 등급이 유지됩니다.
-            </h5>
-            <h5 class="membership">
-                전환 포인트 및 이벤트 프로모션 포인트는 실적 산정에 제외됩니다.
-            </h5>
-        </ul>
-    </div>
-
 </div>
 
 <div th:replace="fragments/footer :: footerFragment"></div>
-<script src="js/ex2.js"></script>
 
 
+<script src="js/memberShip.js"></script>
 </body>
 </html>
