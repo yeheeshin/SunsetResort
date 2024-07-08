@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -83,10 +82,10 @@ public class HomeController {
     }
 
     @PostMapping("/sign")
-    public String join(Model model, @ModelAttribute("user")users user) {
+    public String join(Model model, @ModelAttribute("user") users user) {
         String duplicateUser = userService.isDuplicateUser(user);
 
-        if(duplicateUser != ""){
+        if (duplicateUser != "") {
             model.addAttribute("errorMessage", duplicateUser);
 
             return "/signup";
@@ -106,4 +105,8 @@ public class HomeController {
         return "/login";
     }
 
+    @GetMapping("ex2")
+    public String membership(Model model) {
+        return "memberShip";
+    }
 }
