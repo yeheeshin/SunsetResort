@@ -105,8 +105,8 @@ public class HomeController {
         return "/login";
     }
 
-    @GetMapping("ex2")
+    @GetMapping("/membership")
     public String membership(Model model) {
-        return "memberShip";
+        return "/memberShip";
     }
 }

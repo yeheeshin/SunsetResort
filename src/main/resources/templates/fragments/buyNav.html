@@ -13,7 +13,6 @@
                         <nav class="subMenu">
                             <ul>
                                 <li><a href="/contact">호텔 찾기</a></li>
-<!--                                <li><a href="/about">멤버십</a></li>-->
                                 <!-- 로그인 안 했을 때-->
                                 <th:block sec:authorize="isAnonymous()">
 <!--                                    <li><a href="/myPage">예약조회</a></li>-->
@@ -23,7 +22,7 @@
 
                                 <th:block sec:authorize="isAuthenticated()">
                                     <!-- 로그인 했을 때-->
-                                    <li><a href="/room">쿠폰</a></li>
+                                    <li><a href="/membership">멤버십</a></li>
                                     <li><a href="/myPage">마이 페이지</a></li>
                                     <li><a href="/logout">로그아웃</a></li>
                                 </th:block>
