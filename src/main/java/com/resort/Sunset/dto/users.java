@@ -18,4 +18,7 @@ public class users {
     private String name;
     private String phone;
     private String pwd;
+    private int point;
+
+    private Long rank_id;
 }
