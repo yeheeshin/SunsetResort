@@ -126,7 +126,15 @@
     <!-- Home Room Section End -->
 
 <div th:replace="fragments/footer :: footerFragment"></div>
+<script th:inline="javascript">
 
+    $(document).ready(function(){
+        var Message = [[${Message}]];
+        if(Message != null){
+            alert(Message);
+        }
+    });
+</script>
 </body>
 
 </html>

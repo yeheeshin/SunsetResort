@@ -64,16 +64,16 @@ public class OrderController {
         return "/roomRes";
     }
 
-    // 예약 상세
+    // 예약 하기
     @PostMapping("/orderDe")
-    public String orderDe(@ModelAttribute room_reserve reserve) {
-//        users users = userService.nowUser();
+    public String orderDe(@ModelAttribute room_reserve reserve, Model model) {
+        users users = userService.nowUser();
+        reserve.setUser_id(users.getUser_id());
 
-        // 로그인 안 할 경우, 오류 메시지 띄우기 추가 하기
-//        reserve.setUser_id(users.getUser_id());
         roomReserveService.saveRoomRes(reserve);
+        model.addAttribute("Message", "예약이 완료되었습니다.");
 
-        return "redirect:/";
+        return "/index";
     }
 
 
