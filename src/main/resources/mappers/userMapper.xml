@@ -17,7 +17,7 @@
 
     <update id="updateUser" parameterType="com.resort.Sunset.dto.users">
         update users
-        set name = #{name}, phone = #{phone}
+        set name = #{name}, phone = #{phone}, point = #{point}, rank_id = #{rank_id}
         where user_id = #{user_id}
     </update>
 

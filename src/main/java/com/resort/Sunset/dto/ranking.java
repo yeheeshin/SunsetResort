@@ -10,4 +10,5 @@ public class ranking {
 
     private String rank_name;
     private int points_required;
+    private int save_point;
 }

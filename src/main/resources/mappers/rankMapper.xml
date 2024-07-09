@@ -2,7 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.resort.Sunset.mapper.RankMapper">
-    <select id="selectByAmId" resultType="com.resort.Sunset.dto.ranking">
+    <select id="selectByRankId" resultType="com.resort.Sunset.dto.ranking">
         SELECT * FROM ranking WHERE rank_id = #{rank_id}
+    </select>
+    <select id="selectAll" resultType="com.resort.Sunset.dto.ranking">
+        SELECT * FROM ranking
     </select>
 </mapper>

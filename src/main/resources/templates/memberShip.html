@@ -27,9 +27,8 @@
         </div>
         <div class="statRightHolder">
             <ul>
-                <li> <h3 class="blue">0 P</h3> <span>유효 적립 포인트</span></li>
-                <li> <h3 class="purple">0 박</h3> <span>투숙 일수</span></li>
-            </ul>
+                <li> <h3 class="blue" th:text="${#numbers.formatInteger(users.point, 0, 'COMMA')}">0 P</h3> <span>유효 적립 포인트</span></li>
+        </ul>
 
             <ul>
                 <h5 class="membership">

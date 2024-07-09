@@ -107,6 +107,10 @@ public class HomeController {
 
     @GetMapping("/membership")
     public String membership(Model model) {
+        users users = userService.nowUser();
+
+        model.addAttribute("users", users);
+
         return "/memberShip";
     }
 }

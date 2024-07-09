@@ -72,8 +72,11 @@ public class OrderController {
 
         System.out.println(reserve.getTotal_price() + " 이거야 ");
 
+        userService.orderPoint(users, reserve.getTotal_price());
         roomReserveService.saveRoomRes(reserve);
         model.addAttribute("Message", "예약이 완료되었습니다.");
+
+
 
         return "/index";
     }
