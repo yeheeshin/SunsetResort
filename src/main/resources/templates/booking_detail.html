@@ -72,12 +72,11 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="dotted"></div>
                             </div>
-                        </div>
+                            <div th:text="'총 가격 : ' + ${#numbers.formatInteger(res.total_price,0, 'COMMA') + ' KRW'}">뭐여!!</div>
                     </div>
-                    <div class="edit-td">
-
+                    </div>
+                    <div class="edit-td row">
                     </div>
                 </td>
             </tr>
