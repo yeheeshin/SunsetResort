@@ -70,6 +70,8 @@ public class OrderController {
         users users = userService.nowUser();
         reserve.setUser_id(users.getUser_id());
 
+        System.out.println(reserve.getTotal_price() + " 이거야 ");
+
         roomReserveService.saveRoomRes(reserve);
         model.addAttribute("Message", "예약이 완료되었습니다.");
 

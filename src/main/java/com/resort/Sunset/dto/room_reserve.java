@@ -16,6 +16,7 @@ public class room_reserve {
     private int people;
     private int breakfast;
     private int room_count;
+    private int total_price;
 
     private Long room_id;
     private Long user_id;

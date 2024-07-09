@@ -79,9 +79,11 @@ $(document).ready(function() {
         $(".tax-price").text(formatPrice(taxTotal));
         $(".total").text(`${formattedTotalPrice}`);
 
+        console.log(`Type of totalPrice: ${totalPrice}`);
+        console.log(`Type of totalPrice: ${typeof quantity}`);
 
-
-        $("breakfast").val(quantity);
+        $("#total_price").val(totalPrice);
+        $("#breakfast").val(quantity);
     }
 
     $(".qtyminus, .qtyplus, .qty").on("click input", function() {
