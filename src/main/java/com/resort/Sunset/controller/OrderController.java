@@ -64,21 +64,34 @@ public class OrderController {
         return "/roomRes";
     }
 
-    // 예약 하기
+    // 예약 상세로 이동
     @PostMapping("/orderDe")
     public String orderDe(@ModelAttribute room_reserve reserve, Model model) {
+        Long roomId = reserve.getRoom_id();
+        room room = roomService.getRoom(roomId);
+
+        model.addAttribute("room", room);
+        model.addAttribute("reserve", reserve);
+
+        return "/orderDetail";
+    }
+
+    // 예약 하기
+    @PostMapping("/finalOrder")
+    public String finalOrder(@ModelAttribute room_reserve reserve, Model model) {
         users users = userService.nowUser();
-        reserve.setUser_id(users.getUser_id());
-
-        System.out.println(reserve.getTotal_price() + " 이거야 ");
-
         userService.orderPoint(users, reserve.getTotal_price());
+
+        reserve.setUser_id(users.getUser_id());
         roomReserveService.saveRoomRes(reserve);
         model.addAttribute("Message", "예약이 완료되었습니다.");
 
-
-
         return "/index";
+    }
+
+    @GetMapping("eee")
+    public String eee() {
+        return "orderDetail";
     }
 
 

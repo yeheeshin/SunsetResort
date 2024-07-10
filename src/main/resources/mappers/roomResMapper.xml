@@ -7,8 +7,8 @@
     </select>
 
     <insert id="saveRoomRes" parameterType="com.resort.Sunset.dto.room_reserve">
-        insert into room_reserve (add_request, child, in_date, out_date, people, room_id, user_id, breakfast, room_count, total_price)
-        values (#{add_request}, #{child}, #{in_date}, #{out_date}, #{people}, #{room_id}, #{user_id}, #{breakfast}, #{room_count}, #{total_price})
+        insert into room_reserve (add_request, child, in_date, out_date, people, room_id, user_id, breakfast, room_count, total_price, res_name, res_email, res_num)
+        values (#{add_request}, #{child}, #{in_date}, #{out_date}, #{people}, #{room_id}, #{user_id}, #{breakfast}, #{room_count}, #{total_price}, #{res_name}, #{res_email}, #{res_num})
     </insert>
 
     <select id="selectByUserId" resultType="com.resort.Sunset.dto.room_reserve">

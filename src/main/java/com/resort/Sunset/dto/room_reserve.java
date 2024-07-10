@@ -17,6 +17,9 @@ public class room_reserve {
     private int breakfast;
     private int room_count;
     private int total_price;
+    private String res_name;
+    private String res_num;
+    private String res_email;
 
     private Long room_id;
     private Long user_id;

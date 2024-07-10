@@ -13,12 +13,13 @@
 <div th:include="fragments/buyNav.html"></div>
 
 <div class="deContainer">
+
     <div class="hotel-info">
         <img src="/css/images/exRoom.jpg" alt="Hotel Room">
         <div class="hotel-details">
             <p>
                 <span class="infoDe">호텔 및 객실</span>
-                <span>시그니엘 서울, 그랜드 디럭스 더블 시티뷰</span>
+                <span th:text="${room.name}">시그니엘 서울, 그랜드 디럭스 더블 시티뷰</span>
             </p>
             <p>
                 <span class="infoDe">적용 상품</span>
@@ -26,11 +27,11 @@
             </p>
             <p>
                 <span class="infoDe">투숙 날짜</span>
-                <span>2024년 05월 23일 - 2024년 05월 24일 (1박)</span>
+                <span th:text="${reserve.in_date} + ' ~ ' + ${reserve.out_date}">2024년 05월 23일 - 2024년 05월 24일 (1박)</span>
             </p>
             <p>
                 <span class="infoDe">객실 및 인원</span>
-                <span>객실 3, 성인 6, 어린이 0</span>
+                <span th:text="'성인 ' + ${reserve.people} + ', 어린이 ' + ${reserve.child}">객실 3, 성인 6, 어린이 0</span>
             </p>
         </div>
     </div>
@@ -65,24 +66,33 @@
             </p>
         </div>
     </div>
-    <div class="total-cost">
+    <div class="total-cost" th:text="${#numbers.formatInteger(reserve.total_price, 0, 'COMMA')} + 'KRW'">
         총 요금: 1,996,500 KRW
     </div><hr>
-    <form>
-        <label for="first-name">영문 이름*</label><br>
-        <input type="text" class="nameEng" id="first-name" name="first-name" placeholder="영문 성을 입력하세요">
-        <input type="text" class="nameEng" id="last-name" name="last-name" placeholder="영문 이름을 입력하세요">
+    <form th:action="@{/finalOrder}" method="post">
+        <label for="res_name">영문 이름*</label><br>
+        <input type="text" class="nameEng" id="res_name" name="res_name" placeholder="영문 이름을 입력하세요">
         <div class="warning">여권 이름을 입력해주세요. 영문 이름은 반드시 여권 이름을 입력합니다.</div><hr>
 
-        <label for="email">이메일*</label><br>
-        <input type="email" class="oneInput" id="email" name="email" placeholder="example@lotte.net"><hr>
+        <label for="res_email">이메일*</label><br>
+        <input type="email" class="oneInput" id="res_email" name="res_email" placeholder="example@lotte.net"><hr>
 
-        <label for="phone-number">연락처*</label><br>
-        <input type="text" class="oneInput" id="phone-number" name="phone-number" placeholder="연락처"><hr>
+        <label for="res_num">연락처*</label><br>
+        <input type="text" class="oneInput" id="res_num" name="res_num" placeholder="연락처"><hr>
 
         <div class="btnCss2">
             <button type="submit" class="btnCss">예약하기</button>
         </div>
+
+        <input type="hidden" id="add_request" name="add_request" th:value="${reserve.add_request}">
+        <input type="hidden" id="child" name="child" th:value="${reserve.child}">
+        <input type="hidden" id="in_date" name="in_date" th:value="${reserve.in_date}">
+        <input type="hidden" id="out_date" name="out_date" th:value="${reserve.out_date}">
+        <input type="hidden" id="people" name="people" th:value="${reserve.people}">
+        <input type="hidden" id="breakfast" name="breakfast" th:value="${reserve.breakfast}">
+        <input type="hidden" id="room_count" name="room_count" th:value="${reserve.room_count}">
+        <input type="hidden" id="total_price" name="total_price" th:value="${reserve.total_price}">
+        <input type="hidden" id="room_id" name="room_id" th:value="${room.room_id}">
     </form>
 </div>
 
