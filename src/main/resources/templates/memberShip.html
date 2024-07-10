@@ -20,7 +20,7 @@
                 </div>
                 <div class="ppc-percents">
                     <div class="pcc-percents-wrapper">
-                        <span>%</span>
+                        <span th:text="${rank.rank_name}"></span>
                     </div>
                 </div>
             </div><!--End Chart -->
@@ -43,6 +43,7 @@
             </ul>
         </div>
 
+        <div id="membershipRank" th:text="${rank.rank_name}" style="display: none;"></div>
     </div>
 
     <!-- 등급 기준 -->

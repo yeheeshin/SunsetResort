@@ -1,9 +1,6 @@
 package com.resort.Sunset.controller;
 
-import com.resort.Sunset.dto.restaurant;
-import com.resort.Sunset.dto.room;
-import com.resort.Sunset.dto.store;
-import com.resort.Sunset.dto.users;
+import com.resort.Sunset.dto.*;
 import com.resort.Sunset.form.fileForm;
 import com.resort.Sunset.service.*;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +22,7 @@ public class HomeController {
     private final RoomService roomService;
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
+    private final RankService rankService;
 
     @GetMapping("/")
     public String home(Model model) {
@@ -109,7 +107,11 @@ public class HomeController {
     public String membership(Model model) {
         users users = userService.nowUser();
 
+        Long rankId = users.getRank_id();
+        ranking rank = rankService.getRanking(rankId);
+
         model.addAttribute("users", users);
+        model.addAttribute("rank", rank);
 
         return "/memberShip";
     }
