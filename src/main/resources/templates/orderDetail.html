@@ -70,6 +70,11 @@
         총 요금: 1,996,500 KRW
     </div><hr>
     <form th:action="@{/finalOrder}" method="post">
+
+        <label for="point">포인트 사용</label><br>
+        <input type="number" class="nameEng" id="point" name="point"> <span>(잔여 : 0원)</span>
+        <hr>
+
         <label for="res_name">영문 이름*</label><br>
         <input type="text" class="nameEng" id="res_name" name="res_name" placeholder="영문 이름을 입력하세요">
         <div class="warning">여권 이름을 입력해주세요. 영문 이름은 반드시 여권 이름을 입력합니다.</div><hr>
