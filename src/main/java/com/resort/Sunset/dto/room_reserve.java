@@ -20,6 +20,7 @@ public class room_reserve {
     private String res_name;
     private String res_num;
     private String res_email;
+    private int point;
 
     private Long room_id;
     private Long user_id;

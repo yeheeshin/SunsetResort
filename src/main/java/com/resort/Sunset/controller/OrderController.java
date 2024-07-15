@@ -1,6 +1,7 @@
 package com.resort.Sunset.controller;
 
 import com.resort.Sunset.dto.*;
+import com.resort.Sunset.form.PriceForm;
 import com.resort.Sunset.form.fileForm;
 import com.resort.Sunset.form.resForm;
 import com.resort.Sunset.service.*;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -66,12 +68,18 @@ public class OrderController {
 
     // 예약 상세로 이동
     @PostMapping("/orderDe")
-    public String orderDe(@ModelAttribute room_reserve reserve, Model model) {
+    public String orderDe(@ModelAttribute room_reserve reserve,
+                          @ModelAttribute PriceForm priceForm, Model model) {
         Long roomId = reserve.getRoom_id();
         room room = roomService.getRoom(roomId);
+        users user = userService.nowUser();
 
         model.addAttribute("room", room);
         model.addAttribute("reserve", reserve);
+        model.addAttribute("user", user);
+        model.addAttribute("priceForm", priceForm);
+
+        System.out.println(priceForm.getBreakPrice());
 
         return "/orderDetail";
     }
@@ -81,6 +89,13 @@ public class OrderController {
     public String finalOrder(@ModelAttribute room_reserve reserve, Model model) {
         users users = userService.nowUser();
         userService.orderPoint(users, reserve.getTotal_price());
+
+        if (reserve.getPoint() != 0) {
+            int newPoint = users.getPoint() - reserve.getPoint();
+            users.setPoint(newPoint);
+
+            userService.updateUser(users);
+        }
 
         reserve.setUser_id(users.getUser_id());
         roomReserveService.saveRoomRes(reserve);

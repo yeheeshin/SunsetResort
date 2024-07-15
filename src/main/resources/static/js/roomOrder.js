@@ -79,6 +79,11 @@ $(document).ready(function() {
         $(".tax-price").text(formatPrice(taxTotal));
         $(".total").text(`${formattedTotalPrice}`);
 
+        $("#roomPrice").val(formatPrice(roomPrice));
+        $("#breakPrice").val(formatPrice(breakfastTotal));
+        $("#taxPrice").val(formatPrice(taxTotal));
+
+
         console.log(`Type of totalPrice: ${totalPrice}`);
         console.log(`Type of totalPrice: ${typeof quantity}`);
 
