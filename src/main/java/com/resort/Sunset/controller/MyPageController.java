@@ -29,12 +29,15 @@ public class MyPageController {
 
     private final PasswordEncoder passwordEncoder;
 
+    // 마이페이지 띄우기
     @GetMapping("/myPage")
     public String myPage(Model model) {
         List<room> roomInfo = new ArrayList<>();
 
+        // 지금 로그인 한 id 사용해서 예약 목록 가져오기
         List<room_reserve> resById = roomReserveService.getResById(userService.nowUser().getUser_id());
 
+        // 예약한 방에 대한 정보 가져오기
         for (room_reserve res : resById) {
             Long roomId = res.getRoom_id();
 
@@ -48,6 +51,7 @@ public class MyPageController {
         return "/myPage";
     }
 
+    // 내 정보 수정 창 띄우기
     @GetMapping("/info")
     public String myInfo(Model model) {
         users users = userService.nowUser();
@@ -56,8 +60,9 @@ public class MyPageController {
         return "/myInfo";
     }
 
+    // 비밀번호가 일치 할 경우, 내 정보 수정
     @PostMapping("/userEdit")
-    public String editUser(Model model, @ModelAttribute users user, @RequestParam("pwd") String pwd) {
+    public String editUser(@ModelAttribute users user, @RequestParam("pwd") String pwd) {
         users nowUser = userService.nowUser();
 
         if (passwordEncoder.matches(pwd,nowUser.getPwd())) {
@@ -65,17 +70,13 @@ public class MyPageController {
             nowUser.setPhone(user.getPhone());
 
             userService.updateUser(nowUser);
-
-            System.out.println("여기 지났다네");
         }
-
-        System.out.println(pwd + "??????");
-
         return "redirect:/myPage";
     }
 
-    @GetMapping("/exx")
-    public String ex2(@RequestParam("id") Long re_id, Model model) {
+    // 예약 상세 정보 띄우기
+    @GetMapping("/resInfo")
+    public String resInfo(@RequestParam("id") Long re_id, Model model) {
 
         room_reserve res = roomReserveService.getRes(re_id);
         model.addAttribute("res", res);
@@ -83,9 +84,6 @@ public class MyPageController {
         Long roomId = res.getRoom_id();
         room room = roomService.getRoom(roomId);
         model.addAttribute("room", room);
-
-//        users users = userService.nowUser();
-//        model.addAttribute("users", users);
 
         return "booking_detail";
     }

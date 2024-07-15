@@ -45,7 +45,7 @@
         <p th:text="${roomInfo.get(index.index).name}">고잉 스위트룸</p>
         <p th:text="${res.in_date} + ' ~ ' + ${res.out_date}">2022.05.13 ~ 2022.05.14</p>
         <p th:text="'성인 ' + ${res.people} + '인, 어린이 ' + ${res.child} + '인 '">120,000원</p>
-        <a th:href="@{/exx(id=${res.re_id})}" class="btn">예약 정보</a>
+        <a th:href="@{/resInfo(id=${res.re_id})}" class="btn">예약 정보</a>
       </div>
     </div>
   </div>
