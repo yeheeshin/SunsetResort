@@ -50,21 +50,6 @@ public class HomeController {
         return "/contact";
     }
 
-    @GetMapping("/ex")
-    public String ex(fileForm fileForm, Model model) {
-        // 갖고 있는 부대시설, 레스토랑, 객실 모두 조회
-        List<store> stores = storeService.selectAll();
-        List<restaurant> restaurants = restaurantService.selectAll();
-        List<room> rooms = roomService.selectAll();
-
-        model.addAttribute("store", stores);
-        model.addAttribute("restaurant", restaurants);
-        model.addAttribute("rooms", rooms);
-        model.addAttribute("allFile", fileForm);
-
-        return "/ex";
-    }
-
     @GetMapping("/login")
     public String login() {
         return "/login";
