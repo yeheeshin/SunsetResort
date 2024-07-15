@@ -25,6 +25,7 @@ public class OrderController {
     private final RoomReserveService roomReserveService;
     private final UserService userService;
 
+    // 예약 가능한 객실 목록 가져오기
     @PostMapping("/roomRes")
     public String room_res(@ModelAttribute resForm resForm, Model model) {
         if (userService.nowUser() == null) {
@@ -103,11 +104,5 @@ public class OrderController {
 
         return "/index";
     }
-
-    @GetMapping("eee")
-    public String eee() {
-        return "orderDetail";
-    }
-
 
 }
