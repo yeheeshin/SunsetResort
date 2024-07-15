@@ -18,7 +18,6 @@ import java.util.List;
 public class HomeController {
 
     private final StoreService storeService;
-    private final RestaurantService restaurantService;
     private final RoomService roomService;
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
