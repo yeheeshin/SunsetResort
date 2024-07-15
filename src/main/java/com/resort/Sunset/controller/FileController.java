@@ -38,7 +38,7 @@ public class FileController {
         model.addAttribute("rooms", rooms);
         model.addAttribute("allFile", fileForm);
 
-        return "dataUpload";
+        return "/dataUpload";
     }
 
     // 호텔 데이터 저장

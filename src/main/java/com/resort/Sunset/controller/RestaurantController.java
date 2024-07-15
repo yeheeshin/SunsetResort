@@ -32,7 +32,7 @@ public class RestaurantController {
 
         model.addAttribute("restaurants", restaurants);
 
-        return "/restaurant";
+        return "list/restaurant";
     }
 
     // 레스토랑 상세 페이지 띄우기
@@ -62,6 +62,6 @@ public class RestaurantController {
         model.addAttribute("menuFiles", menuFiles);
         model.addAttribute("res_menu", res_menu);
 
-        return "/res_detail";
+        return "detail/res_detail";
     }
 }

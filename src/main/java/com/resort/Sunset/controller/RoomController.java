@@ -85,7 +85,7 @@ public class RoomController {
         model.addAttribute("amenities", amenities);
         model.addAttribute("roomImg", roomImg);
         model.addAttribute("roomImgJson", roomImgJson);
-        return "room_details";
+        return "detail/room_details";
     }
 
     // 객실 예약
@@ -113,7 +113,7 @@ public class RoomController {
         model.addAttribute("oneView", oneView);
         model.addAttribute("amenities", amenities);
 
-        return "/roomOrder";
+        return "reserve/roomOrder";
     }
 
 

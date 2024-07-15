@@ -2,9 +2,7 @@ package com.resort.Sunset.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.resort.Sunset.dto.amenities;
 import com.resort.Sunset.dto.img_all;
-import com.resort.Sunset.dto.room;
 import com.resort.Sunset.dto.store;
 import com.resort.Sunset.service.ImgAllService;
 import com.resort.Sunset.service.StoreService;
@@ -31,7 +29,7 @@ public class StoreController {
 
         model.addAttribute("stores", stores);
 
-        return "/storeList";
+        return "list/storeList";
     }
 
     // 부대시설 상세 페이지 로드
@@ -53,7 +51,7 @@ public class StoreController {
         model.addAttribute("storeImgJson", storeImgJson);
         model.addAttribute("store", store);
 
-        return "store_details";
+        return "detail/store_details";
     }
 
 

@@ -31,7 +31,7 @@ public class SecurityConfig{
                 )
                 .formLogin(formLogin ->
                         formLogin
-                                .loginPage("/login")
+                                .loginPage("/user/login")
                                 .usernameParameter("email")
                                 .passwordParameter("pwd")
                                 .defaultSuccessUrl("/", true)

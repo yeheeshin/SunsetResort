@@ -1,7 +1,6 @@
 package com.resort.Sunset.controller;
 
 import com.resort.Sunset.dto.*;
-import com.resort.Sunset.form.fileForm;
 import com.resort.Sunset.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -36,22 +35,17 @@ public class HomeController {
 
     @GetMapping("/about")
     public String about() {
-        return "/about-us";
-    }
-
-    @GetMapping("/blogDetail")
-    public String blogDetail() {
-        return "/blog-details";
+        return "user/about-us";
     }
 
     @GetMapping("/contact")
     public String contact() {
-        return "/contact";
+        return "user/contact";
     }
 
     @GetMapping("/login")
     public String login() {
-        return "/login";
+        return "user/login";
     }
 
     @GetMapping("/sign")
@@ -60,7 +54,7 @@ public class HomeController {
         users user = new users();
 
         model.addAttribute("user", user);
-        return "/signup";
+        return "user/signup";
     }
 
     @PostMapping("/sign")
@@ -70,21 +64,21 @@ public class HomeController {
         if (duplicateUser != "") {
             model.addAttribute("errorMessage", duplicateUser);
 
-            return "/signup";
+            return "user/signup";
         }
 
         user.setPwd(passwordEncoder.encode(user.getPwd()));
 
         userService.saveUser(user);
 
-        return "/login";
+        return "user/login";
     }
 
     @GetMapping("/loginError")
     public String errorPage(Model model) {
         model.addAttribute("errorMessage", "아이디 또는 비밀번호를 확인해주세요");
 
-        return "/login";
+        return "user/login";
     }
 
     @GetMapping("/membership")
@@ -97,6 +91,6 @@ public class HomeController {
         model.addAttribute("users", users);
         model.addAttribute("rank", rank);
 
-        return "/memberShip";
+        return "myPage/memberShip";
     }
 }

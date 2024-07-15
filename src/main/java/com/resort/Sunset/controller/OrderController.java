@@ -2,17 +2,13 @@ package com.resort.Sunset.controller;
 
 import com.resort.Sunset.dto.*;
 import com.resort.Sunset.form.PriceForm;
-import com.resort.Sunset.form.fileForm;
 import com.resort.Sunset.form.resForm;
 import com.resort.Sunset.service.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -31,7 +27,7 @@ public class OrderController {
         if (userService.nowUser() == null) {
             model.addAttribute("errorMessage", "로그인 후, 예약 바랍니다.");
 
-            return "/login";
+            return "user/login";
         }
 
         List<room> roomIds = new ArrayList<>();
@@ -64,7 +60,7 @@ public class OrderController {
         model.addAttribute("roomView", roomView);
         model.addAttribute("roomPrice", roomPrice);
 
-        return "/roomRes";
+        return "reserve/roomRes";
     }
 
     // 예약 상세로 이동
@@ -82,7 +78,7 @@ public class OrderController {
 
         System.out.println(priceForm.getBreakPrice());
 
-        return "/orderDetail";
+        return "reserve/orderDetail";
     }
 
     // 예약 하기

@@ -14,9 +14,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text">
-                    <h2 th:text="${store.name}">Our Rooms</h2>
+                    <h2 th:text="${rooms.name}">Our Rooms</h2>
                     <div class="bt-option">
-                        <a href="/">Home</a>
+                        <a href="/static">Home</a>
                         <span>Rooms</span>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
 
 <!-- Room Details Section Begin -->
 <section class="room-details-section spad">
-    <div class="container" style="max-width: 85%">
+    <div class="container">
         <div class="room-details-item">
             <div class="image-wrapper" style="position: relative;">
                 <img src="img/room/room-details.jpg" alt="" style="width: 1900px">
@@ -37,7 +37,7 @@
             </div>
             <div class="rd-text">
                 <div class="rd-title">
-                    <h5 class="text-center" th:utext="${#strings.replace(store.intro, '\n', '<br>')}">
+                    <h5 class="text-center" th:utext="${#strings.replace(rooms.intro, '\n', '<br>')}">
                         intro~
                     </h5>
                     <!-- 이미지 이름 출력 확인 -->
@@ -51,21 +51,29 @@
         <hr>
         <div class="row">
             <div class="col-2 infoTitle">
-                <h3>부대시설 개요</h3>
+                <h3>객실 개요</h3>
             </div>
             <div class="col-10">
                 <ul>
                     <li class="exexex">
-                        <div class="roomTitle">타입</div>
-                        <div th:text="${store.store_type}">2명</div>
+                        <div class="roomTitle">침대타입</div>
+                        <div>더블</div>
                     </li>
                     <li class="exexex">
-                        <div class="roomTitle">위치</div>
-                        <div th:text="${store.location}"></div>
+                        <div class="roomTitle">투숙인원</div>
+                        <div th:text="${rooms.max_people}">2명</div>
                     </li>
                     <li class="exexex">
-                        <div class="roomTitle">이용시간</div>
-                        <div th:text="${store.open_time} + ' ~ ' + ${store.close_time}">30~50 ㎡</div>
+                        <div class="roomTitle">전망</div>
+                        <div>시티뷰/리버뷰/<br>시티뷰(전망욕실)/<br>리버뷰(전망욕실)</div>
+                    </li>
+                    <li class="exexex">
+                        <div class="roomTitle">객실면적</div>
+                        <div th:text="${rooms.area} + '㎡'">30~50 ㎡</div>
+                    </li>
+                    <li class="exexex">
+                        <div class="roomTitle">체크인/체크아웃</div>
+                        <div>15:00/11:00</div>
                     </li>
                 </ul>
             </div>
@@ -73,33 +81,61 @@
         <hr>
         <div class="row">
             <div class="col-2 infoTitle">
-                <h3>추가정보</h3>
+                <h3>특별 서비스</h3>
             </div>
             <div class="col-10">
-                <div class="fontInfo" th:utext="${#strings.replace(store.content, '\n', '<br>')}">
-                    intro~
-                </div>
-            </div>
-        </div><br><br>
-        <div class="row store_num">
-            <div class="col-2 infoTitle">
-                <h3 class="box-padding">문의 안내</h3>
-            </div>
-            <div class="col-10 box-padding">
-                <span class="tel fontInfo"> TEL</span>
-                <span class="fontInfo"> +82-2-3213-1383~4</span>
+                <ul>
+                    <li class="xe" th:each="item : ${rooms.service.split('\\n')}">
+                        <span th:text="'- ' + ${item}"></span>
+                    </li>
+                </ul>
             </div>
         </div>
-
+        <hr>
+        <div class="row">
+            <div class="col-2 infoTitle">
+                <h3>어메니티</h3>
+            </div>
+            <div class="col-10">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="roomTitle">일반</div>
+                        <ul>
+                            <li class="xe" th:each="item : ${amenities.general.split('\\n')}">
+                                <span th:text="${item}"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <div class="roomTitle">욕실</div>
+                        <ul>
+                            <li class="xe" th:each="item : ${amenities.bath.split('\\n')}">
+                                <span th:text="${item}"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <div class="roomTitle">기타</div>
+                        <ul>
+                            <li class="xe" th:each="item : ${amenities.etc.split('\\n')}">
+                                <span th:text="${item}"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
     </div>
 </section>
 <!-- Room Details Section End -->
 
+<div th:replace="fragments/roomInfo :: infoFragment"></div>
 <div th:replace="fragments/footer :: footerFragment"></div>
 <script th:inline="javascript">
     /*<![CDATA[*/
     // 서버에서 전달된 JSON 데이터를 파싱
-    var imageListStr = /*[[${storeImgJson}]]*/ '[]';
+    var imageListStr = /*[[${roomImgJson}]]*/ '[]';
 
     // JSON 데이터가 유효한지 확인
     try {

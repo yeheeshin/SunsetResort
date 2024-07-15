@@ -48,7 +48,7 @@ public class MyPageController {
         model.addAttribute("resList", resById);
         model.addAttribute("roomInfo", roomInfo);
 
-        return "/myPage";
+        return "myPage/myPage";
     }
 
     // 내 정보 수정 창 띄우기
@@ -57,7 +57,7 @@ public class MyPageController {
         users users = userService.nowUser();
         model.addAttribute("user", users);
 
-        return "/myInfo";
+        return "myPage/myInfo";
     }
 
     // 비밀번호가 일치 할 경우, 내 정보 수정
@@ -85,7 +85,7 @@ public class MyPageController {
         room room = roomService.getRoom(roomId);
         model.addAttribute("room", room);
 
-        return "booking_detail";
+        return "myPage/booking_detail";
     }
 
 }
