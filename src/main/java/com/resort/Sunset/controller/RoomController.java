@@ -53,7 +53,7 @@ public class RoomController {
         model.addAttribute("roomView", roomView);
         model.addAttribute("roomInfo", roomInfo);
 
-        return "/rooms";
+        return "list/rooms";
     }
 
 
