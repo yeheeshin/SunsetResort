@@ -25,6 +25,7 @@ public class RestaurantController {
     private final ImgAllService imgAllService;
     private final MenuFileMapper menuFileMapper;
 
+    // 레스토랑 목록 가져오기
     @GetMapping("/restaurant")
     public String blog(Model model) {
         List<restaurant> restaurants = restaurantService.selectAll();
@@ -34,6 +35,7 @@ public class RestaurantController {
         return "/restaurant";
     }
 
+    // 레스토랑 상세 페이지 띄우기
     @GetMapping("/res_detail")
     public String res_detail(@RequestParam("id") Long res_id, Model model) {
         restaurant restaurant = restaurantService.selectResId(res_id);
