@@ -9,6 +9,7 @@
 <body>
 
 <div class="app-container">
+  <!-- sidebar -->
   <div class="app-left">
     <button class="close-menu">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -53,6 +54,7 @@
       </li>
     </ul>
   </div>
+
   <div class="app-main">
     <div class="main-header-line">
       <h1>Applications Dashboard</h1>
@@ -65,7 +67,9 @@
         </button>
       </div>
     </div>
+
     <div class="chart-row three">
+      <!-- 첫번째 파이차트, 객실 점유율(오늘 날짜 기준으로) -->
       <div class="chart-container-wrapper">
         <div class="chart-container">
           <div class="chart-info-wrapper">
@@ -85,6 +89,8 @@
           </div>
         </div>
       </div>
+
+      <!-- 두번째 파이차트, 3박 이상 예약한 사람 비율 -->
       <div class="chart-container-wrapper">
         <div class="chart-container">
           <div class="chart-info-wrapper">
@@ -104,6 +110,8 @@
           </div>
         </div>
       </div>
+
+      <!-- 세번째 파이차트, 포인트 사용해서 예약한 비율 -->
       <div class="chart-container-wrapper">
         <div class="chart-container">
           <div class="chart-info-wrapper">
@@ -123,8 +131,10 @@
           </div>
         </div>
       </div>
+
     </div>
     <div class="chart-row two">
+      <!-- 예약 리스트 -->
       <div class="chart-container-wrapper big">
         <div class="chart-container">
           <div class="chart-container-header">
@@ -140,6 +150,7 @@
         </div>
       </div>
       <div class="chart-container-wrapper small">
+        <!-- 객실 별 예약 갯수 -->
         <div class="chart-container">
           <div class="chart-container-header">
             <h2>Acquisitions</h2>
@@ -172,6 +183,8 @@
             <span class="progress-amount">8%</span>
           </div>
         </div>
+
+        <!-- 회원 목록 -->
         <div class="chart-container applicants">
           <div class="chart-container-header">
             <h2>New Applicants</h2>
@@ -216,10 +229,9 @@
       </div>
     </div>
   </div>
+
   <div class="app-right">
-    <button class="close-right">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
+    <!-- 현재 로그인한 관리자 프로필 -->
     <div class="profile-box">
       <div class="profile-photo-wrapper">
         <img src="https://images.unsplash.com/photo-1551292831-023188e78222?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTE0fHxwb3J0cmFpdHxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="profile">
@@ -227,7 +239,9 @@
       <p class="profile-text">Julia Pellegrini</p>
       <p class="profile-subtext">Recruiting Manager</p>
     </div>
+
     <div class="app-right-content">
+      <!-- 동료 관리자 프로필 -->
       <div class="app-right-section">
         <div class="app-right-section-header">
           <h2>Messages</h2>
@@ -257,6 +271,8 @@
           </div>
         </div>
       </div>
+
+      <!-- 알림 -->
       <div class="app-right-section">
         <div class="app-right-section-header">
           <h2>Activity</h2>
