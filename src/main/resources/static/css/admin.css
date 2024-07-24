@@ -153,7 +153,6 @@ button {
 }
 
 .nav-list-link {
-    font-weight: 300;
     font-size: 14px;
     line-height: 24px;
     padding: 8px 24px;
@@ -165,17 +164,8 @@ button {
 .nav-list-link svg {
     margin-right: 12px;
 }
-.nav-list-link:after {
-    content: "";
-    height: 100%;
-    width: 2px;
-    background-color: var(--app-logo);
-    right: 0;
-    top: 0;
-    position: absolute;
-    border-radius: 2px;
-    opacity: 0;
-    height: 0;
+.nav-list .active {
+    border-right: 2px solid #3D7EFFFF;
 }
 
 .open-right-area {
