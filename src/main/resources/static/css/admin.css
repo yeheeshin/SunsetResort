@@ -211,7 +211,7 @@ button {
     max-width: 400px;
     margin-left: 16px;
 }
-.main-header-line input:placeholder {
+.main-header-line input::placeholder {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.6);
 }
