@@ -17,5 +17,10 @@ public class adminController {
     public String adminManage() {
         return "/admin/adminManage";
     }
+
+    @GetMapping("/resManage")
+    public String resManage() {
+        return "/admin/resManage";
+    }
 }
 
