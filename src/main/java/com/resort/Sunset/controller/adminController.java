@@ -27,5 +27,10 @@ public class adminController {
     public String userManage() {
         return "/admin/userManage";
     }
+
+    @GetMapping("/adminMessage")
+    public String adminMessage() {
+        return "/admin/adminMessage";
+    }
 }
 
