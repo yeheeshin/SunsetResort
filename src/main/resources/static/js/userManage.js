@@ -8,6 +8,14 @@ $(document).ready(function() {
             .querySelector(".products-area-wrapper")
             .classList.remove("tableView");
         document.querySelector(".wantNone").classList.add("wantHidden");
+
+        // 삭제 수정 한 줄에 뜨게 바꾸기
+        var cells = document.querySelectorAll(".userCRUD");
+
+        cells.forEach(function (cell) {
+            cell.style.display = 'inline-block';
+            cell.style.marginRight = '10px';
+        });
     });
 
     document.querySelector(".list").addEventListener("click", function () {

@@ -781,16 +781,16 @@ h1{
     margin: 10px;
 }
 a{
-    margin:10px;
+    margin: 2px;
     font-size: 14px;
     font-family: sans-serif;
 }
-#name,#id, #pwd,#submit{
+#name,#id, #pwd,#submit, #phone, #email{
     font-size: 14px;
     margin:10px ;
     border-radius: 8px;
 }
-#name, #id, #pwd{
+#name, #id, #pwd, #phone, #email{
     padding:10px;
     width: calc(100% - 24px);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
