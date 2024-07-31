@@ -292,7 +292,7 @@ body[data-theme=dark] {
 .chat-list.active {
     display: block;
     height: auto;
-    max-height: auto;
+    /*max-height: auto;*/
     opacity: 1;
 }
 .chat-list-item {
@@ -378,7 +378,6 @@ body[data-theme=dark] {
     position: sticky;
     top: 0;
     background-color: var(--box-color);
-    border: 1px solid var(--box-border);
 }
 
 .chat-wrapper {
@@ -394,7 +393,7 @@ body[data-theme=dark] {
     background-color: var(--chat-input);
     color: var(--text-dark);
 }
-.chat-input:placeholder {
+.chat-input::placeholder {
     color: var(--text-light);
     font-size: 12px;
 }
@@ -839,4 +838,52 @@ body[data-theme=dark] {
 
 .nav-list li {
     justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #4a6dbd;
+}
+.profile {
+    display: flex;
+    align-items: center;
+}
+.profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.profile span {
+    font-weight: bold;
+    color: white;
+}
+.icons {
+    display: flex;
+    align-items: center;
+}
+.icons svg {
+    margin-left: 20px;
+    cursor: pointer;
+    color: white;
+}
+.app-main-header {
+    padding-bottom: 10px;
 }
