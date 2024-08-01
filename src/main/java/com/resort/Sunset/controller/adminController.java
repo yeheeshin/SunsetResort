@@ -2,6 +2,7 @@ package com.resort.Sunset.controller;
 
 import com.resort.Sunset.dto.ranking;
 import com.resort.Sunset.dto.users;
+import com.resort.Sunset.form.resForm;
 import com.resort.Sunset.service.RankService;
 import com.resort.Sunset.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +65,29 @@ public class adminController {
     @GetMapping("/adminMessage")
     public String adminMessage() {
         return "/admin/adminMessage";
+    }
+
+    @GetMapping("/userEditA")
+    public String userEditAdmin(@RequestParam("email") String userEmail, Model model) {
+        users user = userService.getUser(userEmail);
+
+        model.addAttribute("user", user);
+
+        return "/admin/userAdminEdit";
+    }
+
+    @PostMapping("/userEditA")
+    public String userEditA(@ModelAttribute users user, Model model) {
+
+        userService.updateUser(user);
+
+        return "redirect:/userManage";
+
+    }
+
+    @GetMapping("/returnUM")
+    public String returnUM() {
+        return "redirect:/userManage";
     }
 }
 
