@@ -80,4 +80,9 @@ public class UserService {
 
         return userMapper.selectByEmail(name);
     }
+
+    // 모든 회원 조회
+    public List<users> userAll() {
+        return userMapper.selectAll();
+    }
 }

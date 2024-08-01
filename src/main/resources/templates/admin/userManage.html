@@ -112,6 +112,7 @@
         </div>
       </div>
       <div class="products-area-wrapper tableView">
+        <!-- 테이블 제목 행 -->
         <div class="products-header">
           <div class="product-cell image">
             No.
@@ -140,17 +141,27 @@
             </svg>
           </div>
         </div>
-        <div class="products-row">
+        <!-- 한 명의 회원 행 -->
+        <div class="products-row" th:each="user, index : ${allUser}">
           <div class="product-cell image">
-            <span class="wantNone">1</span>
+            <span class="wantNone" th:text="${index.index + 1}">1</span>
           </div>
-          <div class="product-cell category"><span class="cell-label">E-mail:</span>aaa@naver.com</div>
+          <div class="product-cell category">
+            <span class="cell-label">E-mail:</span>
+            <span th:text="${user.email}"></span>
+          </div>
           <div class="product-cell status-cell">
             <span class="cell-label">Name:</span>
-            <span>홍길동</span>
+            <span th:text="${user.name}">홍길동</span>
           </div>
-          <div class="product-cell sales"><span class="cell-label">Phone:</span>010-1234-7894</div>
-          <div class="product-cell stock"><span class="cell-label">Rank:</span>Basic</div>
+          <div class="product-cell sales">
+            <span class="cell-label">Phone:</span>
+            <span th:text="${user.phone}"></span>
+          </div>
+          <div class="product-cell stock">
+            <span class="cell-label">Rank:</span>
+            <span th:text="${userRank.get(index.index).rank_name}"></span>
+          </div>
           <div class="product-cell userCRUD">
             <a href="#">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
