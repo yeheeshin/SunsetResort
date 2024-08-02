@@ -5,4 +5,13 @@
     <select id="selectByAuId" resultType="com.resort.Sunset.dto.admin_user">
         SELECT * FROM admin_user WHERE au_id = #{au_id}
     </select>
+
+    <select id="selectAll" resultType="com.resort.Sunset.dto.admin_user">
+        SELECT * FROM admin_user
+    </select>
+
+    <insert id="saveAdmin" parameterType="com.resort.Sunset.dto.admin_user">
+        insert into admin_user (name, admin_id, pwd)
+        values (#{name}, #{admin_id}, #{pwd})
+    </insert>
 </mapper>

@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -14,5 +16,13 @@ public class AdminUserService {
 
     public admin_user findByauId(Long au_id) {
         return auMapper.selectByAuId(au_id);
+    }
+
+    public void saveAdmin(admin_user adminUser) {
+        auMapper.saveAdmin(adminUser);
+    }
+
+    public List<admin_user> findAll() {
+        return auMapper.selectAll();
     }
 }
