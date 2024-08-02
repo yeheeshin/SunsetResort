@@ -1233,6 +1233,9 @@ body {
     font-size: 14px;
     display: flex;
     align-items: center;
+    min-width: 0;
+    overflow: auto;
+    white-space: nowrap;
 }
 .tableView .product-cell img {
     width: 32px;
@@ -1466,4 +1469,51 @@ body {
 
 .wantHidden{
     display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Scrollbar styling for Webkit browsers (e.g., Chrome, Safari) */
+.product-cell::-webkit-scrollbar {
+    width: 8px; /* 스크롤바의 너비 */
+    height: 8px; /* 가로 스크롤바의 높이 */
+}
+
+.product-cell::-webkit-scrollbar-track {
+    background: var(--app-content-secondary-color); /* 스크롤바 트랙의 배경색 */
+}
+
+.product-cell::-webkit-scrollbar-thumb {
+    background: #007bff; /* 스크롤바의 색상 */
+    border-radius: 4px; /* 스크롤바의 모서리 반경 */
+}
+
+.product-cell::-webkit-scrollbar-thumb:hover {
+    background: #007bff; /* 스크롤바에 마우스를 올렸을 때의 색상 */
+}
+
+/* Scrollbar styling for Firefox */
+.product-cell {
+    scrollbar-width: thin; /* 스크롤바의 너비 */
+    scrollbar-color: #007bff var(--app-content-secondary-color); /* 스크롤바 색상 및 트랙 색상 */
+}
+
+/* Scrollbar styling for IE, Edge */
+.product-cell {
+    -ms-overflow-style: -ms-autohiding-scrollbar; /* 자동으로 숨겨지는 스크롤바 */
 }

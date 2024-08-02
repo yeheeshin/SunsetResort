@@ -7,14 +7,21 @@ $(document).ready(function() {
         document
             .querySelector(".products-area-wrapper")
             .classList.remove("tableView");
-        document.querySelector(".wantNone").classList.add("wantHidden");
+
+        // 모든 .wantNone 클래스를 가진 요소를 선택
+        const elements = document.querySelectorAll(".wantNone");
+
+        // 각 요소에 대해 wantHidden 클래스를 추가
+        elements.forEach(element => {
+            element.classList.add("wantHidden");
+        });
+
 
         // 삭제 수정 한 줄에 뜨게 바꾸기
         var cells = document.querySelectorAll(".userCRUD");
 
         cells.forEach(function (cell) {
             cell.style.display = 'inline-block';
-            cell.style.marginRight = '10px';
         });
     });
 
@@ -23,7 +30,15 @@ $(document).ready(function() {
         document.querySelector(".grid").classList.remove("active");
         document.querySelector(".products-area-wrapper").classList.remove("gridView");
         document.querySelector(".products-area-wrapper").classList.add("tableView");
-        document.querySelector(".wantNone").classList.remove("wantHidden");
+
+        // 모든 .wantNone 클래스를 가진 요소를 선택
+        const elements = document.querySelectorAll(".wantNone");
+
+        // 각 요소에 대해 wantHidden 클래스를 제거
+        elements.forEach(element => {
+            element.classList.remove("wantHidden");
+        });
+
     });
 
 
