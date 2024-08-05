@@ -25,4 +25,8 @@ public class AdminUserService {
     public List<admin_user> findAll() {
         return auMapper.selectAll();
     }
+
+    public void updateAdmin(admin_user adminUser) {
+        auMapper.updateAdmin(adminUser);
+    }
 }

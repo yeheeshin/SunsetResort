@@ -10,6 +10,12 @@
         SELECT * FROM admin_user
     </select>
 
+    <update id="updateAdmin" parameterType="com.resort.Sunset.dto.admin_user">
+        update admin_user
+        set name = #{name}, admin_id = #{admin_id}, role = #{role}
+        where au_id = #{au_id}
+    </update>
+
     <insert id="saveAdmin" parameterType="com.resort.Sunset.dto.admin_user">
         insert into admin_user (name, admin_id, pwd)
         values (#{name}, #{admin_id}, #{pwd})

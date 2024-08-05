@@ -58,28 +58,32 @@
   <div class="app-container">
 
     <!-- 모달 창 -->
-    <div id="myModal" class="modal" style="display: none;">
+    <div id="myModal" class="modal" style="display: block;">
       <div class="modal-content">
         <div class="form-container">
-          <span class="close">&times;</span>
-          <form id="addAdmin" th:object="${adminUser}">
+          <form action="/adminManageEdit" method="post" th:each="admin : ${adminUser}">
+            <input type="hidden" th:value="${admin.au_id}" name="au_id" id="au_id">
             <div class="contact-form">
               <h1 id="header">Contact Form</h1>
               <hr>
               <h4>
                 <a>Please enter your full name:</a>
                 <div class="contact-form-field">
-                  <input type="text" th:field="*{name}" name="name" id="name" placeholder="NAME">
+                  <input type="text" th:value="${admin.name}" name="name" id="name" placeholder="NAME">
                 </div>
                 <a>Enter your ID:</a>
                 <div class="contact-form-field">
-                  <input type="text" th:field="*{admin_id}" name="admin_id" id="admin_id" placeholder="ID">
+                  <input type="text" th:value="${admin.admin_id}" name="admin_id" id="admin_id" placeholder="ID">
                 </div>
-                <a>Enter your password:</a>
+                <a>Change Role:</a>
                 <div class="contact-form-field">
-                  <input type="password" th:field="*{pwd}" name="pwd" id="pwd" placeholder="PASSWORD">
+                  <select name="role" id="role">
+                    <th:block th:each="role : ${roles}">
+                      <option th:value="${role}" th:text="${role}" th:selected="${admin.role == role}">Super</option>
+                    </th:block>
+                  </select>
                 </div>
-                <button type="submit" name="submit" id="submit" class="contact-form--button">관리자 추가</button>
+                <button type="submit" name="submit" id="submit" class="contact-form--button">관리자 수정</button>
               </h4>
               </hr>
             </div>
@@ -140,7 +144,7 @@
               </button>
             </div>
             <div class="product-cell userCRUD">
-              <a th:href="@{/adminManageEdit(id=${admin.au_id})}">
+              <a>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                   <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                   <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
@@ -165,6 +169,5 @@
 
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/admin.js"></script>
-<script src="js/adManage.js"></script>
 </body>
 </html>

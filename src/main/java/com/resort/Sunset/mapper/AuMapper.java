@@ -12,6 +12,8 @@ public interface AuMapper {
     List<admin_user> selectAll();
 
     void saveAdmin(admin_user adminUser);
+
+    void updateAdmin(admin_user adminUser);
 }
 
 

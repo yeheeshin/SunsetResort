@@ -1,6 +1,7 @@
 package com.resort.Sunset.controller;
 
 import com.resort.Sunset.dto.admin_user;
+import com.resort.Sunset.dto.enumType.role;
 import com.resort.Sunset.dto.ranking;
 import com.resort.Sunset.dto.users;
 import com.resort.Sunset.form.resForm;
@@ -33,6 +34,7 @@ public class adminController {
         return "/admin/admin";
     }
 
+    // 관리자 관리
     @GetMapping("/adminManage")
     public String adminManage(Model model) {
         admin_user adminUser = new admin_user();
@@ -42,6 +44,26 @@ public class adminController {
         model.addAttribute("adminUserList", adminUserList);
 
         return "/admin/adminManage";
+    }
+
+    // 관리자 관리 수정 페이지 이동
+    @GetMapping("/adminManageEdit")
+    public String adminManageEdit(@RequestParam("id") Long au_id, Model model) {
+        admin_user adminUser = adminUserService.findByauId(au_id);
+        model.addAttribute("adminUser", adminUser);
+
+        role[] roles = role.values();
+        model.addAttribute("roles", roles);
+
+        return "/admin/adminManageEdit";
+    }
+
+    // 관리자 관리 수정
+    @PostMapping("/adminManageEdit")
+    public String adminEdit(@ModelAttribute admin_user adminUser, Model model) {
+        adminUserService.updateAdmin(adminUser);
+
+        return "redirect:/adminManage";
     }
 
     @GetMapping("/resManage")
