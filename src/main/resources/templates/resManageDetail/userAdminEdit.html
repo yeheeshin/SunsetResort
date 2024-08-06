@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="/css/userManage.css">
+</head>
+<body>
+
+<div class="app-container">
+  <!-- sidebar -->
+  <div class="app-left">
+    <button class="close-menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="app-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2">
+        <line x1="18" y1="20" x2="18" y2="10"/>
+        <line x1="12" y1="20" x2="12" y2="4"/>
+        <line x1="6" y1="20" x2="6" y2="14"/>       </svg>
+      <span>Sunset Admin</span>
+    </div>
+    <ul class="nav-list">
+      <li class="nav-list-item">
+        <a class="nav-list-link" href="/admin">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-columns"><path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18"/></svg>
+          대시보드
+        </a>
+      </li>
+      <li class="nav-list-item">
+        <a class="nav-list-link" href="/resManage">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          예약 관리
+        </a>
+      </li>
+      <li class="nav-list-item active">
+        <a class="nav-list-link" href="/userManage">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          회원 관리
+        </a>
+      </li>
+      <li class="nav-list-item">
+        <a class="nav-list-link" href="/adminMessage">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          메신저
+        </a>
+      </li>
+      <li class="nav-list-item">
+        <a class="nav-list-link" href="/adminManage">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          관리자 관리
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="app-container">
+
+    <!-- 수정 창 -->
+    <div id="myModal" class="modal" style="display: block;">
+      <div class="modal-content">
+        <form action="/userEditA" method="post">
+          <div class="form-container">
+            <a href="/returnUM" class="close">&times;</a>
+            <div class="contact-form">
+              <h1 id="header">회원 수정</h1>
+              <hr>
+              <h4>
+                <a>Please enter your full name:</a>
+                <div class="contact-form-field">
+                  <input type="text" th:value="${user.name}" name="name" id="name" placeholder="NAME">
+                </div>
+
+                <a>Enter your Phone Number:</a>
+                <div class="contact-form-field">
+                  <input type="number" th:value="${user.phone}" name="phone" id="phone" placeholder="phone">
+                </div>
+
+                <a>Enter your E-mail:</a>
+                <div class="contact-form-field">
+                  <input type="email" th:value="${user.email}" name="email" id="email" placeholder="ID">
+                </div>
+
+<!--                <a>Enter your password:</a>-->
+<!--                <div class="contact-form-field">-->
+<!--                  <input type="password" th:value="${user.pwd}" name="pwd" id="pwd" placeholder="PASSWORD">-->
+<!--                </div>-->
+
+                <input type="hidden" id="point" name="point" th:value="${user.point}">
+                <input type="hidden" id="rank_id" name="rank_id" th:value="${user.rank_id}">
+                <input type="hidden" id="user_id" name="user_id" th:value="${user.user_id}">
+
+                <button type="submit" name="submit" id="submit" class="contact-form--button">수정하기</button>
+              </h4>
+              </hr>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="js/jquery-3.3.1.min.js"></script>
+
+<script src="js/admin.js"></script>
+<script src="js/adManage.js"></script>
+<script src="js/userManage.js"></script>
+</body>
+</html>

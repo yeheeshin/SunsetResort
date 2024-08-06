@@ -1,13 +1,9 @@
 package com.resort.Sunset.controller;
 
-import com.resort.Sunset.dto.admin_user;
+import com.resort.Sunset.dto.*;
 import com.resort.Sunset.dto.enumType.role;
-import com.resort.Sunset.dto.ranking;
-import com.resort.Sunset.dto.users;
 import com.resort.Sunset.form.resForm;
-import com.resort.Sunset.service.AdminUserService;
-import com.resort.Sunset.service.RankService;
-import com.resort.Sunset.service.UserService;
+import com.resort.Sunset.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -25,6 +21,8 @@ import java.util.List;
 public class adminController {
     private final UserService userService;
     private final RankService rankService;
+    private final RoomService roomService;
+    private final RoomReserveService roomReserveService;
     private final PasswordEncoder passwordEncoder;
     private final AdminUserService adminUserService;
 
@@ -127,6 +125,21 @@ public class adminController {
         adminUserService.saveAdmin(adminUser);
 
         return "redirect:/userManage";
+    }
+
+    // 예약 관리 상세 창
+    // 예약 상세 정보 띄우기
+    @GetMapping("/resManageInfo")
+    public String resManageInfo(@RequestParam("id") Long re_id, Model model) {
+
+        room_reserve res = roomReserveService.getRes(re_id);
+        model.addAttribute("res", res);
+
+        Long roomId = res.getRoom_id();
+        room room = roomService.getRoom(roomId);
+        model.addAttribute("room", room);
+
+        return "admin/resManageDetail";
     }
 }
 
