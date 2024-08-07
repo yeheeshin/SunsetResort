@@ -24,6 +24,11 @@ public class UserService {
         return userMapper.selectByEmail(email);
     }
 
+    // pk로 유저 정보 가져오기
+    public users getUser(Long user_id) {
+        return userMapper.selectById(user_id);
+    }
+
     // 회원가입
     public void saveUser(users user) {
         userMapper.saveUser(user);

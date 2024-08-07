@@ -33,4 +33,9 @@ public class RoomReserveService {
     public List<room_reserve> getResById(Long user_id) {
         return reserveMapper.selectByUserId(user_id);
     }
+
+    // 모든 예약 정보 가져오기
+    public List<room_reserve> getAll() {
+        return reserveMapper.selectAll();
+    }
 }

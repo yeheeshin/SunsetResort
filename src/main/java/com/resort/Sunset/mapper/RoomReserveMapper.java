@@ -19,6 +19,9 @@ public interface RoomReserveMapper {
 
     // 예약 번호로 예약 정보 가져오기
     room_reserve selectByReId(Long re_id);
+
+    // 모든 예약 정보 가져오기
+    List<room_reserve> selectAll();
 }
 
 

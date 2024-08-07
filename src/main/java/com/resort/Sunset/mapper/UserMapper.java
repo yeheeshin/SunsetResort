@@ -16,6 +16,8 @@ public interface UserMapper {
     void updateUser(users user);
 
     List<users> selectAll();
+
+    users selectById(Long user_id);
 }
 
 

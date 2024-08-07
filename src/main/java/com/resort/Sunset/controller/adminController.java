@@ -64,8 +64,29 @@ public class adminController {
         return "redirect:/adminManage";
     }
 
+    // 예약 관리 창
     @GetMapping("/resManage")
-    public String resManage() {
+    public String resManage(Model model) {
+        List<room_reserve> reserveList = roomReserveService.getAll();
+        model.addAttribute("reserveList", reserveList);
+
+        List<room> roomList = new ArrayList<>();
+        List<users> usersList = new ArrayList<>();
+
+        for (room_reserve reserve : reserveList) {
+            Long roomId = reserve.getRoom_id();
+            room room = roomService.getRoom(roomId);
+
+            Long userId = reserve.getUser_id();
+            users user = userService.getUser(userId);
+
+            usersList.add(user);
+            roomList.add(room);
+        }
+
+        model.addAttribute("roomList", roomList);
+        model.addAttribute("usersList", usersList);
+
         return "/admin/resManage";
     }
 

@@ -18,4 +18,8 @@
     <select id="selectByReId" resultType="com.resort.Sunset.dto.room_reserve">
         SELECT * FROM room_reserve WHERE re_id = #{re_id}
     </select>
+
+    <select id="selectAll" resultType="com.resort.Sunset.dto.room_reserve">
+        SELECT * FROM room_reserve
+    </select>
 </mapper>

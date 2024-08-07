@@ -6,6 +6,10 @@
         SELECT * FROM users WHERE email = #{email}
     </select>
 
+    <select id="selectById" resultType="com.resort.Sunset.dto.users">
+        SELECT * FROM users WHERE user_id = #{user_id}
+    </select>
+
     <select id="selectByPhone" resultType="com.resort.Sunset.dto.users">
         SELECT * FROM users WHERE phone = #{phone}
     </select>
