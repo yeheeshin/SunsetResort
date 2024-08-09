@@ -106,33 +106,35 @@
 
       <div class="products-area-wrapper gridView">
         <div class="products-row" th:each="reserve, index : ${reserveList}">
-          <button class="cell-more-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-          </button>
-          <div class="product-cell image">
-            <img th:with="imgName=${#strings.substringAfter(roomList.get(index.index).room_img, '_')}" th:src="'/sunset_gallery/' + ${imgName}" alt="product">
-            <span th:text="${usersList.get(index.index).email}">회원 ID</span>
-          </div>
-          <div class="product-cell category">
-            <span class="cell-label">객실:</span>
-            <span th:text="${roomList.get(index.index).name}">객실:</span>
-          </div>
-<!--          <div class="product-cell status-cell">-->
-<!--            <span class="cell-label">상태 :</span>-->
-<!--            <span class="status active">체크인</span>-->
-<!--          </div>-->
-          <div class="product-cell sales">
-            <span class="cell-label">체크인 :</span>
-            <span th:text="${reserve.in_date}">체크인 :</span>
-          </div>
-          <div class="product-cell stock">
-            <span class="cell-label">성인, 어린이 :</span>
-            <span th:text="${reserve.people} + ', ' + ${reserve.child}">성인, 어린이 :</span>
-          </div>
-          <div class="product-cell price">
-            <span class="cell-label">가격 :</span>
-            <span th:text="${#numbers.formatInteger(reserve.total_price, 0, 'COMMA')}">가격 :</span>
-          </div>
+          <a th:href="@{/resManageInfo(id=${reserve.re_id})}">
+            <button class="cell-more-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+            </button>
+            <div class="product-cell image">
+              <img th:with="imgName=${#strings.substringAfter(roomList.get(index.index).room_img, '_')}" th:src="'/sunset_gallery/' + ${imgName}" alt="product">
+              <span th:text="${usersList.get(index.index).email}">회원 ID</span>
+            </div>
+            <div class="product-cell category">
+              <span class="cell-label">객실:</span>
+              <span th:text="${roomList.get(index.index).name}">객실:</span>
+            </div>
+            <!--          <div class="product-cell status-cell">-->
+            <!--            <span class="cell-label">상태 :</span>-->
+            <!--            <span class="status active">체크인</span>-->
+            <!--          </div>-->
+            <div class="product-cell sales">
+              <span class="cell-label">체크인 :</span>
+              <span th:text="${reserve.in_date}">체크인 :</span>
+            </div>
+            <div class="product-cell stock">
+              <span class="cell-label">성인, 어린이 :</span>
+              <span th:text="${reserve.people} + ', ' + ${reserve.child}">성인, 어린이 :</span>
+            </div>
+            <div class="product-cell price">
+              <span class="cell-label">가격 :</span>
+              <span th:text="${#numbers.formatInteger(reserve.total_price, 0, 'COMMA')}">가격 :</span>
+            </div>
+          </a>
         </div>
 
       </div>
