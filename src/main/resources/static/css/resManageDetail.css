@@ -30,7 +30,7 @@ body {
 .app-container {
     background-color: #fafafd;
     border-radius: 32px;
-    width: 90%;
+    width: 95%;
     height: 90%;
     max-width: 95%;
     max-height: 90%;
@@ -396,7 +396,7 @@ body {
 .app-content-field {
     height: 100%;
     min-height: 300px;
-    max-height: 480px;
+    max-height: 80%;
     display: flex;
 }
 .app-content-field.second {
@@ -426,16 +426,6 @@ body {
 .product-box:hover .product-box-image {
     transform: scale(1.1);
 }
-.product-box-details {
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    color: var(--text-color-dark);
-    max-width: 80%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 .product-box-details span {
     color: #556b8e;
 }
@@ -452,6 +442,7 @@ body {
 .product-box-wrapper.three {
     flex: 1;
     height: 120px;
+    max-height: 120px;
 }
 .product-box-wrapper.three .product-box {
     width: 33.3%;
@@ -695,4 +686,49 @@ body {
 
 .sidebar ul{
     list-style-type: none;
+}
+
+.product-box-title {
+    position: absolute;
+    top: 12px;
+    color: var(--text-color-dark);
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.product-box-content {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.product-content {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-color-dark);
+    max-width:100%;
+}
+
+.product-box-request-content {
+    overflow-y: auto; /* 세로 스크롤 활성화 */
+    overflow-x: hidden; /* 가로 스크롤 비활성화 */
+    white-space: normal; /* 텍스트 줄바꿈 허용 */
+    text-overflow: clip;
+    height: calc(100% - 24px); /* 24px는 위아래 여백을 고려한 값입니다. */
+    word-break: break-all;
+    transform: translate(-50%, 50%);
+    width: 85%;
+}
+
+.product-details-text1, .product-details-text1.info {
+    color: black;
+    font-size: 20px;
+    padding: 10px;
+    margin-top: 80px;
 }
