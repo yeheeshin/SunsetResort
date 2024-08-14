@@ -25,6 +25,8 @@ public class adminController {
     private final RoomReserveService roomReserveService;
     private final PasswordEncoder passwordEncoder;
     private final AdminUserService adminUserService;
+    private final ChatService chatService;
+    private final ChatMessageService chatMessageService;
 
 
     @GetMapping("/admin")
@@ -113,7 +115,11 @@ public class adminController {
     }
 
     @GetMapping("/adminMessage")
-    public String adminMessage() {
+    public String adminMessage(Model model) {
+        List<ChatRooms> all = chatService.findAllByUserId(1L);
+
+        model.addAttribute("chatRooms", all);
+
         return "/admin/adminMessage";
     }
 

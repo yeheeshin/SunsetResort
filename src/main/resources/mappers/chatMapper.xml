@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.resort.Sunset.mapper.ChatMessageMapper">
+<mapper namespace="com.resort.Sunset.mapper.ChatMapper">
     <select id="selectAll" resultType="com.resort.Sunset.dto.ChatRooms">
         SELECT * FROM ChatRooms
     </select>
+
+    <select id="selectAllByUserId" parameterType="long" resultType="com.resort.Sunset.dto.ChatRooms">
+        SELECT * FROM ChatRooms where au_id = #{au_id}
+    </select>
+
+    <insert id="insertChat" parameterType="com.resort.Sunset.dto.ChatRooms">
+        insert into ChatRooms(chat_name) values (#{chat_name})
+    </insert>
 </mapper>

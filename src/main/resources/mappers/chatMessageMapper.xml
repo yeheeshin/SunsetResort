@@ -2,7 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.resort.Sunset.mapper.ChatMessageMapper">
-    <select id="selectAll" resultType="com.resort.Sunset.dto.ChatMessages">
-        SELECT * FROM ChatMessage
+    <select id="findMessageByChatId" parameterType="long" resultType="com.resort.Sunset.dto.ChatMessages">
+        SELECT * FROM ChatMessage where chat_id = #{chat_id} order by created_at ASC
     </select>
+    
+    <insert id="insertMessage" parameterType="com.resort.Sunset.dto.ChatMessages">
+        insert into CharRooms(chat_id, au_id, message) values (#{chat_id}, #{au_id}, #{message})
+    </insert>
 </mapper>
